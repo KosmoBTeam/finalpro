@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="survey">
+<select id="surveylist" resultType="surveyview"
+parameterType="int">
+select s.num num, s.sub sub, s.code code ,s.sdate sdate, sc.subtype subtype,
+sc.subcode subcode ,sc.surveytitle surveytitle, sc.surveycnt surveycnt
+from survey_trip s, surveycontent_trip sc
+where s.num=sc.subcode and s.num =#{num}
+</select>
+
+<update id="updatecnt" parameterType="surveyview">
+update surveycontent_trip set surveycnt = surveycnt +1 where
+subcode=#{subcode} and subtype=#{subtype}
+</update>
+</mapper>

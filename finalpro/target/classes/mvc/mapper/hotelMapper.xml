@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="hvo">
+	<insert id="addhotel" parameterType="hotel2">
+		insert into hotel_reserve (num, id, name,phone,honame,hrnum,roomtype,checkin,checkout,pay,totalpay,people)
+		values(#{num},#{id},#{name},#{phone},#{honame},hrnum_seq.nextVal,#{roomtype},#{checkin},#{checkout},(select pay from HotelRadio where roomtype=#{roomtype} and num=#{num}),(select pay from HotelRadio where roomtype=#{roomtype} and num=#{num})*1.1,#{people})
+	</insert>
+
+	<select id="reslist" parameterType="hotel2" resultType="hotel2">
+		select
+		hr.num,hr.name,hr.phone,hr.honame,hr.hrnum,hr.roomtype,hr.checkin,hr.checkout,hr.pay,hr.totalpay,hr.people,h.img,h.address,h.tel
+		from hotel h, hotel_reserve hr where hr.id=#{id} and hr.hrnum=#{hrnum} and h.title=hr.honame
+	</select>
+		<select id="reslist2" parameterType="hotel2" resultType="hotel2">
+		select
+		hr.num,hr.name,hr.phone,hr.honame,hr.hrnum,hr.roomtype,hr.checkin,hr.checkout,hr.pay,hr.totalpay,hr.people,h.img,h.address,h.tel
+		from hotel h, hotel_reserve hr where hr.id=#{id} and h.title=hr.honame
+	</select>
+	<select id="radioList" resultType="hotelRadio" parameterType="int">
+		select * from hotelRadio where num=#{num}
+	</select>
+			<select id="reslist3" parameterType="hotel2" resultType="hotel2">
+		select
+		hr.*,h.img,h.address,h.tel
+		from hotel h, (select num,name,phone,honame,hrnum,roomtype,checkin,checkout,pay,totalpay,people, ROW_NUMBER() over(order by hrnum desc) as rk from hotel_reserve) hr where hr.rk=1 and h.title=hr.honame
+	</select>
+</mapper>

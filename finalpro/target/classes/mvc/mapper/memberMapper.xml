@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mvo">
+	<insert id="add" parameterType="member">
+		insert into member_table
+		values(member_table_seq.nextVal,#{id},#{pwd},#{name},#{email},#{phone},#{address},sysdate,' ')
+	</insert>
+	<select id="idchk" resultType="int" parameterType="String">
+		select
+		count(*)
+		cnt from member_table where id=#{id}
+	</select>
+	<select id="loginSession" resultType="member"
+		parameterType="member">
+		select
+		count(*) cnt,id,name,email,address,phone from
+		member_table where
+		id=#{id} and pwd=#{pwd} group by
+		id,name,address,email,phone
+	</select>
+	<delete id="delete" parameterType="String">
+		delete from member_table where
+		id=#{id}
+	</delete>
+	<update id="editMember" parameterType="member">
+		update member_table set
+		name=#{name},email=#{email},phone=#{phone},address=#{address} where
+		id=#{id}
+	</update>
+	<delete id="deleteAllMyReserve" parameterType="String">
+		delete from hotel_reserve where id=#{id}
+	</delete>
+	<delete id="deleteAllMyReview" parameterType="String">
+	delete from review_table where id=#{id}
+	</delete>
+	<delete id="deleteReserve" parameterType="hotel2">
+	delete from hotel_reserve where id=#{id} and hrnum=#{hrnum}
+	</delete>
+</mapper>

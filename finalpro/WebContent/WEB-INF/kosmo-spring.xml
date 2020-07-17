@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+	<context:component-scan base-package="mvc" />
+	<!-- 이미지 받아오기 위한 방법 -->
+	<mvc:annotation-driven />
+	<mvc:resources location="/resources/"
+		mapping="/resources/**"></mvc:resources>
+	<bean id="dataSource"
+		class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="java:comp/env/jdbc/myora"></property>
+	</bean>
+	<bean id="tm"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	<tx:annotation-driven transaction-manager="tm" />
+	<bean id="factoryBean"
+		class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="configLocation"
+			value="classpath:mvc/config/config.xml"></property>
+		<property name="mapperLocations"
+			value="classpath*:mvc/mapper/*.xml"></property>
+	</bean>
+	<bean id="ss" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref="factoryBean"></constructor-arg>
+	</bean>
+
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	</bean>
+	<bean id="viewResolver1"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/views/" />
+		<property name="suffix" value=".jsp" />
+		<property name="order" value="1" />
+	</bean>
+	<bean id="beanNameViewResolver"
+		class="org.springframework.web.servlet.view.BeanNameViewResolver">
+		<property name="order" value="0"></property>
+	</bean>
+	<bean id="index" class="mvc.model.SomeController" />
+
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/goHotelMain" />
+			<mvc:mapping path="/goSurveyWrite" />
+			<mvc:mapping path="/goReviewWrite" />
+			<mvc:mapping path="/goReviewDetail" />
+			<mvc:mapping path="/goReviewMain" />
+			<ref bean="commonInterceptor" />
+		</mvc:interceptor>
+	</mvc:interceptors>
+	<bean id="naverLoginBO" class="mvc.model.NaverLoginBO" ></bean>
+	<bean id="uploadPath" class="java.lang.String">
+		<constructor-arg
+			value="C:\myfolder\spring\workspace\finalpro\WebContent\resources\images">
+
+		</constructor-arg>
+	</bean>
+</beans>

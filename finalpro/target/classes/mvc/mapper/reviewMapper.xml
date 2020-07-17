@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="rvo">
+<resultMap type="review" id="reviewmainResult">
+<id property="num" column="num"/>
+<result property="id" column="id"/>
+<result property="detail" column="detail"/>
+<result property="title" column="title"/>
+<result property="img" column="img"/>
+<result property="honame" column="honame"/>
+ <association property="member" javaType="member">
+ <id property="id" column="id"/>
+ <result property="name" column="name"/>
+ </association>
+</resultMap>
+<select id="reviewMainList" resultMap="reviewmainResult">
+	<![CDATA[ select m.*,r.img,r.num,r.detail,r.title,r.honame from (select id,name from member_table) m,(select img,num,id,detail,title,honame, ROW_NUMBER() over(order by num desc) as rk from review_table) r where m.id=r.id and r.rk<6]]>
+</select>
+	<insert id="reviewinsert" parameterType="review">
+		insert into review_table
+		values(review_table_seq.nextVal,#{id},#{title},#{detail},sysdate,#{img},0,#{honame})
+	</insert>
+	<select id="reviewList" resultType="review"
+		parameterType="paging">
+		select * from (
+		select rownum r_num, a.* from
+		(
+		select * from review_table
+		<if test="searchValue != null">
+			<where>
+				<choose>
+					<when test="searchType==1">
+						id Like '%'|| #{searchValue} ||'%'
+					</when>
+					<when test="searchType==2">
+						title Like '%'|| #{searchValue} ||'%'
+					</when>
+					<when test="searchType==3">
+						detail Like '%'|| #{searchValue} ||'%'
+					</when>
+					<otherwise></otherwise>
+				</choose>
+			</where>
+		</if>
+
+		order by num desc
+		) a
+		) WHERE r_num between #{start} and #{end}
+	</select>
+
+	<select id="total" resultType="int" parameterType="paging">
+		select count(*) total from
+		review_table
+				<if test="searchValue != null">
+			<where>
+				<choose>
+					<when test="searchType==1">
+						id Like '%'|| #{searchValue} ||'%'
+					</when>
+					<when test="searchType==2">
+						title Like '%'|| #{searchValue} ||'%'
+					</when>
+					<when test="searchType==3">
+						detail Like '%'|| #{searchValue} ||'%'
+					</when>
+					<otherwise></otherwise>
+				</choose>
+			</where>
+		</if>
+	</select>
+	<update id="pluscnt" parameterType="int">
+	update review_table set hit=hit+1 where num=#{num} 
+	</update>
+	<delete id="deleteReview" parameterType="int">
+	delete from review_table where num=#{num}
+	</delete>
+	<update id="updateReview" parameterType="review">
+	update review_table set title=#{title},detail=#{detail},img=#{img} where num=#{num}
+	</update>
+	<select id="replList" parameterType="review" resultType="repl">
+	select * from repl_table where rnum=#{num} order by 1 desc
+	</select>
+	<insert id="addreple" parameterType="repl">
+	insert into repl_table values(repl_seq.nextVal,#{id},#{content},sysdate,#{rnum})
+	</insert>
+	<select id="getreview" parameterType="review" resultType="review">
+	select * from review_table where num = #{num}
+	</select>
+	<delete id="deleteRepl" parameterType="int">
+	delete from repl_table where num = #{rpnum}
+	</delete>
+	<update id="updateRepl" parameterType="repl">
+	update repl_table set content=#{content} where num =#{num}
+	</update>
+	<delete id="replAlldel" parameterType="int">
+	delete from repl_table where rnum=#{num}
+	</delete>
+</mapper>
