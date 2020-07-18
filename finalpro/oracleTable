@@ -1,0 +1,444 @@
+
+create table member_table(
+num number(5)constraint member_num_pk primary key,
+id varchar2(30) constraint member_id_uk unique,
+pwd varchar2(30),
+name varchar2(30),
+email varchar2(40),
+phone varchar2(40),
+address varchar2(100),
+rdate date,
+res varchar2(34)
+);
+
+create sequence member_table_seq
+start with 1
+increment by 1;
+
+create table review_table(
+num number(5) primary key,
+id varchar2(34),
+title varchar2(100),
+detail varchar2(1600),
+rdate date,
+img varchar2(100),
+hit number(5) DEFAULT 0,
+honame varchar2(100),
+CONSTRAINT review_table_id_fk foreign key(id)
+references member_table(id)
+);
+
+create sequence review_table_seq
+start with 1
+increment by 1;
+
+CREATE TABLE survey_trip(
+num NUMBER CONSTRAINT survey_trip_pk PRIMARY KEY,
+sub VARCHAR2(100),
+code NUMBER,
+sdate DATE
+);
+
+CREATE TABLE surveycontent_trip(
+subtype CHAR(8),
+subcode NUMBER,
+surveytitle VARCHAR2(100),
+surveycnt NUMBER,
+CONSTRAINT surveycontent_trip_fk FOREIGN KEY(subcode) REFERENCES survey_trip(num));
+
+CREATE SEQUENCE survey_trip_seq
+INCREMENT BY 1
+START WITH 2;
+
+commit;
+
+insert into survey_trip VALUES(survey_trip_seq.nextVal, '선호지역', 6, sysdate);
+insert into survey_trip VALUES(survey_trip_seq.nextVal, '같이 가고 싶은 동행인은', 4, sysdate);
+insert into survey_trip VALUES(survey_trip_seq.nextVal, '선호하는 여행 컨셉은', 3, sysdate);
+insert into survey_trip VALUES(survey_trip_seq.nextVal, '선호하는 여행 장소는', 3, sysdate);
+insert into survey_trip VALUES(survey_trip_seq.nextVal, '선호하는 여행지역은', 3, sysdate);
+insert into survey_trip VALUES(survey_trip_seq.nextVal, '선호하는 여행 기간은', 4, sysdate);
+insert into survey_trip VALUES(survey_trip_seq.nextVal, '서울 기준 적당한 거리 소요시간은', 4, sysdate);
+insert into survey_trip VALUES(survey_trip_seq.nextVal, '가장 떠나고 싶은 계절은', 4, sysdate);
+
+commit;
+
+insert all
+into surveycontent_trip values('A',2,'제주도',0)
+into surveycontent_trip values('B',2,'서울',0)
+into surveycontent_trip values('C',2,'강원도',0)
+into surveycontent_trip values('D',2,'충청도',0)
+into surveycontent_trip values('E',2,'경상도',0)
+into surveycontent_trip values('F',2,'전라도',0)
+select * from dual;
+
+insert all
+into surveycontent_trip values('A',3,'혼자 여행',0)
+into surveycontent_trip values('B',3,'커플 여행',0)
+into surveycontent_trip values('C',3,'친구와 여행',0)
+into surveycontent_trip values('D',3,'가족단체 여행',0)
+select * from dual;
+
+insert all
+into surveycontent_trip values('A',4,'휴식 힐링 여행',0)
+into surveycontent_trip values('B',4,'먹방 여행',0)
+into surveycontent_trip values('C',4,'지역 명소 탐방 여행',0)
+select * from dual;
+
+insert all
+into surveycontent_trip values('A',5,'산',0)
+into surveycontent_trip values('B',5,'바다',0)
+into surveycontent_trip values('C',5,'계곡',0)
+select * from dual;
+
+insert all
+into surveycontent_trip values('A',6,'휴양지',0)
+into surveycontent_trip values('B',6,'도심',0)
+into surveycontent_trip values('C',6,'상관 없음',0)
+select * from dual;
+
+insert all
+into surveycontent_trip values('A',7,'당일치기',0)
+into surveycontent_trip values('B',7,'1박 2일',0)
+into surveycontent_trip values('C',7,'2박 3일',0)
+into surveycontent_trip values('D',7,'3일 이상',0)
+select * from dual;
+insert all
+into surveycontent_trip values('A',8,'1시간 이내',0)
+into surveycontent_trip values('B',8,'2시간 이내',0)
+into surveycontent_trip values('C',8,'3시간 이내',0)
+into surveycontent_trip values('D',8,'상관 없음',0)
+select * from dual;
+insert all
+into surveycontent_trip values('A',9,'봄',0)
+into surveycontent_trip values('B',9,'여름',0)
+into surveycontent_trip values('C',9,'가을',0)
+into surveycontent_trip values('D',9,'겨울',0)
+select * from dual;
+commit;
+
+
+--local 테이블
+
+create table local(
+locnum number(5),
+loc varchar2(10),
+img varchar2(50),
+constraint local_locnum_pk primary key(locnum)
+);
+--local 시퀀스
+commit;
+
+create sequence locnum_seq
+increment by 1
+start with 1;
+
+insert into local values(locnum_seq.nextVal,'제주도','jeju.jpg');
+insert into local values(locnum_seq.nextVal,'인천','incheon.jpg');
+insert into local values(locnum_seq.nextVal,'경상도','gyeongsang.jpg');
+insert into local values(locnum_seq.nextVal,'광주','gwangju.jpg');
+insert into local values(locnum_seq.nextVal,'전라도','jeolla.jpg');
+insert into local values(locnum_seq.nextVal,'대구','daegu.jpg');
+insert into local values(locnum_seq.nextVal,'대전','daejeon.jpg');
+insert into local values(locnum_seq.nextVal,'강원도','gangwon.jpg');
+insert into local values(locnum_seq.nextVal,'부산','busan.jpg');
+insert into local values(locnum_seq.nextVal,'서울','seoul.jpg');
+insert into local values(locnum_seq.nextVal,'울산','ulsan.jpg');
+insert into local values(locnum_seq.nextVal,'충청도','chungcheong.jpg');
+
+
+--hotel 테이블
+create table hotel(
+num number(5),
+locnum number(5),
+title varchar2(50),
+img varchar2(50),
+address varchar2(100),
+tel varchar2(15),
+detail varchar2(500),
+constraint hotel_num_pk primary key(num),
+constraint hotel_locnum_fk foreign key(locnum) references local(locnum));
+--hotel 시퀀스
+
+create sequence hotel_seq
+increment by 1
+start with 2;
+--hotel 데이터
+
+insert into hotel values(hotel_seq.nextVal,1,'제주 신라호텔','jejuhotel1.JPG','제주 서귀포시 중문관광로72번길 75','064-735-5114','제주도의 인기 호텔하면 빼놓을 수 없는 곳!');
+insert into hotel values(hotel_seq.nextVal,1,'제주 롯데호텔','jejuhotel2.JPG','제주 서귀포시 중문관광로72번길 35','064-731-1000','푸른 제주 바다와 하늘이 맞닿은 곳에 위치한 롯데호텔 제주');
+insert into hotel values(hotel_seq.nextVal,1,'제주 히든클리프 호텔 네이처','jejuhotel3.JPG','제주 서귀포시 예래해안로 542','064-752-7777','국내 최대 47m의 인피니티 풀로 유명한 곳');
+insert into hotel values(hotel_seq.nextVal,2,'인천 네스트 호텔','incheonhotel1.JPG','인천 중구 영종해안남로 19-5','032-743-9000','국내최초 디자인호텔스 멤버!');
+insert into hotel values(hotel_seq.nextVal,2,'인천 파라다이스 시티','incheonhotel2.JPG','인천 중구 영종해안남로321번길 186','1833-8855','관광,문화,체험,휴식 등이 융합된 동북아 최초 복합 리조트!');
+insert into hotel values(hotel_seq.nextVal,2,'인천 쉐라톤 그랜드','incheonhotel3.JPG','인천 연수구 컨벤시아대로 153','032-835-1000','지역 내 유일한 5성급 호텔');
+
+--food 테이블
+create table food(
+num number(5),
+locnum number(5),
+title varchar2(50),
+img varchar2(50),
+address varchar2(100),
+tel varchar2(15),
+detail varchar2(500),
+constraint food_num_pk primary key(num),
+constraint food_locnum_fk foreign key(locnum) references local(locnum));
+--food 시퀀스
+create sequence food_seq
+increment by 1
+start with 1;
+--food 데이터
+
+--act 테이블
+create table act(
+num number(5),
+locnum number(5),
+title varchar2(50),
+img varchar2(50),
+address varchar2(100),
+tel varchar2(15),
+detail varchar2(500),
+constraint act_num_pk primary key(num),
+constraint act_locnum_fk foreign key(locnum) references local(locnum));
+--act 시퀀스
+create sequence act_seq
+increment by 1
+start with 1;
+--act 데이터
+
+insert into act values(act_seq.nextVal,1,'제주 와그 핑크버스','jejuact1.JPG','제주도 전역','070-4353-5959','대세 제주 핑크버스와 함께 편하게 즐기는 여행지');
+insert into act values(act_seq.nextVal,1,'카멜리아힐','jejuact2.JPG','제주 서귀포시 안덕면 병악로 166','064-792-0088','제주 자연을 담은 동백 정원');
+insert into act values(act_seq.nextVal,1,'에코랜드','jejuact3.JPG','제주 제주시 조천읍 번영로 1278-169','064-802-8020','1800년대 증기기관차를 모델화하여 체험하는 테마파크');
+insert into act values(act_seq.nextVal,1,'제주 레일바이크','jejuact4.JPG','제주 제주시 구좌읍 용눈이오름로 641','064-783-0033','제주의 대자연을 달리고 체험 할 수 있는 레일바이크');
+insert into act values(act_seq.nextVal,1,'제주신화월드','jejuact5.JPG','제주 서귀포시 안덕면 신화역사로304번길 38','1670-1188','한국에서 가장 다이나믹한 복합 리조트');
+insert into act values(act_seq.nextVal,1,'월정리 투명카약','jejuact6.JPG','제주 제주시 구좌읍 월정리 1400-33','010-2419-6492','투명한 월정리 바다를 특별하게 즐기는 방법');
+
+insert into act values(act_seq.nextVal,2,'강화도','incheonact1.JPG','인천 강화군 강화읍 강화도','032-930-3624','지붕없는 박물관, 강화도 가고 또 가도 새로운 섬 강화도');
+insert into act values(act_seq.nextVal,2,'부평 엔터파크','incheonact2.JPG','인천 부평구 부평문화로80번길 16','070-7720-0310','평일 1130~2400');
+insert into act values(act_seq.nextVal,2,'씨메르 아쿠아스파','incheonact3.JPG','인천 중구 영종해안남로321번길 186','02-1833-8855','링과 짜릿함을 모두 충족시켜주는 씨메르');
+insert into act values(act_seq.nextVal,2,'청라 쥬라리움','incheonact4.JPG','인천 서구 청라커낼로288번길 26 지하 1층 135호','070-8888-7542','매일 1030~1900 매주 월요일 휴무');
+insert into act values(act_seq.nextVal,2,'아틀란티스 송도','incheonact5.JPG','인천 연수구 컨벤시아대로230번길 42','032-832-9112','20여종의 놀이시설을 하루종일 즐길 수 있는 신개념 복합놀이공간');
+insert into act values(act_seq.nextVal,2,'러쉬 트램펄린파크','incheonact6.JPG','인천 연수구 인천타워대로132번길 30 휴먼빌파크 702~705','032-834-2878','평일 1200~2100');
+
+
+insert into act values(act_seq.nextVal,3,'스카이라인 루지','gyeongsangact1.JPG','경남 통영시 발개로 178','070-4731-8473','휴무일 매주 월요일  6월부터 매주 화요일 휴장');
+insert into act values(act_seq.nextVal,3,'문경 레일바이크','gyeongsangact2.JPG','경북 문경시 마성면 구랑로 20','041-571-4200','오전 9시부터 17까지 매시 정각에 출발');
+insert into act values(act_seq.nextVal,3,'대구 이월드','gyeongsangact3.JPG','대구 달서구 두류공원로 200','053-620-0001','1130~1800(주중)  1130~2000(주말)');
+insert into act values(act_seq.nextVal,3,'양산 히어로스포츠파크','gyeongsangact4.JPG','경남 양산시 물금읍 범어리 2710-1','055-785-1098','평일 1100~1130');
+insert into act values(act_seq.nextVal,3,'풍기온천 리조트','gyeongsangact5.JPG','경북 영주시 풍기읍 죽령로 1400','054-917-1710','매일 0600~2000');
+insert into act values(act_seq.nextVal,3,'문경활공랜드','gyeongsangact6.JPG','경북 문경시 문경읍 활공장길 80','1599-5623','푸른 가을 하늘, 높은 창공을 유영하면서 바라보는
+문경 산하의 모습');
+
+insert into act values(act_seq.nextVal,4,'5.18자유공원','gwangjuact1.JPG','광주 서구 상무평화로 13','062-376-5183','5.18 민주화운동 당시의 상무대 법정, 영창 등을 복원한 공원');
+insert into act values(act_seq.nextVal,4,'청춘발산마을','gwangjuact2.jpg','광주 서구 천변좌로 12-16','062-464-0020','광주에 남은 달동네, 아기자기한 색감이 예쁜 마을');
+insert into act values(act_seq.nextVal,4,'상무시민공원','gwangjuact3.jpg','광주 서구 상무공원로 101','062-360-7513','아이와 같이 나들이가기 좋은 시민공원');
+insert into act values(act_seq.nextVal,4,'무등산국립공원','gwangjuact4.JPG','광주 북구 금곡동','062-227-1187','풍경이 멋진 가족 산행하기 좋은 곳');
+insert into act values(act_seq.nextVal,4,'광주국립아시아문화전당','gwangjuact5.JPG','광주광역시 동구 문화전당로 38','1899-5566','아시아의 문화교류와 전시, 공연이 한 곳에서 이루어지는 세계적인 복합문화기관');
+insert into act values(act_seq.nextVal,4,'광주호 호수생태원','gwangjuact6.JPG','광주광역시 북구 충효샘길7','062-613-7891','부담없이 나들이하기 좋은 조용하고 시원한 느낌의 공원');
+
+insert into act values(act_seq.nextVal,5,'전주한옥마을','Jeollaact1.jpg','전북 전주시 완산구 기린대로 99','063-282-1330','국내 최대 규모의 전통 한옥촌으로 한복입고 인생샷을 찍을 수 있는 전주 대표 여행지!');
+insert into act values(act_seq.nextVal,5,'여수 해상 케이블카','Jeollaact2.jpg','전남 여수시 돌산읍 돌산로 3600-1','061-664-7301','우리나라 최초의 수상 케이블 카! 낭만적인 야경과 밤바다로 유명한 여수 대표 여행지!');
+insert into act values(act_seq.nextVal,5,'순천 드라마 세트장','Jeollaact3.jpg','전남 순천시 비례골길 24','061-749-4003','복고풍,빈티지,옛모습 그대로 담은 순천 대표 추억여행 여행지!');
+insert into act values(act_seq.nextVal,5,'담양 패러글라이딩','Jeollaact4.jpg','전남 담양군 창평면 유천리 107','061-383-1710','사랑의 불시착 촬영지로 스트세스를 하늘로 날려버리는 패러글라이딩 명소!');
+insert into act values(act_seq.nextVal,5,'경암동 철길 마을','Jeollaact5.jpg','전북 군산시 경촌4길 14','061-456-8466','소박하고, 아기자기한 옛날 철길로 추억여행을 떠나는 군산 대표 여행지!');
+insert into act values(act_seq.nextVal,5,'섬진강 레일바이크','Jeollaact6.jpg','전남 곡성군 오곡면 섬진강로 1877','061-362-7717','경치를 즐기며 힐링을 즐길 수 있는 섬진강 따라 꽃따라 곡성 대표 여행지!');
+
+insert into act values(act_seq.nextVal,6,'83타워','daeguact1.jpg','대구 달서구 두류공원로 200','053-620-0114','대구 전경을 한눈에 볼수있는 대구의 남산!');
+insert into act values(act_seq.nextVal,6,'이월드','daeguact2.jpg','대구 달서구 두류공원로 200','053-620-0001','이월드의 치트키 극강의 스릴! 아찔한 스카이드롭! 아름다운 이월드 야경 속 에서 인생샷! ');
+insert into act values(act_seq.nextVal,6,'팔공산케이블카','daeguact3.jpg','대구 동구 팔공산로185길 51','053-982-8801','구름 위의 행복, 시원한 산바람 팔공산 케이블카!');
+insert into act values(act_seq.nextVal,6,'청도프로방스 포토랜드','daeguact4.jpg','경북 청도군 화양읍 이슬미로 272-23','054-372-5050','청도 프로방스 수많은 빛의 숲에 집라인이! 예상치 못한 스릴과 재미!');
+insert into act values(act_seq.nextVal,6,'대구아쿠아리움','daeguact5.jpg','대구 동구 동부로 149 신세계백화점 대구점 9층','053-247-8899','매일 매일 색다른 즐거움! 체험과 축제의 대구 아쿠아리움으로 오세요!');
+insert into act values(act_seq.nextVal,6,'수성못 오리배','daeguact6.jpg','대구 수성구 두산동','053-453-7778','커플, 친구, 가족들과 추억의 오리배 데이트 어떠세요');
+
+insert into act values(act_seq.nextVal,7,'대동하늘공원','daejeonact1.jpg','대전 동구 동대전로110번길 182','000-000-0000','대전 야경 대표 명소!'); 
+insert into act values(act_seq.nextVal,7,'스카이로드','daejeonact2.jpg','대전 중구 은행동','000-000-0000','대전에 아름다운 LED 영상거리!'); 
+insert into act values(act_seq.nextVal,7,'대청호','daejeonact3.jpg','대전광역시 신탄진동','042-930-7204','한국에서 3번째 규모로 큰 아름다운 육지 속 바다 !'); 
+insert into act values(act_seq.nextVal,7,'한밭수목원','daejeonact4.jpg','대전 서구 둔산대로 169','042-270-8452','전국 최대의 도심 속 인공 수목원으로 각종 실물종을 볼수 있는 수목원!'); 
+insert into act values(act_seq.nextVal,7,'오월드 사파리','daejeonact5.jpg','대전 중구 사정공원로 70','042-580-4820','날씨 좋은날 아프리카 사파리 투어를 떠나보세요!'); 
+insert into act values(act_seq.nextVal,7,'엑스포 과학공원','daejeonact6.jpg','대전 유성구 대덕대로 480','042-250-1111','새롭게 단장한 대전의 대표공원'); 
+
+insert into act values(act_seq.nextVal,8,'안반데기 은하수','gangwonact1.jpg','강원 강릉시 왕산면 안반덕길 428','010-8500-6858','우리나라 은하수 대표 명소 멍에 전망대와 차박스팟!!'); 
+insert into act values(act_seq.nextVal,8,'강릉 커피거리 보사노바','gangwonact2.jpg','강원 강릉시 창해로14번길 28','033-653-0038','안목해변 강릉바다로 가능 그림골목과 달달한 커피한잔! 루프탑에서 아름다운 오션뷰를 보며 인생샷까지!'); 
+insert into act values(act_seq.nextVal,8,'양양 서피비치','gangwonact3.jpg','강원 양양군 현북면 하조대해안길 119 서피비치','033-672-0695','해외온듯한 이국적인 프라이빗 비치에서 즐기는 짜릿한 서핑 설레임!'); 
+insert into act values(act_seq.nextVal,8,'정선 레일바이크','gangwonact4.jpg','강원 정선군 여량면 노추산로 745','033-563-8787','시원한 바람을 가르며 풍경을 볼 수 있는 정선 대표 여행지!'); 
+insert into act values(act_seq.nextVal,8,'대관령 아기동물농장','gangwonact5.jpg','강원 평창군 대관령면 대관령마루길 106','033-335-2980','귀여운 아기동물들이 가득한 아기동물농장에서 아기동물 놀이체험 뜨끈뜨끈 피자만들기, 말말말랑 투명 젤리양초만들기까지! 다양한 체험을 즐길 수 있는 여행지!'); 
+insert into act values(act_seq.nextVal,8,'설악산','gangwonact6.jpg','강원 인제군 북면 한계리','033-801-0900','웅장하고 신비로운 경치를 구경할 수있는 꼭 가봐야하는 가을여행지!'); 
+
+insert into act values(act_seq.nextVal,9,'해운대해수욕장', 'busanact1.PNG','부산광역시 중동','051-749-7601','주변의 빼어난 자연경관과 어우러진 전국 제일의 해수욕장');
+insert into act values(act_seq.nextVal,9,'광안리해수욕장', 'busanact2.PNG','부산광역시 수영구 광안2동','051-622-4251','사계절 내내 즐기는 도심 속 특급 휴양지');
+insert into act values(act_seq.nextVal,9,'해동용궁사', 'busanact3.PNG', '부산 기장군 기장읍 시랑리','051-722-7744','바다와 가장 가까운 사찰,부산 해돋이 명소');
+insert into act values(act_seq.nextVal,9,'부산타워', 'busanact4.PNG', '부산광역시 중구 대청로116번길 13 용두산공원','051-661-9393','부산의 랜드마크!부산의 전망이 한 눈에 보이는 부산타워');
+insert into act values(act_seq.nextVal,9,'해운대 동백섬', 'busanact5.PNG', '부산광역시 해운대구 육계도','051-749-7621','해운대가 보이는 바다산책길, 사진 찍기 좋은 곳');
+insert into act values(act_seq.nextVal,9,'용두산공원', 'busanact6.PNG', '부산광역시 중구 광복동2가 용두산길 37-55','051-860-7820','매일 1000~2300 매표 마감 2230');
+
+insert into act values(act_seq.nextVal,10,'한양도성 순성길', 'seoulact1.PNG',  '서울특별시 중구 광희동 18-227','02-3423-6285','영업시간 ~오후 600');
+insert into act values(act_seq.nextVal,10,'도산공원', 'seoulact2.PNG',  '서울특별시 강남구 신사동 도산대로45길 20 ','02-3423-6285','영업시간 ~오후 600');
+insert into act values(act_seq.nextVal,10,'봉은사', 'seoulact3.PNG', '서울특별시 강남구 삼성1동 봉은사로 531','02-3218-4800 ','도심 속 공원같고 유서깊은 사찰');
+insert into act values(act_seq.nextVal,10,'선릉과 정릉', 'seoulact4.PNG', '서울특별시 강남구 삼성동 선릉로100길 1','02-568-1291','영업시간~오후 900');
+insert into act values(act_seq.nextVal,10,'청계천', 'seoulact5.PNG', '서울특별시 종로구 서린동 청계천로 1','02-2290-7111',' 영업시간24시간');
+insert into act values(act_seq.nextVal,10,'선유도공원', 'seoulact6.PNG', '서울 영등포구 선유로 343',' 02-2631-9368 ','영업시간 0600 - 2400');
+
+insert into act values(act_seq.nextVal,11,'대왕암공원' ,'ulsanact1.PNG','울산광역시 동구 일산동 산907','052-209-3000','동해안에 자리한 아름다운 해변공원');
+insert into act values(act_seq.nextVal,11,'울산대공원','ulsanact2.PNG' ,  '울산광역시 남구 옥동 대공원로 94',' 052-271-8816','장미와 귀여운 동물을 만날 수 있는 곳');
+insert into act values(act_seq.nextVal,11,'장생포 고래박물관','ulsanact3.PNG' ,'울산광역시 남구 장생포고래로 244',' 052-256-6301','아이들과 함께하는 고래 생태 체험관');
+insert into act values(act_seq.nextVal,11,'복합웰컴센터','ulsanact4.PNG' ,'울산 울주군 상북면 알프스온천5길 103-8','052-204-2931','아이와 가볼 수 있는 경치가 끝내주는 곳');
+insert into act values(act_seq.nextVal,11,'이스케이프탑 방탈출 울산점' ,'ulsanact5.PNG' , '울산 남구 삼산중로74번길 10, 5층 이스케이프탑','010-5185-0181','이스케이프탑에서만 즐길 수 있는 영화같은 모험들');
+insert into act values(act_seq.nextVal,11,'신불산',' ulsanact6.PNG','울산광역시 울주군 상북면','052-204-1722','하늘과 어울어지는 광활한 억새');
+
+insert into act values(act_seq.nextVal,12,'태안 빛 축제', 'chungcheongdoact1.PNG', '충청남도 태안군 남면 신온리 168-3','041-675-9200', '유효기간 ~2020.06.30');
+insert into act values(act_seq.nextVal,12,'안면 카트체험장', 'chungcheongdoact2.PNG', '충남 태안군 안면읍 창기리 1262-219','041-675-1003'  ,'유효기간~2020.06.30');
+insert into act values(act_seq.nextVal,12,'짚트랙', 'chungcheongdoact3.PNG', '충남 보령시 신흑동 2210-1 대천해수욕장 선해 대천타워','041-934-3003' ,'유효기간~2020.06.30');
+insert into act values(act_seq.nextVal,12,'대천카트장 서바이벌 체험!', 'chungcheongdoact4.PNG', '충청남도 보령시 신흑동 해수욕장10길 79번지','041-935-8787', '유효기간  ~2020.06.30');
+insert into act values(act_seq.nextVal,12,'온양관광호텔','chungcheongdoact5.PNG' , '충청남도 아산시 온천대로 1459 온천사우나','041-540-1505', '운영시간  0600 ~ 2200유효기간  ~2020.06.30');
+insert into act values(act_seq.nextVal,12,'조류탐사과학관 + 4D영상체험', 'chungcheongdoact6.PNG', '충남 홍성군 서부면 남당항로 934-14','041-630-9696',  '운영시간  1000 ~ 1800');
+
+
+commit;
+insert into food values(food_seq.nextVal,1,'이춘옥원조 고등어쌈밥','jejufood1.JPG','제주 제주시 애월읍 일주서로 7213','064-799-9914','매일 0900~2100');
+insert into food values(food_seq.nextVal,1,'해미원','jejufood2.JPG','제주 서귀포시 표선면 민속해안로 578-2','064-787-3311','매일 1130~2300');
+insert into food values(food_seq.nextVal,1,'연돈','jejufood3.JPG','제주 서귀포시 일주서로 968-10','064-738-7060','매일 1200~1600');
+insert into food values(food_seq.nextVal,1,'자매국수','jejufood4.JPG','제주 제주시 삼성로 67','064-727-1112','매일 0900~2100');
+insert into food values(food_seq.nextVal,1,'대기정','jejufood5.JPG','제주 서귀포시 이어도로 41','064-739-1041','매일 1030~2100');
+insert into food values(food_seq.nextVal,1,'동도원','jejufood6.JPG','제주 제주시 삼무로1길 5','064-747-9996','매일 0800~2000');
+
+insert into food values(food_seq.nextVal,2,'마니산산채','incheonfood1.JPG','인천 강화군 화도면 해안남로 1182','032-937-4293','매일 0930~2200 break time1530~1600');
+insert into food values(food_seq.nextVal,2,'선녀풍','incheonfood2.JPG','인천 중구 용유서로 272','032-751-2121','매일 1200~2100');
+insert into food values(food_seq.nextVal,2,'만다복','incheonfood3.JPG','인천 중구 차이나타운로 36','032-773-3838','1100~2130 연중무휴');
+insert into food values(food_seq.nextVal,2,'진복호','incheonfood4.JPG','인천 강화군 길상면 해안남로 488 1층','032-937-7620','매일 1000~2230');
+insert into food values(food_seq.nextVal,2,'황해해물칼국수','incheonfood5.JPG','인천 중구 용유로21번길 3','032-746-3017','매일 0900~2000');
+insert into food values(food_seq.nextVal,2,'고목정쌈밥','incheonfood6.JPG','인천 중구 용유서로172번길 10','032-746-7781','매일 1000~2050 매월 2째주 수요일 휴무');
+insert into food values(food_seq.nextVal,3,'늘봄','gyeongsangfood1.JPG','경북 경주시 보불로 107','054-744-3715','매일 0900~2100 연중무휴');
+insert into food values(food_seq.nextVal,3,'하연옥','gyeongsangfood2.JPG','경남 진주시 진주대로 1317-20','055-746-0525','매일 1000~2030');
+insert into food values(food_seq.nextVal,3,'아리아리랑','gyeongsangfood3.JPG','경남 거제시 거제중앙로29길 12','055-637-6066','매일1100~2100매주 월요일 휴무');
+insert into food values(food_seq.nextVal,3,'동피랑쭈굴','gyeongsangfood4.JPG','경남 통영시 통영해안로 363-1','055-646-3697','매일 1000~2100 연중무휴');
+insert into food values(food_seq.nextVal,3,'남해향촌','gyeongsangfood5.JPG','경남 남해군 삼동면 동부대로 1278','055-867-7791','매일 0900~2100');
+insert into food values(food_seq.nextVal,3,'생생이','gyeongsangfood6.JPG','경남 거제시 계룡로 68 농어업인회관','055-638-1066','매일 0900~2100');
+
+insert into food values(food_seq.nextVal,4,'나정상회','gwangjufood1.JPG','광주 서구 상무자유로 24','062-944-1489','매일 1100~2200');
+insert into food values(food_seq.nextVal,4,'월계수시당','gwangjufood2.JPG','광주 동구 충장로 102-11','062-222-3231','매일 1100~2100 연중무휴');
+insert into food values(food_seq.nextVal,4,'독도집','gwangjufood3.JPG','광주 서구 상무대로876번길 11','010-6243-4352','토요일 1730~0200 매주 일요일 휴무');
+insert into food values(food_seq.nextVal,4,'송학한정식','gwangjufood4.JPG','광주 서구 상무중앙로 101','062-385-3333','매일 1130~2200 명절 전날, 당일 휴무');
+insert into food values(food_seq.nextVal,4,'솔빛마루','gwangjufood5.JPG','광주 서구 상무자유로 24-2','062-417-0511','매일 1130~2200');
+insert into food values(food_seq.nextVal,4,'한마음식당','gwangjufood6.JPG','광주 광산구 수완로50번길 8','062-956-0102','매일 1600~0100');
+
+insert into food values(food_seq.nextVal,5,'조떡이네','Jeollaeat1.jpg','전북 전주시 완산구 은행로 65-3','063-285-0198','족발과 떡갈비가 맛있는곳! 전주 한옥마을 맛집 매운족발 나오는 떡갈비 정식!');
+insert into food values(food_seq.nextVal,5,'거북이 식당','Jeollaeat2.jpg','전남 여수시 거북선공원3길 12','061-681-4420','간장게장 양념게장이 맛있다고 소문난 현지인도 인정한 돌게장 맛집! 재방문률이 가장 높은 음심점 입니다!');
+insert into food values(food_seq.nextVal,5,'순천만가든','Jeollaeat3.jpg','전남 순천시 순천만길 576','061-741-4489','20년 전통 노하우로 만든 순천 대표 먹거리 꼬마정식와 짱뚱어탕 맛집! 꼬막은 매일 아침 순천만에서 직거래로 국내산만 취급!');
+insert into food values(food_seq.nextVal,5,'한상근대통밥','Jeollaeat4.jpg','전남 담양군 월산면 담장로 113','061-382-1999','담양 최초 대통밥 개발업소 대통밥 정식 맛집!');
+insert into food values(food_seq.nextVal,5,'새만금 횟집','Jeollaeat5.jpg','전북 군산시 비응안7길 13','063-464-1001','군산수협 중매인1호가 직접 운영하는 횟집! 중매인의 눈과 손으로 싱싱한 활어를 엄선하여 회의 참맛을 느낄 수 있는 맛집!');
+insert into food values(food_seq.nextVal,5,'통나무집','Jeollaeat6.jpg','전남 곡성군 죽곡면 대황강로 1598-19','061-362-3090','커다란 뚝배기에 참게를 통째로 넣고 끓여내는 얼큰한 참게탕 맛집!');
+
+insert into food values(food_seq.nextVal,6,'안지랑곱창골목','daegueat1.jpg','대구 남구 안지랑로16길 67','010-3811-4119','1980년 시작으로 서민들의 입맛을 사로 잡았던 양념곱창! 50여개의 점포들 사이에서 진정한 곱창 맛집을 찾아봐!');
+insert into food values(food_seq.nextVal,6,'왕거미식당','daegueat2.jpg','대구 중구 국채보상로 696-8','053-427-6380','30년 전통 환상의 소고기, 식감의 끝 대구 뭉티기 맛집!');
+insert into food values(food_seq.nextVal,6,'중앙떡볶이','daegueat3.jpg','대구 중구 동성로2길 81','053-424-7692','30년 동안 한자리를 지켜 온 대구의 명물 떡볶이 맛집!');
+insert into food values(food_seq.nextVal,6,'8번 식당','daegueat4.jpg','대구 중구 서성로13길 8 8번식당','053-255-0167','1976년 부터 사랑 받아온 중구 돼지국밥 맛집!');
+insert into food values(food_seq.nextVal,6,'미성당 납작만두','daegueat5.jpg','대구 중구 명덕로 93','053-255-0742','55년 정통 납작만두 맛집!');
+insert into food values(food_seq.nextVal,6,'국일 따로국밥','daegueat6.jpg','대구 중구 국채보상로 571','053-253-7623','3대 째 가업을 이어오고 있는 해장국 맛집!');
+
+insert into food values(food_seq.nextVal,7,'태평소 국밥','daejeoneat1.jpg','대전 유성구 온천동로65번길 50','042-525-5820','맛있는 녀석들이 인정한 맛집!!');
+insert into food values(food_seq.nextVal,7,'솔밭 묵집','daejeoneat2.jpg','대전 유성구 관용로 51','042-935-5686','나만 알고싶은 대전의 명물 보리밥 도토리묵무침 맛집!');
+insert into food values(food_seq.nextVal,7,'칼국수를 만드는 사람들','daejeoneat3.jpg','대전 서구 둔산중로78번길 20 명진빌딩','042-477-8254','칼국수 전문점이지만 매운 낙지볶음으로 더 유명하다 대전에 가면 꼭 먹어봐야하는 한식당!');
+insert into food values(food_seq.nextVal,7,'양반삼계탕','daejeoneat4.jpg','대전 서구 둔산중로 66','042-489-8233','93년부터 대전의 향토 음식으로 지정된 양반삼계탕!');
+insert into food values(food_seq.nextVal,7,'대청호민물매운탕 ','daejeoneat5.jpg','대전 중구 어덕마을로 153','042-221-0828','시원하고 깔끔한맛 20년 전통 생물물고기를 바로 잡아서 신선하게 요리해주는 매운탕 맛집!');
+insert into food values(food_seq.nextVal,7,'숯골원냉면','daejeoneat6.jpg','대전 유성구 현충원로 173','042-822-9285','1.4후퇴 때 평양에서 월남 하여 4대 째 이어지는 평양냉면 전문점!');
+
+insert into food values(food_seq.nextVal,8,'초당순두부마을 ','gangwonfood1.png','강원 강릉시 초당동 20-1','033-653-4488','강릉여행 필수 코스 초당순두부!');
+insert into food values(food_seq.nextVal,8,'강릉감자옹심이','gangwonfood2.png','강원 강릉시 토성로 171','033-648-0340','오래 된 가정집을 식당으로 사용하여 세월이 흔적이 가득한 쫀득한 감자옹심이 칼국수로 유명한 한식당!');
+insert into food values(food_seq.nextVal,8,'정선곤드레밥','gangwonfood3.png','강원 정선군 정선읍 5일장길 37-10','033-562-2634','정선 대표음식 곤드레밥, 콧등치기, 올챙이국수 옥수수 부꾸미 맛집!');
+insert into food values(food_seq.nextVal,8,'영월 메밀전병','gangwonfood4.jpg','강원 영월군 영월읍 중앙로 30-1 서부시장','033-374-4090','김칫소가 푸짐히 들어간 메밀전병과 수수부꾸기 맛집!');
+insert into food values(food_seq.nextVal,8,'횡성 한우구이','gangwonfood5.jpg','강원 횡성군 횡성읍 읍하리 읍하4리 5반 347-13','033-344-4146','한우하면 횡성! 횡성하면 한우! 입에서 살살 녹는 한우 맛집!');
+insert into food values(food_seq.nextVal,8,'장안 횟집','gangwonfood6.png','강원 강릉시 사천면 진리항구길 51','033-644-1136','오징어, 물가자미 물회로 인기폭발! 신선한 회를 빨간 양념에 먹는 물회와 고소한 우럭 미역국!');
+
+
+insert into food values(food_seq.nextVal,9,'초량1941','busanfood1.PNG', '부산 동구 망양로 533-5','051-462-7774','적산가옥을 개조한 감성돋는 우유카페');
+insert into food values(food_seq.nextVal,9,'조말순', 'busanfood2.PNG', '부산 수영구 수영로510번길 42','070-7622-8186','이색적인 분위기가 최고인 카페');
+insert into food values(food_seq.nextVal,9,'마틴커피로스터스', 'busanfood3.PNG', '부산 부산진구 동천로 49','051-806-2272','전포동 숨은 예쁜 카페');
+insert into food values(food_seq.nextVal,9,'카페 윤', 'busanfood4.PNG', '부산 기장군 기장읍 기장해안로 34-16','070-8888-4422','바다가 보이는 루프탑 카페');
+insert into food values(food_seq.nextVal,9,'문토스트', 'busanfood5.PNG', '부산 해운대구 송정동 714-19','010-4559-4559','송정 푸드트럭 1위 매운 치즈 토스트');
+insert into food values(food_seq.nextVal,9,'상짱', 'busanfood6.PNG', '부산 중구 대청로 141번길 18-3','051-469-5860','생활의 달인에 소개된 맛집');
+
+insert into food values(food_seq.nextVal,10,'고려삼계탕','seoulfood1.PNG','서울특별시 중구 서소문동 서소문로11길 1','02-752-9376', '영업시간 오전 1100~오후 900');
+insert into food values(food_seq.nextVal,10,'길상사','seoulfood2.PNG','서울특별시 성북구 성북동 선잠로5길 68','02-3672-5945', '사찰시간');
+insert into food values(food_seq.nextVal,10,'오장동함흥냉면','seoulfood3.PNG', '서울 중구 오장동 90-10','02-2267-9500 ','영업시간 오전 1100~오후 900가격 10,000원 ');    
+insert into food values(food_seq.nextVal,10,'순희네빈대떡','seoulfood4.PNG', '서울특별시 종로구 종로5가 종로32길 5','02-2264-5057 ','영업시간 오전 1100~ 오후 1100');
+insert into food values(food_seq.nextVal,10,'한일관','seoulfood5.PNG', '서울특별시 강남구 압구정로38길 14 4F','1577-9963 ','영업시간 1130 - 2200가격 30,000원');
+insert into food values(food_seq.nextVal,10,'옥천옥','seoulfood6.PNG', '서울특별시 동대문구 신설동 94-57','02-2292-8201',' 영업시간오전 630~오후 1000가격  8,000원');
+
+insert into food values(food_seq.nextVal,11,'차담', 'ulsanfood1.PNG', '울산광역시 중구 옥교동 249-1','052-246-6547' ,'가격5,000원');
+insert into food values(food_seq.nextVal,11,'거제전통국밥' ,'ulsanfood2.PNG', '울산광역시 중구 약사동 630-14','052-292-8840' ,'가격 5,000원 ');
+insert into food values(food_seq.nextVal,11,'마파촌닭',  'ulsanfood3.PNG' ,'울산광역시 중구 남외동 432-6','052-293-1747', '가격18,000원' );
+insert into food values(food_seq.nextVal,11,'영안반점', 'ulsanfood4.PNG' ,'울산광역시 중구 우정동 276-36','052-211-3769',' 가격 7,000원');
+insert into food values(food_seq.nextVal,11,'무룡산장터목' ,'ulsanfood5.PNG' ,'울산광역시 북구 화봉동','052-289-0775','입맛따라 골라먹는 오리요리');
+insert into food values(food_seq.nextVal,11,'그라파피자리아','ulsanfood6.PNG', '울산광역시 동구 방어동 남진길 50','052-256-2112','이탈리아 요리학교를 졸업한 부부가 운영하는 아담한 가게');
+
+insert into food values(food_seq.nextVal,12,'나랏님 이천쌀밥', 'chungcheongdofood1.PNG', '경기도 이천시 관고동 경충대로 3052','031-636-9900',  '가격 12000원');
+insert into food values(food_seq.nextVal,12,'공주집', 'chungcheongdofood2.PNG' , '충청남도 천안시 서북구 성환읍 송덕리 54-3','041-581-2037','매일 1100~2100');
+insert into food values(food_seq.nextVal,12,'장군집',  'chungcheongdofood3.PNG', '충청북도 청주시 흥덕구 개신동 316-6','043-267-0023','매일 1100~2400');
+insert into food values(food_seq.nextVal,12,'한일식당', 'chungcheongdofood4.PNG' , '충청남도 예산군 삽교읍 두리 568-47', '041-338-2654','매일 0700~2100');
+insert into food values(food_seq.nextVal,12,'고추만두국집', 'chungcheongdofood5.PNG' ,'충청북도 청주시 상당구 서문동 80-5',' 043-253-4260','백종원의 3대천왕 23회에 나온 맛집');
+insert into food values(food_seq.nextVal,12,'해당화 굴구이', 'chungcheongdofood6.PNG', '충남 보령시 천북면 장은리 1070','041-641-9333','굴 철이 되면 꼭 가봐야 하는 곳');
+
+CREATE TABLE hotel_reserve(
+num NUMBER, --예약 갯수 파악용
+id VARCHAR2(34),
+name VARCHAR2(34),
+phone VARCHAR2(34),
+honame varchar2(100), --호텔이름
+hrnum VARCHAR2(34), --예약번호 사용자가 설정
+roomtype VARCHAR2(34), --방 종류
+checkin VARCHAR2(34), --체크인 날짜
+checkout VARCHAR2(34), --체크아웃 날짜
+pay NUMBER, --숙박 금액
+totalpay NUMBER, --총 금액
+people NUMBER, --투숙객 인원 수
+
+constraint hotel_reserve_pk PRIMARY KEY(hrnum),
+constraint hotel_reserve_num_fk foreign key(num)
+references hotel(num),
+constraint hotel_reserve_id_fk foreign key(id)
+references member_table(id)
+);
+
+create SEQUENCE hrnum_seq
+start with 1
+increment by 1;
+
+create table hotelRadio(
+num number,
+roomtype varchar2(34),
+pay number,
+constraint hotelRadio_num_fk foreign key (num)
+references hotel(num)
+);
+commit;
+
+insert into HotelRadio values(2,'스탠다드','420000');
+insert into HotelRadio values(2,'프리미어','570000');
+insert into HotelRadio values(2,'스위트','900000');
+insert into HotelRadio values(3,'디럭스','300000');
+insert into HotelRadio values(3,'캐릭터','320000');
+insert into HotelRadio values(3,'프리미엄','400000');
+insert into HotelRadio values(3,'스위트','450000');
+insert into HotelRadio values(4,'디럭스','350000');
+insert into HotelRadio values(4,'스위트','450000');
+insert into HotelRadio values(5,'스탠다드','270000');
+insert into HotelRadio values(5,'디럭스','350000');
+insert into HotelRadio values(5,'스위트','400000');
+insert into HotelRadio values(6,'디럭스','250000');
+insert into HotelRadio values(6,'스위트','350000');
+insert into HotelRadio values(7,'디럭스','150000');
+insert into HotelRadio values(7,'스위트','250000');
+insert into HotelRadio values(7,'클럽룸','300000');
+
+commit;
+create table repl_table(
+num number primary key,
+id varchar2(34),
+content varchar2(300),
+rdate date,
+rnum number,
+constraint repl_num_fk foreign key(rnum) references review_table(num)
+);
+create sequence repl_seq
+INCREMENT by 1
+start WITH 1;

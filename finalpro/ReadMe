@@ -1,7 +1,7 @@
-���� �� ����Ʈ�� �ߴٸ�..
+이제 막 임포트를 했다면..
 
-1. META-INF�� �ִ� context.xml������ �����մϴ�.
-2. WEB-INF�� �ִ� kosmo-spring.xml�� ���� �ؿ� �ִ� �̹��� ������ �����θ� �ٽ� ����ݴϴ�.
+1. META-INF에 있는 context.xml파일을 수정합니다.
+2. WEB-INF에 있는 kosmo-spring.xml의 제일 밑에 있는 이미지 파일의 절대경로를 다시 잡아줍니다.
  		
  	(for example)--------------------------------------------------------------------------------
  		<constructor-arg
@@ -9,17 +9,16 @@
 
 		</constructor-arg>
 		----------------------------------------------------------------------------------------
-3. �ڹټҽ� src/mvc.model/ReviewController���� 
-     private static final String UPLOAD_PATH <--�� ������ �����θ� �ݵ�� '����Ž���⿡ �ִ� ��η� ����ݽô�.'
+3. 자바소스 src/mvc.model/ReviewController에서 
+     private static final String UPLOAD_PATH <--이 변수의 절대경로를 반드시 '파일탐색기에 있는 경로로 잡아줍시다.'
      
     (for example)--------------------------------------------------------------------------------
- 		"C:\\ikosmo64\\spring\\spworkspace\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\semitemplate\\resources\\images";
- 		--> ����
- 		"C:\Users\gusrl\OneDrive\desktop\myfolder\spring\spring_workspace\semitemplate\WebContent\resources\images"
- 		--> ����
+ 		"value="C:\Users\KOSMO-25\git\semiproject\semitemplate\WebContent\resources\images"
 		----------------------------------------------------------------------------------------
-4. ���� ��ٷ��� webapp ���̺귯���� ������� �ʴ´ٸ�
-		�ش�������Ʈ ��Ŭ�� --> configure build path-->add librery --> webapp���̺귯�� �߰� ��
-		WEB-INF �Ʒ��� lib������ �����  (�ش� ��ũ�����̽� ��������\service\apache-tomcat-9.0.34-windows-x64\apache-tomcat-9.0.34\lib)
-		�� �ִ� lib���� + ojdbc6(�� 8)������ ��� ���� ������ ���� �ٿ��ֱ�����. 
+4. 조금 기다려도 webapp 라이브러리가 실행되지 않는다면
+		해당프로젝트 우클릭 --> configure build path-->add librery --> webapp라이브러리 추가 후
+		WEB-INF 아래에 lib폴더를 만들고  (해당 워크스페이스 상위폴더\service\apache-tomcat-9.0.34-windows-x64\apache-tomcat-9.0.34\lib)
+		에 있는 lib파일 + ojdbc6(나 8)파일을 방금 만든 폴더에 복사 붙여넣기하자...test 07/18...1
 	
+5. meta-info에 있는 context파일의 url부분의 localhost를 192.168.0.144로 바꿔줍니다.
+6. 서버 구동 문제의 경우 server프로젝트에 있는 server.xml파일의 context태그부분을 현재경로에 맞게 수정해봅시다.
