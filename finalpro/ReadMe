@@ -23,3 +23,4 @@
 		WEB-INF 아래에 lib폴더를 만들고  (해당 워크스페이스 상위폴더\service\apache-tomcat-9.0.34-windows-x64\apache-tomcat-9.0.34\lib)
 		에 있는 lib파일 + ojdbc6(나 8)파일을 방금 만든 폴더에 복사 붙여넣기하자...test 07/18...1
 	
+5. meta-info에 있는 context파일의 url부분의 localhost를 192.168.0.144로 바꿔줍니다.
