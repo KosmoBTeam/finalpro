@@ -99,6 +99,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	delete from repl_table where rnum=#{num}
 	</delete>
 	<select id="review5List" resultMap="reviewmainResult">
-	<![CDATA[ select m.*,r.img,r.num,r.detail,r.title,r.honame,r.hit from (select id,name from member_table) m,(select img,num,id,detail,title,honame,hit, ROW_NUMBER() over(order by hit desc) as rk from review_table) r where m.id=r.id and r.rk<6]]>
+	<![CDATA[ select m.*,r.img,r.num,r.detail,r.title,r.honame,r.hit from (select id,name from member_table) m,(select img,num,id,detail,title,honame,hit, ROW_NUMBER() over(order by hit asc) as rk from review_table) r where m.id=r.id and r.rk<6]]>
 </select>
 </mapper>

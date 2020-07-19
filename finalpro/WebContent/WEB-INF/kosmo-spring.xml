@@ -48,7 +48,6 @@
 		class="org.springframework.web.servlet.view.BeanNameViewResolver">
 		<property name="order" value="0"></property>
 	</bean>
-	<bean id="index" class="mvc.model.SomeController" />
 
 	<mvc:interceptors>
 		<mvc:interceptor>
