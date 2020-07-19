@@ -442,3 +442,17 @@ constraint repl_num_fk foreign key(rnum) references review_table(num)
 create sequence repl_seq
 INCREMENT by 1
 start WITH 1;
+
+create table survey_result_table(
+num number primary key,
+subtype char(8),
+subcode number,
+surveytitle varchar2(34),
+id varchar2(34),
+constraint survey_result_table_id_fk foreign key(id)
+references member_table(id)
+);
+
+create sequence survey_result_seq
+start with 1
+increment by 1;

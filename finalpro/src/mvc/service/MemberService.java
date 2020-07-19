@@ -17,6 +17,7 @@ public class MemberService {
 		// 여기에 예약된 호텔 지우는 dao메소드 설정
 		memberDao.deleteAllMyReview(id);
 		memberDao.deleteAllMyReserve(id);
+		memberDao.deleteAllMySurvey(id);
 		memberDao.delete(id);
 	}
 }

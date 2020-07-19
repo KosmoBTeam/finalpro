@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,10 +27,9 @@ public class SurveyController {
 // 설문조사 작성폼으로 이동
 	@RequestMapping(value = "/goSurveyWrite")
 	public ModelAndView goSurveyWrite() {
-		int[] arr = { 2, 3, 4, 5, 6, 7, 8, 9 };
 		List<List<SurveyViewVO>> viewlist = new ArrayList<List<SurveyViewVO>>();
-		for (int i = 0; i < arr.length; i++) {
-			List<SurveyViewVO> list = surveyDao.surveyView(arr[i]);
+		for (int i = 2; i < 10; i++) {
+			List<SurveyViewVO> list = surveyDao.surveyView(i);
 			viewlist.add(list);
 		}
 		ModelAndView mav = new ModelAndView();
@@ -38,14 +39,14 @@ public class SurveyController {
 	}
 
 	@RequestMapping(value = "/goSurveyDetail", method = RequestMethod.POST)
-	public ModelAndView surveyUpdate(SurveyViewVO vo) {
+	public ModelAndView surveyUpdate(SurveyViewVO vo,HttpSession session) {
 		String[] str = { vo.getSubtype1(), vo.getSubtype2(), vo.getSubtype3(), vo.getSubtype4(), vo.getSubtype5(),
 				vo.getSubtype6(), vo.getSubtype7(), vo.getSubtype8() };
-		int[] arr = { 2, 3, 4, 5, 6, 7, 8, 9 };
-		for (int i = 0; i < arr.length; i++) {
+		System.out.println(vo.getSubtype1());
+		for (int i = 2; i < 10; i++) {
 			SurveyViewVO v = new SurveyViewVO();
-			v.setSubtype(str[i]);
-			v.setSubcode(arr[i]);
+			v.setSubtype(str[i-2]);
+			v.setSubcode(i);
 			surveyDao.surveyClientUpdatecnt(v);
 		}
 		ModelAndView mav = new ModelAndView();
@@ -53,6 +54,7 @@ public class SurveyController {
 		String subtype = vo.getSubtype1();
 		String loc = null;
 		int locnum = 0;
+		System.out.println(subtype);
 		subtype = subtype.replaceAll("(^\\p{Z}+|\\p{Z}+$)", "");
 		switch (subtype) {
 		case "A":
@@ -82,6 +84,7 @@ public class SurveyController {
 		}
 		System.out.println(locnum);
 		System.out.println(loc);
+		
 		mav.addObject("loc", loc);
 		mav.addObject("locnum", locnum);
 		return mav;

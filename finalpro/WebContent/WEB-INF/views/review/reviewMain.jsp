@@ -20,11 +20,11 @@
 			data-stellar-background-ratio="0.3">
 
 			<div class="container clearfix">
-				<h1>Events List</h1>
-				<span>A List of Your Events with a Sidebar</span>
+				<h1>리뷰게시판</h1>
+				<span>Starter들의 여행 후기게시판입니다.</span>
 				<ol class="breadcrumb">
-					<li><a href="#">Home</a></li>
-					<li class="active">Events</li>
+					<li><a href="main">Home</a></li>
+					<li class="active">후기게시판</li>
 				</ol>
 			</div>
 
@@ -141,216 +141,30 @@
 
 							<div class="widget clearfix">
 
-								<h4>Events</h4>
+								<h4>조회수 TOP5 리뷰</h4>
 								<div id="post-list-footer">
-
-									<div class="spost clearfix">
-										<div class="entry-image">
-											<a href="#" class="nobg"><img
-												src="http://placehold.it/100x100" alt=""></a>
-										</div>
-										<div class="entry-c">
-											<div class="entry-title">
-												<h4>
-													<a href="#">NYC Restaurant Week</a>
-												</h4>
-												<p class="nobottommargin">Lorem ipsum dolor sit amet
-													consectetur adipis...</p>
+									<c:forEach varStatus="i" var="e" items="${review5List}">
+										<div class="spost clearfix">
+											<div class="entry-image">
+												<a href="deleteReview?num=${e.num }" class="nobg"><img
+													src="resources/images/${e.img}" alt=""></a>
 											</div>
-											<ul class="entry-meta">
-												<li>17th Dec 2015</li>
-											</ul>
-										</div>
-									</div>
-
-									<div class="spost clearfix">
-										<div class="entry-image">
-											<a href="#" class="nobg"><img
-												src="http://placehold.it/100x100" alt=""></a>
-										</div>
-										<div class="entry-c">
-											<div class="entry-title">
-												<h4>
-													<a href="#">Kids Food Fest</a>
-												</h4>
-												<p class="nobottommargin">Lorem ipsum dolor sit amet
-													consectetur adipis...</p>
+											<div class="entry-c">
+												<div class="entry-title">
+													<h4>
+														<a href="deleteReview?num=${e.num }">${e.title}</a>
+													</h4>
+													<p class="nobottommargin"></p>
+												</div>
+												<ul class="entry-meta">
+													<li>조회수 : ${e.hit}</li>
+												</ul>
 											</div>
-											<ul class="entry-meta">
-												<li>8th June 2015</li>
-											</ul>
 										</div>
-									</div>
-
-									<div class="spost clearfix">
-										<div class="entry-image">
-											<a href="#" class="nobg"><img
-												src="http://placehold.it/100x100" alt=""></a>
-										</div>
-										<div class="entry-c">
-											<div class="entry-title">
-												<h4>
-													<a href="#">Taste of the Old World</a>
-												</h4>
-												<p class="nobottommargin">Lorem ipsum dolor sit amet
-													consectetur adipis...</p>
-											</div>
-											<ul class="entry-meta">
-												<li>22nd Sept 2015</li>
-											</ul>
-										</div>
-									</div>
-
+									</c:forEach>
 								</div>
 
 							</div>
-
-							<div class="widget clearfix">
-
-								<h4>Media Gallery</h4>
-								<div id="oc-portfolio-sidebar" class="owl-carousel portfolio-5">
-
-									<div class="oc-item">
-										<div class="iportfolio">
-											<div class="portfolio-image">
-												<a href="#"> <img src="http://placehold.it/400x300"
-													alt="">
-												</a>
-												<div class="portfolio-overlay">
-													<a href="http://vimeo.com/16270111" class="center-icon"
-														data-lightbox="iframe"><i class="icon-play"></i></a>
-												</div>
-											</div>
-											<div class="portfolio-desc center nobottompadding">
-												<h3>
-													<a href="portfolio-single-video.html">Specialties</a>
-												</h3>
-												<span><a href="#">Wines, Beer</a></span>
-											</div>
-										</div>
-									</div>
-
-									<div class="oc-item">
-										<div class="iportfolio">
-											<div class="portfolio-image">
-												<a href="portfolio-single.html"> <img
-													src="http://placehold.it/400x300" alt="">
-												</a>
-												<div class="portfolio-overlay">
-													<a href="http://placehold.it/1000x667" class="center-icon"
-														data-lightbox="image"><i class="icon-picture"></i></a>
-												</div>
-											</div>
-											<div class="portfolio-desc center nobottompadding">
-												<h3>
-													<a href="portfolio-single.html">Gatronomy</a>
-												</h3>
-												<span><a href="#">Soups, Salads</a></span>
-											</div>
-										</div>
-									</div>
-
-								</div>
-
-								<script type="text/javascript">
-									jQuery(document)
-											.ready(
-													function($) {
-
-														var ocClients = $("#oc-portfolio-sidebar");
-
-														ocClients
-																.owlCarousel({
-																	items : 1,
-																	margin : 10,
-																	loop : true,
-																	nav : false,
-																	autoplay : true,
-																	dots : true,
-																	autoplayHoverPause : true
-																});
-
-													});
-								</script>
-
-							</div>
-
-							<div class="widget quick-contact-widget clearfix">
-
-								<h4>Quick Contact</h4>
-								<div id="quick-contact-form-result" data-notify-type="success"
-									data-notify-msg="<i class=icon-ok-sign></i> Message Sent Successfully!"></div>
-								<form id="quick-contact-form" name="quick-contact-form"
-									action="include/quickcontact.php" method="post"
-									class="quick-contact-form nobottommargin">
-									<div class="form-process"></div>
-
-									<input type="text"
-										class="required sm-form-control input-block-level"
-										id="quick-contact-form-name" name="quick-contact-form-name"
-										value="" placeholder="Full Name" /> <input type="text"
-										class="required sm-form-control email input-block-level"
-										id="quick-contact-form-email" name="quick-contact-form-email"
-										value="" placeholder="Email Address" />
-									<textarea
-										class="required sm-form-control input-block-level short-textarea"
-										id="quick-contact-form-message"
-										name="quick-contact-form-message" rows="4" cols="30"
-										placeholder="Message"></textarea>
-									<input type="text" class="hidden"
-										id="quick-contact-form-botcheck"
-										name="quick-contact-form-botcheck" value="" />
-									<button type="submit" id="quick-contact-form-submit"
-										name="quick-contact-form-submit"
-										class="btn button button-small nomargin" value="submit">Send
-										Email</button>
-								</form>
-
-								<script type="text/javascript">
-									$("#quick-contact-form")
-											.validate(
-													{
-														submitHandler : function(
-																form) {
-															$(form)
-																	.find(
-																			'.form-process')
-																	.fadeIn();
-															$(form)
-																	.ajaxSubmit(
-																			{
-																				target : '#quick-contact-form-result',
-																				success : function() {
-																					$(
-																							form)
-																							.find(
-																									'.form-process')
-																							.fadeOut();
-																					$(
-																							form)
-																							.find(
-																									'.sm-form-control')
-																							.val(
-																									'');
-																					$(
-																							'#quick-contact-form-result')
-																							.attr(
-																									'data-notify-msg',
-																									$(
-																											'#quick-contact-form-result')
-																											.html())
-																							.html(
-																									'');
-																					IGNITE.widget
-																							.notifications($('#quick-contact-form-result'));
-																				}
-																			});
-														}
-													});
-								</script>
-
-							</div>
-
 						</div>
 					</div>
 

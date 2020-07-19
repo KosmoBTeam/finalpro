@@ -84,4 +84,9 @@ public class ReviewDao {
 		
 	}
 
+	public List<ReviewVO> review5List() {
+		// TODO Auto-generated method stub
+		return ss.selectList("rvo.review5List");
+	}
+
 }

@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="mvo">
 	<insert id="add" parameterType="member">
 		insert into member_table
-		values(member_table_seq.nextVal,#{id},#{pwd},#{name},#{email},#{phone},#{address},sysdate,' ')
+		values(member_table_seq.nextVal,#{id},#{pwd},#{name},#{email},#{phone},#{address},sysdate,0)
 	</insert>
 	<select id="idchk" resultType="int" parameterType="String">
 		select
@@ -37,5 +37,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</delete>
 	<delete id="deleteReserve" parameterType="hotel2">
 	delete from hotel_reserve where id=#{id} and hrnum=#{hrnum}
+	</delete>
+	<delete id="deleteSurvey"  parameterType="String">
+	delete from survey_result_table where id=#{id}
 	</delete>
 </mapper>

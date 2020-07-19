@@ -48,4 +48,8 @@ public void editMember(MemberVO vo) {
 public void deleteReserve(HotelReserve2VO vo) {
 	ss.delete("mvo.deleteReserve", vo);
 }
+public void deleteAllMySurvey(String id) {
+	ss.delete("mvo.deleteSurvey", id);
+	
+}
 }

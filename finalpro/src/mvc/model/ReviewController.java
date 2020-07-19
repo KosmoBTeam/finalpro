@@ -2,6 +2,9 @@ package mvc.model;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.util.List;
 import java.util.UUID;
 
@@ -47,8 +50,9 @@ public class ReviewController {
 		vo.setSearchValue(value);
 		vo.setSearchType(type);
 		List<ReviewVO> reviewList = reviewDao.reviewList(vo);
-
+		List<ReviewVO> review5List = reviewDao.review5List();
 		model.addAttribute("list", reviewList);
+		model.addAttribute("review5List", review5List);
 		model.addAttribute("paging", vo);
 		// model.addAttribute("list", boardDao.getBrdList(svo));
 		return "review/reviewMain";
@@ -68,9 +72,10 @@ public class ReviewController {
 
 	// 후기 글쓰기 작성창으로 이동
 	@RequestMapping(value = "/goReviewWrite",method = { RequestMethod.GET, RequestMethod.POST })
-	public String goReviewWrite(String honame, Model model) {
-		model.addAttribute("honame", honame);
+	public String goReviewWrite(String honame, Model model) { 
 		System.out.println(honame);
+		model.addAttribute("honame", honame);
+	
 		return "review/reviewWrite";
 	}
 
@@ -79,6 +84,7 @@ public class ReviewController {
 
 
 		String file = saveFile(mfile, img);
+		System.out.println(file);
 		vo.setImg(file);
 		vo.setHoname(honame);
 		reviewDao.insertReview(vo);
@@ -87,7 +93,7 @@ public class ReviewController {
 	}
 
 	
-	private static final String UPLOAD_PATH="C:\\myfolder\\spring\\workspace\\finalpro\\WebContent\\resources\\images";
+	private static final String UPLOAD_PATH="C:\\Users\\gusrl\\git\\finalpro\\finalpro\\WebContent\\resources\\images";
 	private String saveFile(MultipartFile mfile, String img) {
 		// 파일 이름 변경
 		UUID uuid = UUID.randomUUID();
@@ -107,7 +113,7 @@ public class ReviewController {
 				return null;
 			}
 		}
-System.out.println(saveName);
+		System.out.println(saveName);
 		// 저장할 File 객체를 생성(껍데기 파일)
 	
 		return saveName;
