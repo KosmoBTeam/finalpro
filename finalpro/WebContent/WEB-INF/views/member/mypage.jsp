@@ -10,38 +10,12 @@
 <script type="text/javascript">
 $(document).ready(
         function($) {
-            var address = $("#address").val().split(" ");
+            var address = $("#address").val().split("/");
+            
             $("#sample2_postcode").val(address[0]);
-            var first = "";
-            var num = 0;
-            ee: for (var i = 1; i < address.length; i++) {
-                if (address[i].substring(0, 1) === "("
-                        && address[i].substring(address[i].length - 1,
-                                address[i].length) === ")") {
-                    num = i;
-                    break ee;
-                } else if (address[i + 1].substring(0, 1) === "("
-                        && address[i + 1].substring(
-                                address[i + 1].length - 1,
-                                address[i + 1].length) === ")") {
-                    first += address[i];
-                } else {
-                    first += address[i] + " ";
-
-                }
-            }
-            $("#sample2_address").val(first);
-
-            $("#sample2_extraAddress").val(address[num]);
-            var last = "";
-            for (var i = 7; i < address.length; i++) {
-                if (i === address.length - 1) {
-                    last += address[i];
-                } else {
-                    last += address[i] + " ";
-                }
-            }
-            $("#sample2_detailAddress").val(last);
+            $("#sample2_address").val(address[1]);
+            $("#sample2_extraAddress").val(address[2]);
+            $("#sample2_detailAddress").val(address[3]);
         });
 </script>
 <section id="page-title" class="page-title-parallax"

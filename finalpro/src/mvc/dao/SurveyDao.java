@@ -12,18 +12,23 @@ import mvc.vo.SurveyViewVO;
 @Repository
 public class SurveyDao {
 
-   @Autowired
-   private SqlSessionTemplate ss; 
+	@Autowired
+	private SqlSessionTemplate ss;
 
-   // surveyclientform : 설문지 폼에 출력 될 데이터 값
-   public List<SurveyViewVO> surveyView(int num) {
-      return ss.selectList("survey.surveylist",num);
-   }
-   
-   //MyBatis에 정의한 update구문을 실행
-   //사용자가 답한 설문조사의 비율을 산출하기 위해 선택한수록 cnt값이 올라가도록 업데이트구문실행
-   public void surveyClientUpdatecnt(SurveyViewVO vo) {
-      ss.update("survey.updatecnt", vo);
+	// surveyclientform : 설문지 폼에 출력 될 데이터 값
+	public List<SurveyViewVO> surveyView(int num) {
+		return ss.selectList("survey.surveylist", num);
+	}
 
-   }
+	// MyBatis에 정의한 update구문을 실행
+	// 사용자가 답한 설문조사의 비율을 산출하기 위해 선택한수록 cnt값이 올라가도록 업데이트구문실행
+	public void surveyClientUpdatecnt(SurveyViewVO vo) {
+		ss.update("survey.updatecnt", vo);
+
+	}
+
+	public String getLoc(SurveyViewVO vo) {
+		// TODO Auto-generated method stub
+		return ss.selectOne("survey.getLoc", vo);
+	}
 }

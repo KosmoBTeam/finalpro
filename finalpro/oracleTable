@@ -8,7 +8,7 @@ email varchar2(40),
 phone varchar2(40),
 address varchar2(100),
 rdate date,
-res varchar2(34)
+res number unique
 );
 
 create sequence member_table_seq
@@ -70,6 +70,12 @@ into surveycontent_trip values('C',2,'강원도',0)
 into surveycontent_trip values('D',2,'충청도',0)
 into surveycontent_trip values('E',2,'경상도',0)
 into surveycontent_trip values('F',2,'전라도',0)
+into surveycontent_trip values('G',2,'인천',0)
+into surveycontent_trip values('H',2,'대구',0)
+into surveycontent_trip values('I',2,'광주',0)
+into surveycontent_trip values('J',2,'대전',0)
+into surveycontent_trip values('K',2,'울산',0)
+into surveycontent_trip values('L',2,'부산',0)
 select * from dual;
 
 insert all
