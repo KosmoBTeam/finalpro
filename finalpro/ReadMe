@@ -21,5 +21,6 @@
 		에 있는 lib파일 + ojdbc6(나 8)파일을 방금 만든 폴더에 복사 붙여넣기하자...test 07/18...1
 	
 5. meta-info에 있는 context파일의 url부분의 localhost를 192.168.0.144로 바꿔줍니다.
+
 6. 서버 구동 문제의 경우 server프로젝트에 있는 server.xml파일의 context태그부분을 현재경로에 맞게 수정해봅시다..
 
