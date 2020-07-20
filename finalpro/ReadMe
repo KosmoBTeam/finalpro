@@ -13,7 +13,7 @@
      private static final String UPLOAD_PATH <--이 변수의 절대경로를 반드시 '파일탐색기에 있는 경로로 잡아줍시다.'
      
     (for example)--------------------------------------------------------------------------------
- 		"value="C:\Users\KOSMO-25\git\semiproject\semitemplate\WebContent\resources\images"
+ 		value="C:\Users\KOSMO-25\git\semiproject\semitemplate\WebContent\resources\images"
 		----------------------------------------------------------------------------------------
 4. 조금 기다려도 webapp 라이브러리가 실행되지 않는다면
 		해당프로젝트 우클릭 --> configure build path-->add librery --> webapp라이브러리 추가 후
