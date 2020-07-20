@@ -29,4 +29,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<![CDATA[ select a.* from (select loc, img, locnum, ROW_NUMBER() over(order by locnum
 		desc) as rk from local ) a where a.rk<5]]>
 	</select>
+	<select id="getLocnum" parameterType="String" resultType="int">
+	select locnum from local where loc = #{loc}
+	</select>
 </mapper>

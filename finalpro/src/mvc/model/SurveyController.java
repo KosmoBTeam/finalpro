@@ -11,6 +11,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
+import mvc.dao.LocalDao;
 import mvc.dao.SurveyDao;
 import mvc.service.SurveyService;
 import mvc.vo.SurveyViewVO;
@@ -21,6 +23,9 @@ public class SurveyController {
 	@Autowired
 	private SurveyDao surveyDao;
 
+	@Autowired
+	private LocalDao localDao;
+	
 	@Autowired
 	private SurveyService surveyService;
 
@@ -42,7 +47,6 @@ public class SurveyController {
 	public ModelAndView surveyUpdate(SurveyViewVO vo,HttpSession session) {
 		String[] str = { vo.getSubtype1(), vo.getSubtype2(), vo.getSubtype3(), vo.getSubtype4(), vo.getSubtype5(),
 				vo.getSubtype6(), vo.getSubtype7(), vo.getSubtype8() };
-		System.out.println(vo.getSubtype1());
 		for (int i = 2; i < 10; i++) {
 			SurveyViewVO v = new SurveyViewVO();
 			v.setSubtype(str[i-2]);
@@ -50,40 +54,23 @@ public class SurveyController {
 			surveyDao.surveyClientUpdatecnt(v);
 		}
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("survey/surveyDetail");
+		mav.setViewName("survey/surveyDetail");	
+		//오라클에 저장되어 있는 subtype은 Char형이기 때문에 bit가 전부 채워져서 저장되기 때문에 대량의 띄어쓰기가 포함되어 있음!
+		//현재 getSubtype1~8은 전부 띄어쓰기가 포함된 문자임 그러기 때문에 문자열로 활용하려면 trim()을 쓰고
+		//오라클에서 활용하려면 다시 띄어쓰기를 포함해줘야함 (vo.getSubtype1().length()=9)
 		String subtype = vo.getSubtype1();
-		String loc = null;
-		int locnum = 0;
-		System.out.println(subtype);
-		subtype = subtype.replaceAll("(^\\p{Z}+|\\p{Z}+$)", "");
-		switch (subtype) {
-		case "A":
-			loc = "제주도";
-			locnum = 1;
-			break;
-		case "B":
-			loc = "서울";
-			locnum = 10;
-			break;
-		case "C":
-			loc = "강원도";
-			locnum = 8;
-			break;
-		case "D":
-			loc = "충청도";
-			locnum = 12;
-			break;
-		case "E":
-			loc = "경상도";
-			locnum = 3;
-			break;
-		case "F":
-			loc = "전라도";
-			locnum = 5;
-			break;
-		}
-		System.out.println(locnum);
+		System.out.println(vo.getSubtype1().length());
+		SurveyViewVO voc = new SurveyViewVO();
+		voc.setSubcode(2);
+		voc.setSubtype(subtype);
+		System.out.println(voc.getSubtype());
+		System.out.println(voc.getSubcode());
+		String loc = surveyDao.getLoc(voc);
 		System.out.println(loc);
+		int locnum = localDao.getLocnum(loc);
+		
+		System.out.println(locnum);
+		System.out.println(loc);	
 		
 		mav.addObject("loc", loc);
 		mav.addObject("locnum", locnum);

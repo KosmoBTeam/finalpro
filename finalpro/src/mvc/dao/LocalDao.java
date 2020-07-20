@@ -51,4 +51,10 @@ public class LocalDao {
 		return ss.selectList("lvo.mainLocalList");
 
 	}
+
+	public int getLocnum(String loc) {
+		// TODO Auto-generated method stub
+		return ss.selectOne("lvo.getLocnum", loc);
+	}
+
 }

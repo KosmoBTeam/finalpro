@@ -72,8 +72,8 @@ public class MemberController {
 	@RequestMapping(value = "/joinMember")
 	public ModelAndView insertMember(MemberVO vo, HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
-		String address = request.getParameter("ad0") + " " + request.getParameter("ad1") + " "
-				+ request.getParameter("ad2") + " " + request.getParameter("ad3");
+		String address = request.getParameter("ad0") + "/" + request.getParameter("ad1") + "/"
+				+ request.getParameter("ad2") + "/" + request.getParameter("ad3");
 		vo.setAddress(address);
 		memberDao.insertMember(vo);
 		mav.setViewName("member/joinSuccess");
@@ -174,8 +174,8 @@ public class MemberController {
 	@RequestMapping(value = "/editMember")
 	public String editMember(MemberVO vo, HttpServletRequest request, HttpSession session) {
 		System.out.println(vo.getId());
-		String address = request.getParameter("ad0") + " " + request.getParameter("ad1") + " "
-				+ request.getParameter("ad2") + " " + request.getParameter("ad3");
+		String address = request.getParameter("ad0") + "/" + request.getParameter("ad1") + "/"
+				+ request.getParameter("ad2") + "/" + request.getParameter("ad3");
 		vo.setAddress(address);
 		memberDao.editMember(vo);
 		session.setAttribute("name", vo.getName());
