@@ -52,4 +52,8 @@ public void deleteAllMySurvey(String id) {
 	ss.delete("mvo.deleteSurvey", id);
 	
 }
+public void deleteAllMyRepl(String id) {
+	ss.delete("mvo.deleteRepl", id);
+	
+}
 }

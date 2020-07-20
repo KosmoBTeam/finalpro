@@ -15,6 +15,7 @@ public class MemberService {
 	//회원탈퇴시에 트랜잭션 처리를 함
 	public void deleteMember(String id) {
 		// 여기에 예약된 호텔 지우는 dao메소드 설정
+		memberDao.deleteAllMyRepl(id);
 		memberDao.deleteAllMyReview(id);
 		memberDao.deleteAllMyReserve(id);
 		memberDao.deleteAllMySurvey(id);

@@ -41,4 +41,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<delete id="deleteSurvey"  parameterType="String">
 	delete from survey_result_table where id=#{id}
 	</delete>
+	<delete id="deleteRepl" parameterType="String">
+	delete from repl_table where id=#{id}
+	</delete>
 </mapper>
