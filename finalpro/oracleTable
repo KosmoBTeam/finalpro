@@ -449,14 +449,22 @@ create sequence repl_seq
 INCREMENT by 1
 start WITH 1;
 
+
 create table survey_result_table(
 num number primary key,
-subtype char(8),
-subcode number,
-surveytitle varchar2(34),
-id varchar2(34),
+id varchar2(34) unique,
+subtype1 char(8),
+subtype2 char(8),
+subtype3 char(8),
+subtype4 char(8),
+subtype5 char(8),
+subtype6 char(8),
+subtype7 char(8),
+subtype8 char(8),
 constraint survey_result_table_id_fk foreign key(id)
-references member_table(id)
+references member_table(id),
+constraint survey_result_table_num_fk foreign key(num)
+references member_table(res)
 );
 
 create sequence survey_result_seq
