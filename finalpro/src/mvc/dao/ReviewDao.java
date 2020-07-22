@@ -1,5 +1,6 @@
 package mvc.dao;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;

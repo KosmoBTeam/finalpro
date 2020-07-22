@@ -1,46 +1,99 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@include file="../header.jsp"%>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<meta name="description" content="Bootstrap 3 Website Template" />
+<body>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<title>Login</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--===============================================================================================-->
+	<link rel="icon" type="image/png"
+		href="resources/images/icons/favicon.ico" />
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css"
+		href="resources/vendor/bootstrap/css/bootstrap.min.css" />
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css"
+		href="resources/fonts/font-awesome-4.7.0/css/font-awesome.min.css" />
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css"
+		href="resources/fonts/Linearicons-Free-v1.0.0/icon-font.min.css" />
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css"
+		href="resources/vendor/animate/animate.css" />
+	<!--===============================================================================================-->
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css"
+		href="resources/vendor/animsition/css/animsition.min.css" />
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css"
+		href="resources/vendor/select2/select2.min.css" />
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css"
+		href="resources/vendor/daterangepicker/daterangepicker.css" />
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="resources/css/util.css" />
+	<link rel="stylesheet" type="text/css" href="resources/css/main.css" />
+	<script type="text/javascript"
+		src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.2.js"
+		charset="utf-8"></script>
+	<script type="text/javascript"
+		src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<style type="text/css">
+html, div, body, h3 {
+	margin: 0;
+	padding: 0;
+}
 
+h3 {
+	display: inline-block;
+	padding: 0.6em;
+}
+</style>
 
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-form-title"
+					style="background-image: url(<c:url value='/resources/images/bg-01.jpg'/>);">
+					<!-- 					<span class="login100-form-title-1"></span> -->
+					<span class="login100-form-title-1">당신의 새로운 여행에 어서오세요!</span>
+				</div>
 
-</head>
+				<%-- <form class="login100-form validate-form" action="<c:url value='/member/memLogin'/>" method="post" >  --%>
+				<div class="login100-form validate-form"
+					style="padding: 43px 88px 150px 100px;">
 
-<body class="stretched">
+					<div class="clearfix">
+						<div class="row">
+							<img alt="" src="resources/images/joinsuccess.jpg"
+								style="padding-bottom: 30px;">
+						</div>
+						<div class="row">
+							<h1>
+								새로운 여행의 시작을 축하 드립니다! <br> <br>여행의 시작은 역시 스타트립!
+							</h1>
+						</div>
 
-	<div class="container clearfix">
+						<button onclick="goLogin()" class="login100-form-btn"
+							style="color: black; margin-top: 50px; bottom: 10%; position: absolute; left: 35%;">
+							<span>로그인하러 가기</span> <i class="icon-angle-right"></i>
+						</button>
+					</div>
 
-		<!-- Contact Form Overlay
-                ============================================= -->
-		<div id="contact-form-overlay" class="clearfix bgcolor-grey">
-			<h4>스타트립</h4>
-			<h4>회원가입을 축하드립니다! 감사합니다</h4>
-			<div class="clearfix" style="text-align: center;">
-				<button onclick="goLogin()"
-					class="button button-medium button-reveal button-3d button-rounded tright nomargin"
-					style="color: black;">
-					<span>로그인</span> <i class="icon-angle-right"></i>
-				</button>
+				</div>
+
 			</div>
 		</div>
-		<!-- Contact Form Overlay End -->
-
 	</div>
 
 
 	<%@include file="../footer.jsp"%>
-	<div id="gotoTop" class="icon-angle-up"></div>
-
-	<!-- Footer Scripts
-    ============================================= -->
-<script type="text/javascript">
-function goLogin() {
-	location.href="goLogin";
-}
-</script>
-
+	<script type="text/javascript">
+		function goLogin() {
+			location.href = "goLogin"
+		}
+	</script>
 </body>
 </html>
