@@ -59,7 +59,8 @@ a:hover {
 	-o-transition: all 0.3s ease-out;
 }
 
-a img { border: none; }
+a img { border: none;}
+
 
 img { max-width: 100%; }
 
@@ -374,6 +375,14 @@ span.middot {
     position: relative;
     margin: 60px 0;
     padding: 60px 0;
+    background-color: #F9F9F9;
+    overflow: hidden;
+}
+
+.section1 {
+    position: relative;
+    margin: 10px 0;
+    padding: 0px 0;
     background-color: #F9F9F9;
     overflow: hidden;
 }
@@ -7409,6 +7418,11 @@ body:not(.device-touch) .clients-grid li a {
     display: block;
     width: 64px;
     height: 64px;}
+
+.testi-image1 i {
+    display: block;
+    width: 336px;
+    height: 224px;}
 
 .testi-image i {
     text-align: center;

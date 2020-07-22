@@ -62,7 +62,7 @@
 	<bean id="naverLoginBO" class="mvc.model.NaverLoginBO" ></bean>
 	<bean id="uploadPath" class="java.lang.String">
 		<constructor-arg
-			value="C:\Users\gusrl\git\finalpro\finalpro\WebContent\resources\images">
+			value="C:\Users\KOSMO-17\git\finalpro\finalpro\WebContent\resources\images">
 
 		</constructor-arg>
 	</bean>
