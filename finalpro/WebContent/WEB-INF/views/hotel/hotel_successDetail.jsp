@@ -110,7 +110,12 @@
     
     
 
-  </table><div>
+  </table>
+  <!-- 지도 start -->
+  
+  
+  <!-- 지도 end -->
+  <div>
       <div style="width: 50%;float: left; margin: 0 auto;">
       <button type="button"
 onclick="location.href='deleteReserve?id=${sessionScope['id']}&hrnum=${list.hrnum }'"
