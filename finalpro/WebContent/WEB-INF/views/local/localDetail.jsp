@@ -124,7 +124,7 @@
 												<br>
 												<div class="testi-content">
 													<p>${e.address }</p>
-													<div class="testi-meta">${e.title }</div>
+													<div class="testi-meta">${e.title }</div><!--  -->
 												</div>
 											</div>
 										</div>
