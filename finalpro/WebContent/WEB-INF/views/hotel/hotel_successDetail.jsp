@@ -1,160 +1,160 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
-    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
     <!DOCTYPE html>
-    <html dir="ltr" lang="ko">
+<html dir="ltr" lang="ko">
 <%@include file="../header.jsp" %>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+
 <body class="stretched">
-
-   <!-- List 만들어서 결과 확인할수 있게 출력 -->
-
 
     <!-- Document Wrapper
     ============================================= -->
     <div id="wrapper" class="clearfix">
 
-     <!-- #header end -->
-		
-        <section id="slider" class="full-screen">
-         <img src="resources/images/hotel/hotel111.jpg" style="width: 100%;" >
-            <div class="container clearfix vertical-middle dark">
+      <!-- #header end -->
 
-                <div class="heading-block title-center nobottomborder topmargin-md">
-                    <p style="color: white; font-size: 50px; text-align: center; font-weight: bold;">이용해 주셔서 감사합니다.</p>
-                    
-                      
-                      
-                      
+        <!-- Page Title
+        ============================================= -->
+        <section id="page-title" class="page-title-parallax" style="background-image: url(&quot;resources/images/survey/surveymain.png&quot;); padding: 120px 0;" data-stellar-background-ratio="0.3">
+
+            <div class="container clearfix">
+                <h1>호텔 예약 확인</h1>
                 
-   
-      
-      <!-- 값 받아오기 -->
+                <ol class="breadcrumb">
+                    <li><a href="main">Home</a></li>
+                    <li><a href="goHotelMain">호텔 메인</a></li>
+                </ol>
+            </div>
+
+        </section><!-- #page-title end -->
+
+        <!-- Contact Form & Map Overlay Section
+        ============================================= -->
+        <section id="map-overlay">
+
+            <div class="container clearfix">
+
+                <!-- Contact Form Overlay
+                ============================================= -->
+                <div id="contact-form-overlay" class="clearfix bgcolor-grey" style="width: 85%">
+
+                    <div class="fancy-title title-dotted-border">
+                        
+                    </div>
+               
+                    <div></div>
+
+                    <!-- Contact Form
+                    ============================================= -->
+                    <!-- 예약 정보 출력 -->
+                    <form class="form-horizontal"  style="margin: 0 auto;" action="goHotelSuccess" method="get">   
+                    <c:forEach items="${list}" var="list">        
+               <h1 style="font-size: 30px;">예약 확인하기</h1>
+                  <div class="section nobg notopmargin noborder nobottommargin">
+                        <div >
+                            <img src="resources/images/hotel/${list.img}" alt="" data-animate="fadeInUp">  
+                            <input type="hidden" value="${list.num }" name="num">                      
+                        </div>
+                       <table class="table table-hover" style="font-size: 20px ">
+
+    <thead>
+      <tr>
+        <th>아이디</th>
+        <th>이름</th>
+        <th>전화번호</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>${sessionScope['id']}</td>
+        <td>${sessionScope['name']}</td>
+        <td>${sessionScope['phone']}</td>
+        </tr>
+    </tbody>
     
-    </div>
-       		
-               <form class="form-horizontal"  style="margin: 0 auto;" action="goHotelSuccess" method="get">   
-              <c:forEach items="${list}" var="list">           
-            <div class="form-group">
-    <label for="inputPassword3" class="col-sm-3 control-label" style="color: white;">이름</label>
-    <div class="col-sm-9">
-      <input type="text" class="form-control" value="${sessionScope['name']}" id="name" name="name">
-    </div>
-  </div>
-  
- <div class="form-group">
-    <label for="inputPassword3" class="col-sm-3 control-label" style="color: white;">전화번호</label>
-    <div class="col-sm-9">
-      <input type="text" class="form-control" value="${sessionScope['phone']}" id="phone" name="phone" >
-    </div>
-  </div>
-  
-  <div class="form-group">
-    <label for="inputPassword3" class="col-sm-3 control-label" style="color: white;">호텔명</label>
-    <div class="col-sm-9">
-      <input type="text" class="form-control" value="${list.honame }" id="honame" name="honame" >
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="inputPassword3" class="col-sm-3 control-label" style="color: white;">주소</label>
-    <div class="col-sm-9">
-      <input type="text" class="form-control" value="${list.address }" id="address" name="address">
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="inputPassword3" class="col-sm-3 control-label" style="color: white;">전화번호</label>
-    <div class="col-sm-9">
-      <input type="text" class="form-control" value="${list.tel }" id="tel" name="tel">
-    </div>
-  </div>
-  
-  <div class="form-group">
-    <label for="inputPassword3" class="col-sm-3 control-label" style="color: white;">예약번호</label>
-    <div class="col-sm-9">
-      <input type="text" class="form-control" value="${list.hrnum }" id="hrnum" name="hrnum">
-    </div>
-  </div>
-  
- <div class="form-group">
-    <label for="inputPassword3" class="col-sm-3 control-label" style="color: white;">객실종류</label>
-    <div class="col-sm-9">
-      <input type="text" class="form-control" value="${list.roomtype }" id="roomtype" name="roomtype" >
-    </div>
-  </div>
-  
-  
-  
-   <div class="form-group">
-    <label for="inputPassword3" class="col-sm-3 control-label" style="color: white;">체크인 날짜</label>
-    <div class="col-sm-9">
-      <input type="text" class="form-control" id="checkin" name="checkin" value="${list.checkin }">
-    </div>
-  </div>
-  
-  <div class="form-group">
-    <label for="inputPassword3" class="col-sm-3 control-label" style="color: white;">체크아웃 날짜</label>
-    <div class="col-sm-9">
-      <input type="text" class="form-control" id="checkout" name="checkout" value="${list.checkout }">
-    </div>
-  </div>
-  
- 
-  
-   <div class="form-group">
-    <label for="inputPassword3" class="col-sm-3 control-label" style="color: white;">인원수</label>
-    <div class="col-sm-9">
-      <input type="text" class="form-control" id="people" name="people" value="${list.people }">
-    </div>
-  </div>
-  
-  <div class="form-group">
-    <label for="inputPassword3" class="col-sm-3 control-label" style="color: white;">가격</label>
-    <div class="col-sm-9">
-      <input type="text" class="form-control" value="${list.pay }" id="pay" name="pay">
-    </div>
-  </div>
-  
-  <div class="form-group">
-    <label for="inputPassword3" class="col-sm-3 control-label" style="color: white;">부가세 포함 총 가격</label>
-    <div class="col-sm-9">
-      <input type="text" class="form-control" value="${list.totalpay }" id="totalpay" name="totalpay">
-    </div>
-  </div>
-  <div class="form-group">
-   
-    <div class="col-sm-12 text-center" >
-     <button type="button" class="btn btn-primary" onclick="location='main'">HOME</button>
-    </div>
-  </div>
-  </c:forEach>
-   </form>
-  
-        </div> </section>
-          
-       </div>
+    <thead>
+      <tr>
+        <th>호텔명</th>
+        <th>객실 종류</th>
+        <th>가격</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>${list.honame }</td>
+        <td>${list.roomtype }</td>
+        <td>${list.pay }</td>
+        </tr>
+    </tbody>
+    
+    <thead>
+      <tr>
+        <th>체크인 날짜</th>
+        <th>체크아웃 날짜</th>
+        <th>인원수</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>${list.checkin }</td>
+        <td>${list.checkout }</td>
+        <td>${list.people }명</td>
+        </tr>
+    </tbody>
+     
+    
+    
+
+  </table><div>
+      <div style="width: 50%;float: left; margin: 0 auto;">
+      <button type="button"
+onclick="location.href='deleteReserve?id=${sessionScope['id']}&hrnum=${list.hrnum }'"
+class="button button-medium button-reveal button-3d button-rounded tright nomargin"
+style="color: black; text-align: center;">
+<span>취소하기</span> <i class="icon-angle-right"></i>
+                  </button>
+<button type="button"
+onclick="location.href='goHotelDetail?num=${list.num }'"
+class="button button-medium button-reveal button-3d button-rounded tright nomargin"
+style="color: black; text-align: center;">
+<span>상세 페이지</span> <i class="icon-angle-right"></i>
+                  </button>
+      
+      </div>
+      <div style=""></div>
+      </div>
+                     </div>                       
+               </c:forEach>   
+                    </form>
+                    <!-- 예약 정보 출력 끝 -->
+                    <div class="line"></div>
+
+                    <!-- Contact Info
+                    ============================================= -->
+                    <div class="col_one_third nobottommargin notopmargin">
                        
+             
+                        <strong>Ps)</strong>문의 사항이 있으시면 챗봇으로 문의해주세요<br>
+                    </div><!-- Contact Info End -->
+
+                    
+                </div><!-- Contact Form Overlay End -->
+
+            </div>
+
+           
+        </section><!-- Contact Form & Map Overlay Section End -->
+        
                 
-                <script>
-                    jQuery(document).ready( function($){
-                        var newDate = new Date(2015, 5, 15);
-                        $('#countdown-ex1').countdown({until: newDate});
-                    });
-                    $("#widget-subscribe-form").validate({
-                        submitHandler: function(form) {
-                            $(form).find('.input-group-addon').find('.icon-email2').removeClass('icon-email2').addClass('icon-line-loader icon-spin');
-                            $(form).ajaxSubmit({
-                                target: '#widget-subscribe-form-result',
-                                success: function() {
-                                    $(form).find('.input-group-addon').find('.icon-line-loader').removeClass('icon-line-loader icon-spin').addClass('icon-email2');
-                                    $('#widget-subscribe-form').find('.form-control').val('');
-                                    $('#widget-subscribe-form-result').attr('data-notify-msg', $('#widget-subscribe-form-result').html()).html('');
-                                    IGNITE.widget.notifications($('#widget-subscribe-form-result'));
-                                }
-                            });
-                        }
-                    });
-                </script>
-                
-         <!-- #wrapper end -->
+
+        
+
+    </div><!-- #wrapper end -->
 
     <!-- Go To Top
     ============================================= -->
@@ -163,7 +163,7 @@
     <!-- Footer Scripts
     ============================================= -->
     <script type="text/javascript" src="resources/js/functions.js"></script>
-
+   
 </body>
 </html>
 <%@include file="../footer.jsp"%>
