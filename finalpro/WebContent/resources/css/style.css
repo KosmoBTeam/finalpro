@@ -577,7 +577,7 @@ html[xmlns] .slider-wrap {display: block;}
 .swiper-wrapper {
     position:relative;
     width:100%;
-    -webkit-transition-property:-webkit-transform, left, top;
+    -webkit-transition-property:-webkit-trans, left, top;
     -webkit-transition-duration:0s;
     -webkit-transform:translate3d(0px,0,0);
     -webkit-transition-timing-function:ease;

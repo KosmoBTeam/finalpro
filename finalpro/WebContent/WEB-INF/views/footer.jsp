@@ -9,12 +9,12 @@
             ============================================= -->
             <div id="copyrights">
                 <div class="container clearfix">
-                    <div class="col_half">
-                        <img src="resources/images/logo/footer-logo.png" alt="" class="footer-logo standard-logo">
-                        <img src="resources/images/logo/footer-logo-large.png" alt="" class="footer-logo retina-logo">
+                    <div class="col_half" style="">
+                        <img src="resources/images/logo/footer-logo.png" alt="로고1" class="footer-logo standard-logo">
+                        <img src="resources/images/logo/footer-logo-large.png" alt="로고2" class="footer-logo retina-logo">
                         Copyright &copy; 2020 StarTrip. All Rights Reserved.
                     </div>
-                    <div class="col_half col_last tright">
+                    <!-- <div class="col_half col_last tright">
                         <div class="copyrights-menu copyright-links fright clearfix">
                             <a href="index7">Home</a> <a href="#">About</a> <a href="#">Menu</a> <a href="#">Locations</a> <a href="#">Contact</a>
                         </div>
@@ -52,7 +52,7 @@
                                 <i class="icon-linkedin"></i>
                             </a>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div><!-- #copyrights end -->
         </footer><!-- #footer end -->

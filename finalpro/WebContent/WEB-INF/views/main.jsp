@@ -69,7 +69,7 @@
 								<a href="goSurveyWrite"
 									class="button button-medium button-reveal button-3d button-rounded tright nomargin"
 									style="color: #FFF"> <span>시작하기</span> <i
-									class="icon-angle-right"></i></a>
+									class="icon-angle-right" ></i></a>
 							</div> <!-- END SLIDE  --> <!-- SLIDE  -->
 						<li data-transition="slideup" data-slotamount="1"
 							data-masterspeed="1000"
@@ -83,7 +83,7 @@
 							data-bgfit="130" data-bgfitend="100"
 							data-bgpositionend="right bottom">
 
-							<div
+							<!-- <div
 								class="tp-caption customin ltl tp-resizeme revo-slider-caps-text"
 								data-x="200" data-y="170"
 								data-customin="x:0;y:150;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
@@ -91,31 +91,31 @@
 								data-splitin="none" data-splitout="none"
 								data-elementdelay="0.01" data-endelementdelay="0.1"
 								data-endspeed="1000" data-endeasing="Power4.easeIn"
-								style="z-index: 11; color: #222;">StarTrip</div>
+								style="z-index: 11; color: #222;">StarTrip</div> -->
 
 							<div
-								class="tp-caption customin ltl tp-resizeme revo-slider-emphasis-text nopadding noborder uppercase"
-								data-x="197" data-y="210"
-								data-customin="x:5;y:0;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:5;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
-								data-speed="800" data-start="1400" data-easing="easeOutQuad"
-								data-splitin="chars" data-splitout="none"
-								data-elementdelay="0.1" data-endelementdelay="0.1"
-								data-endspeed="1000" data-endeasing="Power4.easeIn"
-								style="z-index: 11; font-size: 56px; color: #dae1e7;">
-								여행과 장소의 변화는 <br> 우리 마음에 활력을 선사한다.
-							</div>
-
-							<div
-								class="tp-caption customin ltl tp-resizeme revo-slider-desc-text tleft"
-								data-x="200" data-y="310"
-								data-customin="x:0;y:150;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
-								data-speed="800" data-start="1600" data-easing="easeOutQuad"
+								class="tp-caption customin ltl tp-resizeme revo-slider-caps-text uppercase"
+								data-x="200" data-y="200"
+								data-customin="x:-200;y:0;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
+								data-speed="800" data-start="1500" data-easing="easeOutQuad"
 								data-splitin="none" data-splitout="none"
 								data-elementdelay="0.01" data-endelementdelay="0.1"
 								data-endspeed="1000" data-endeasing="Power4.easeIn"
-								style="z-index: 11; max-width: 550px; white-space: normal; color: #222;">-세네카-</div>
+								style="z-index: 3; color: #fce8d5;">-세네카-</div>
 
-							<div class="tp-caption customin ltl" data-x="200" data-y="420"
+						
+							<div
+								class="tp-caption customin ltl tp-resizeme revo-slider-emphasis-text nopadding noborder"
+								data-x="197" data-y="240"
+								data-customin="x:10;y:0;z:0;rotationY:120;rotationZ:0;scaleX:0.8;scaleY:0.8;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
+								data-speed="600" data-start="1700" data-easing="easeOutQuad"
+								data-splitin="chars" data-splitout="none"
+								data-elementdelay="0.1" data-endelementdelay="0.1"
+								data-endspeed="1000" data-endeasing="Power4.easeIn"
+								style="z-index: 11; color: #fce8d5; line-height: 1.2; white-space: normal;">
+								여행과 장소의 변화는 우리 마음에 활력을 선사한다.</div>
+
+							<div class="tp-caption customin ltl" data-x="200" data-y="525"
 								data-customin="x:0;y:150;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
 								data-speed="800" data-start="1800" data-easing="easeOutQuad"
 								data-splitin="none" data-splitout="none"
@@ -148,18 +148,19 @@
 								data-splitin="none" data-splitout="none"
 								data-elementdelay="0.01" data-endelementdelay="0.1"
 								data-endspeed="1000" data-endeasing="Power4.easeIn"
-								style="z-index: 3; color: #333;">-토마스 풀러-</div>
+								style="z-index: 3; color: #fce8d5;">-생택쥐페리-</div>
 
+						
 							<div
 								class="tp-caption customin ltl tp-resizeme revo-slider-emphasis-text nopadding noborder"
 								data-x="197" data-y="240"
-								data-customin="x:10;y:0;z:0;rotationY:120;rotationZ:0;scaleX:0.8;scaleY:0.8;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 50%;"
-								data-speed="300" data-start="1700" data-easing="easeOutQuad"
+								data-customin="x:10;y:0;z:0;rotationY:120;rotationZ:0;scaleX:0.8;scaleY:0.8;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
+								data-speed="600" data-start="1700" data-easing="easeOutQuad"
 								data-splitin="chars" data-splitout="none"
 								data-elementdelay="0.1" data-endelementdelay="0.1"
 								data-endspeed="1000" data-endeasing="Power4.easeIn"
-								style="z-index: 3; color: #fce8d5; line-height: 1.2; max-width: 550px; width: 550px; white-space: normal;">바보는
-								방황하고, 현명한 사람은 여행한다.</div>
+								style="z-index: 11; color: #fce8d5; line-height: 1.2; white-space: normal;">행복하게 여행하려면,
+								가볍게 여행해야 한다.<br>  패키지로 여행해보실래요?</div>
 
 							<div class="tp-caption customin ltl" data-x="200" data-y="525"
 								data-customin="x:0;y:150;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
@@ -279,7 +280,7 @@
 					<div class="container clearfix">
 						<div>
 							<form class="form-horizontal">
-								<div class="form-group form-group-lg">
+								<div class="form-group form-group-lg" style="position: absolute; top:50%; left:50%; transform: translate(-50%,-50%);">
 									<div class="col-sm-9">
 										<input class="form-control" type="text"
 											id="formGroupInputLarge" placeholder="여행지를 입력하시오">
@@ -399,19 +400,22 @@
 
         		============================================= -->
 
-				<div class="section parallax notopmargin nobottommargin notopborder"
-					style="background-image: url(&amp;quot;resources/images/main/main5.jpg&amp;quot;); padding: 115px 0;"
-					data-stellar-background-ratio="0.3">
+				<!-- <div class="section parallax notopmargin nobottommargin notopborder"
+					style="background-image: url(resources/images/main/mainreviewbg.png); padding: 115px 0;"
+					> -->
+				<div class="container clearfix"
+					style="background-image: url(resources/images/main/mainreviewbg.png); padding: 115px 0;"
+					>
 
+							
 					<div class="container clearfix">
-
 
 
 						<div class="row">
 
 
-
 							<div id="oc-testi" class="owl-carousel testimonials-carousel">
+							
 								<c:forEach var="e" items="${rlist }">
 
 

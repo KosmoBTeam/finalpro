@@ -130,9 +130,9 @@
 						<ul>
 							<li><a href="#"><div>예약</div></a>
 								<ul>
-									<li><a href="faqs.jsp"><div>항공 예약</div></a></li>
+									<!-- <li><a href="faqs.jsp"><div>항공 예약</div></a></li> -->
 									<li><a href="goHotelMain"><div>호텔 예약</div></a></li>
-									<li><a href="faqs.jsp"><div>렌트카 예약</div></a></li>
+									<!-- <li><a href="faqs.jsp"><div>렌트카 예약</div></a></li> -->
 								</ul></li>
 							<li><a href="#"><div>국내여행지</div></a>
 								<ul>
@@ -147,14 +147,14 @@
 
 							<li><a href="events-list-parallax.jsp"><div>패키지 추천</div></a>
 								<ul>
-									<li><a href="events-list.jsp"><div>항공</div></a></li>
+									<!-- <li><a href="events-list.jsp"><div>항공</div></a></li> -->
 									<li><a href="goHotelMain"><div>숙박</div></a></li>
-									<li><a href="events-single.jsp"><div>렌트</div></a></li>
+									<!-- <li><a href="events-single.jsp"><div>렌트</div></a></li> -->
 								</ul></li>
-							<li><a href="sub-page-dark.jsp"><div>Sub Page Dark</div></a></li>
-							<li><a href="faqs.jsp"><div>FAQs</div></a></li>
-							<li><a href="404.jsp"><div>404</div></a></li>
-							<li><a href="coming-soon.jsp"><div>Coming Soon</div></a></li>
+							<li><!-- <a href="sub-page-dark.jsp"><div>Sub Page Dark</div></a></li> -->
+							<!-- <li><a href="faqs.jsp"><div>FAQs</div></a></li> -->
+							<!-- <li><a href="404.jsp"><div>404</div></a></li> -->
+							<!-- <li><a href="coming-soon.jsp"><div>Coming Soon</div></a></li> -->
 						</ul></li>
 					<li><a href="goLocalMain"><div>국내 여행지</div></a>
 						<ul>
