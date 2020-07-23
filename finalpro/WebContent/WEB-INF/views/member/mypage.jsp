@@ -350,7 +350,7 @@ $(document).ready(
 </div>
 
 <!-- Contact Form Overlay End -->
-
+<script type="text/javascript" src="https://service.iamport.kr/js/iamport.payment-1.1.2.js"></script>
 <script type="text/javascript">
 jQuery(document).ready(function($) {
 

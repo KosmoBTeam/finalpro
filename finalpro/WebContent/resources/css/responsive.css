@@ -62,8 +62,13 @@
 	.testi-image img,
 	.testi-image i {
 	    display: block;
-	    width: 36px;
-	    height: 36px;
+	    width: 270px;
+	    height: 230px;
+	}
+	.testi-image1 i {
+	    display: block;
+	    width: 336px;
+	    height: 224px;
 	}
 
 	.testi-image i {

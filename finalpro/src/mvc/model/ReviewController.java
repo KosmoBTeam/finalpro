@@ -92,8 +92,8 @@ public class ReviewController {
 		return "redirect:goReviewMain";
 	}
 
-	private static final String UPLOAD_PATH = "C:\\Users\\gusrl\\git\\finalpro\\finalpro\\WebContent\\resources\\images";
-
+	
+	private static final String UPLOAD_PATH="C:\\Users\\KOSMO-17\\git\\finalpro\\finalpro\\WebContent\\resources\\images";
 	private String saveFile(MultipartFile mfile, String img) {
 		// 파일 이름 변경
 		UUID uuid = UUID.randomUUID();

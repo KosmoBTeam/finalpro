@@ -19,10 +19,25 @@
 					<a href="index7">Home</a> <a href="#">About</a> <a href="#">Menu</a>
 					<a href="#">Locations</a> <a href="#">Contact</a>
 				</div>
-
 			</div>
 		</div>
 	</div>
 	<!-- #copyrights end -->
 </footer>
 <!-- #footer end -->
+<div id="frogue-container" class="position-right-bottom"
+	data-chatbot="698092cb-fedc-4ea7-89fb-015441308c39"
+	data-user="woqls0507@netian.com" data-init-key="value"></div>
+<script>
+	(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) {
+			return;
+		}
+		js = d.createElement(s);
+		js.id = id;
+		js.src = "https:\/\/danbee.ai/js/plugins/frogue-embed/frogue-embed.min.js";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'frogue-embed'));
+</script>
+
