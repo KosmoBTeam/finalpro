@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.UUID;
 
@@ -52,6 +53,7 @@ public class ReviewController {
 		List<ReviewVO> reviewList = reviewDao.reviewList(vo);
 		List<ReviewVO> review5List = reviewDao.review5List();
 		model.addAttribute("list", reviewList);
+	
 		model.addAttribute("review5List", review5List);
 		model.addAttribute("paging", vo);
 		// model.addAttribute("list", boardDao.getBrdList(svo));
@@ -60,10 +62,9 @@ public class ReviewController {
 
 	@RequestMapping(value = "/goReviewDetail", method = { RequestMethod.POST, RequestMethod.GET })
 	public String goReviewDetail(ReviewVO vo, Model model) {
-		vo=reviewDao.getReview(vo);
-		List<ReplVO> list =reviewDao.getReplList(vo);
-		model.addAttribute("repl",list);
-		
+		vo = reviewDao.getReview(vo);
+		List<ReplVO> list = reviewDao.getReplList(vo);
+		model.addAttribute("repl", list);
 		model.addAttribute("vo", vo);
 		// System.out.println(vo.getNum());
 		reviewDao.pluscnt(vo.getNum());
@@ -71,17 +72,16 @@ public class ReviewController {
 	}
 
 	// 후기 글쓰기 작성창으로 이동
-	@RequestMapping(value = "/goReviewWrite",method = { RequestMethod.GET, RequestMethod.POST })
-	public String goReviewWrite(String honame, Model model) { 
+	@RequestMapping(value = "/goReviewWrite", method = { RequestMethod.GET, RequestMethod.POST })
+	public String goReviewWrite(String honame, Model model) {
 		System.out.println(honame);
 		model.addAttribute("honame", honame);
-	
+
 		return "review/reviewWrite";
 	}
 
 	@RequestMapping(value = "/reviewWrite", method = { RequestMethod.GET, RequestMethod.POST })
-	public String reviewWrite(ReviewVO vo, MultipartFile mfile, String honame,String img) {
-
+	public String reviewWrite(ReviewVO vo, MultipartFile mfile, String honame, String img) {
 
 		String file = saveFile(mfile, img);
 		System.out.println(file);
@@ -92,22 +92,22 @@ public class ReviewController {
 		return "redirect:goReviewMain";
 	}
 
-	
-	private static final String UPLOAD_PATH="C:\\Users\\gusrl\\git\\finalpro\\finalpro\\WebContent\\resources\\images";
+	private static final String UPLOAD_PATH = "C:\\Users\\gusrl\\git\\finalpro\\finalpro\\WebContent\\resources\\images";
+
 	private String saveFile(MultipartFile mfile, String img) {
 		// 파일 이름 변경
 		UUID uuid = UUID.randomUUID();
-		String saveName =null;
-		System.out.println(mfile.getOriginalFilename()+"하");
+		String saveName = null;
+		System.out.println(mfile.getOriginalFilename() + "하");
 		if (mfile.getOriginalFilename().equals("")) {
 			saveName = img;
 		} else {
 			saveName = uuid + "_" + mfile.getOriginalFilename();
 			File saveFile = new File(UPLOAD_PATH, saveName); // 저장할 폴더 이름, 저장할 파일 이름
-		
+
 			try {
 				mfile.transferTo(saveFile); // 업로드 파일에 saveFile이라는 껍데기 입힘
-				
+
 			} catch (IOException e) {
 				e.printStackTrace();
 				return null;
@@ -115,9 +115,10 @@ public class ReviewController {
 		}
 		System.out.println(saveName);
 		// 저장할 File 객체를 생성(껍데기 파일)
-	
+
 		return saveName;
 	}
+
 	@RequestMapping(value = "/deleteReview", method = RequestMethod.GET)
 	public String deleteReview(int num) {
 		reviewService.deleteReview(num);
@@ -133,29 +134,32 @@ public class ReviewController {
 
 	@RequestMapping(value = "/editReview", method = RequestMethod.POST)
 	public String editReview(ReviewVO vo, MultipartFile mfile, String img) {
-	
+
 		String file = saveFile(mfile, img);
 		vo.setImg(file);
 		reviewDao.updateReview(vo);
 		return "redirect:goReviewMain";
 	}
-	@RequestMapping(value = "/insertRepl", method = {RequestMethod.POST,RequestMethod.GET})
-	public String insertRepl(ReplVO v, ReviewVO vo,HttpSession session,RedirectAttributes redirect) {
-		v.setId((String)session.getAttribute("id"));
+
+	@RequestMapping(value = "/insertRepl", method = { RequestMethod.POST, RequestMethod.GET })
+	public String insertRepl(ReplVO v, ReviewVO vo, HttpSession session, RedirectAttributes redirect) {
+		v.setId((String) session.getAttribute("id"));
 		v.setRnum(vo.getNum());
 		reviewDao.addRepl(v);
-		List<ReplVO> list =reviewDao.getReplList(vo);
+		List<ReplVO> list = reviewDao.getReplList(vo);
 		redirect.addAttribute("num", vo.getNum());
 		return "redirect:/goReviewDetail";
 	}
-	@RequestMapping(value = "/deleteRepl", method = {RequestMethod.POST,RequestMethod.GET})
-	public String deleteRepl(ReviewVO vo,HttpSession session,RedirectAttributes redirect,int rpnum) {
+
+	@RequestMapping(value = "/deleteRepl", method = { RequestMethod.POST, RequestMethod.GET })
+	public String deleteRepl(ReviewVO vo, HttpSession session, RedirectAttributes redirect, int rpnum) {
 		reviewDao.deleteRepl(rpnum);
 		redirect.addAttribute("num", vo.getNum());
 		return "redirect:/goReviewDetail";
 	}
-	@RequestMapping(value = "/updateRepl", method = {RequestMethod.POST,RequestMethod.GET})
-	public String updateRepl(ReviewVO vo,HttpSession session,RedirectAttributes redirect,int rpnum,String rpcon) {
+
+	@RequestMapping(value = "/updateRepl", method = { RequestMethod.POST, RequestMethod.GET })
+	public String updateRepl(ReviewVO vo, HttpSession session, RedirectAttributes redirect, int rpnum, String rpcon) {
 		System.out.println("왔다");
 		System.out.println(rpnum);
 		ReplVO v = new ReplVO();

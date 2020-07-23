@@ -385,12 +385,12 @@ insert into food values(food_seq.nextVal,12,'고추만두국집', 'chungcheongdofood5.
 insert into food values(food_seq.nextVal,12,'해당화 굴구이', 'chungcheongdofood6.PNG', '충남 보령시 천북면 장은리 1070','041-641-9333','굴 철이 되면 꼭 가봐야 하는 곳');
 
 CREATE TABLE hotel_reserve(
-num NUMBER, --예약 갯수 파악용
+num NUMBER, --호텔번호
 id VARCHAR2(34),
 name VARCHAR2(34),
 phone VARCHAR2(34),
 honame varchar2(100), --호텔이름
-hrnum VARCHAR2(34), --예약번호 사용자가 설정
+hrnum number, --시퀀스
 roomtype VARCHAR2(34), --방 종류
 checkin VARCHAR2(34), --체크인 날짜
 checkout VARCHAR2(34), --체크아웃 날짜
