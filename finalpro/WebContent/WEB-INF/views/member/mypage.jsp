@@ -160,7 +160,7 @@ $(document).ready(
 						<span>회원정보수정</span>
 					</button>
 					<button type="button"
-						onclick="location.href='changepwd'"
+						onclick="location.href='gopwd'"
 						class="login100-form-btn"
 						style="color: black; display: inline-block; background-color: yellow;"
 						value="비밀번호 변경하기">
