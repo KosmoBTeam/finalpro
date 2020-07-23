@@ -11,8 +11,14 @@
 			document.getElementById("repl").submit;
 		};
 		function deleteRepl(repl) {
-			document.getElementById("repl").action = "deleteRepl?rpnum="+repl;
-			document.getElementById("repl").submit;
+			var con=confirm('댓글을 삭제하시겠습니까?');
+			if(con){
+				alert('댓글이 삭제되었습니다.')
+				document.getElementById("repl").action = "deleteRepl?rpnum="+repl;
+				document.getElementById("repl").submit();
+				}else{
+					document.getElementById("repl").action = ""
+					}
 		};
 		var a = 0;
 		function updateRepl(num,content) {
@@ -24,7 +30,7 @@
 				document.getElementById("repl").action = "updateRepl?rpnum="+num+"&rpcon="+document.getElementById("uptx").value;
 				document.getElementById("upbut").type="submit";
 				
-				document.getElementById("repl").submit;	
+				document.getElementById("repl").submit();	
 			}
 		};
 	</script>
@@ -45,9 +51,15 @@
 				data-stellar-background-ratio="0.3"> <span
 				style="font-size: 70px;">${vo.title }</span>
 			<h2>
-				여행자 : ${vo.id} <c:if test="${vo.id eq sessionScope['id']}"><button
-						class="btn button button-small"><label for="sujung">수정</label></button><button
-						class="btn button button-small"><label for="sakje">삭제</label></button></c:if>
+				여행자 : ${vo.id}
+				<c:if test="${vo.id eq sessionScope['id']}">
+					<button class="btn button button-small">
+						<label for="sujung">수정</label>
+					</button>
+					<button class="btn button button-small">
+						<label for="sakje">삭제</label>
+					</button>
+				</c:if>
 			</h2>
 			<ul class="entry-meta clearfix"
 				style="text-align: center; display: inline-block; font-size: 30px;">
@@ -107,11 +119,11 @@
 									<c:if test="${e.id eq sessionScope['id']}">
 										<td style="width: 0%; text-align: center;"><button
 												onclick="deleteRepl(${e.num })"
-												class="btn button button-small">삭제</button></td>
-										<td style="width: 0%; text-align: left ;"><button
+												class="btn button button-small" type="button">삭제</button></td>
+										<td style="width: 0%; text-align: left;"><button
 												id="upbut" type="button"
 												onclick="updateRepl(${e.num},'${e.content}')"
-												class="btn button button-small" >수정</button></td>
+												class="btn button button-small">수정</button></td>
 									</c:if>
 								</tr>
 							</c:forEach>
