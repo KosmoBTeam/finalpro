@@ -172,17 +172,16 @@
 						</ul></li>
 					<c:choose>
 						<c:when test="${sessionScope['email'] == null}">
-							<li><a href="#"><div>로그인</div></a>
+							<li><a href="#"><div>로그인 및 회원가입</div></a>
 								<ul>
 									<li><a href="goMember"><div>회원가입</div></a></li>
 									<li><a href="goLogin"><div>로그인</div></a></li>
 								</ul></li>
 						</c:when>
 						<c:when test="${sessionScope['email'] != null}">
-							<li><a href="#"><div>마이페이지</div></a>
+							<li><a href="#"><div>${sessionScope['name']}님</div></a>
 								<ul>
-									<li><a href="goMypage?id=${sessionScope['id']}"><div>${sessionScope['name']}님의
-												정보</div></a></li>
+									<li><a href="goMypage?id=${sessionScope['id']}"><div>마이페이지</div></a></li>
 									<li><a href="logout"><div>로그아웃</div></a></li>
 								</ul></li>
 						</c:when>

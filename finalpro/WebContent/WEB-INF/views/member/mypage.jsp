@@ -153,20 +153,17 @@ $(document).ready(
 						placeholder="Email" value="${sessionScope['email']}"
 						required="required" style="width: 300px;">
 				</div>
-
-				<div class="clearfix"
-					style="text-align: -webkit-center; width: 300px; position: absolute; top: 600px; left: 15%;">
+				<div class="row" style="padding-top: 20px; display: flow-root;">
 					<button type="submit" class="login100-form-btn"
-						style="color: black;">
+						style="color: black; background-color: yellow; display: inline-block;"
+						value="회원정보수정">
 						<span>회원정보수정</span>
 					</button>
-
-				</div>
-				<div class="clearfix"
-					style="text-align: -webkit-center; width: 300px; position: absolute; top: 600px; left: 40%;">
 					<button type="button"
 						onclick="location.href='deleteMember?id=${sessionScope['id']}'"
-						class="login100-form-btn" style="color: black;">
+						class="login100-form-btn"
+						style="color: black; display: inline-block; background-color: yellow;"
+						value="탈퇴하기">
 						<span>탈퇴하기</span>
 					</button>
 				</div>
@@ -312,28 +309,32 @@ $(document).ready(
 							</div>
 						</div>
 					</div>
-					<div class="row" style="padding-top: 20px;">
+					<div class="row" style="padding-top: 20px; display: flow-root;">
 						<button type="button"
 							onclick="location.href='goHotelSuccess?hrnum=${e.hrnum}&id=${sessionScope['id']}'"
 							class="login100-form-btn"
-							style="color: black; display: inline-block;" value="상세페이지">
+							style="color: black; background-color: yellow; display: inline-block;"
+							value="상세페이지">
 							<span>상세페이지</span>
 						</button>
 						<button type="button"
 							onclick="location.href='goReviewWrite?honame=${e.honame}'"
 							class="login100-form-btn"
-							style="color: black; display: inline-block;" value="호텔리뷰작성하기">
+							style="color: black; display: inline-block; background-color: yellow;"
+							value="호텔리뷰작성하기">
 							<span>호텔리뷰작성</span>
 						</button>
 						<button type="button"
 							onclick="location.href='deleteReserve?id=${sessionScope['id']}&hrnum=${e.hrnum }'"
 							class="login100-form-btn"
-							style="color: black; display: inline-block;" value="취소하기">
+							style="color: black; display: inline-block; background-color: yellow;"
+							value="취소하기">
 							<span>취소하기</span>
 						</button>
 					</div>
 
-					<div class="line" style="margin-top: auto;"></div>
+					<div class="line"
+						style="margin-top: auto; border-top-color: white;"></div>
 				</c:forEach>
 
 			</div>

@@ -16,12 +16,13 @@
 		<!-- Page Title
         ============================================= -->
 		<section id="page-title" class="page-title-parallax page-title-dark"
-			style="background-image: url('resources/images/logo.png'); padding: 120px 0;"
+			style="background-image: url('resources/images/main/tripper.jpg'); padding: 120px 0;"
 			data-stellar-background-ratio="0.3">
 
-			<div class="container clearfix">
-				<h1>리뷰게시판</h1>
-				<span>Starter들의 여행 후기게시판입니다.</span>
+			<div class="container clearfix" style="text-align: center;">
+				<span
+					style="font-size: 100px !important; font-weight: bold;">리 뷰 게 시 판</span>
+				<span style="font-size: 50px !important;">Starter들의 여행 후기게시판입니다.</span>
 				<ol class="breadcrumb">
 					<li><a href="main">Home</a></li>
 					<li class="active">후기게시판</li>
@@ -55,8 +56,9 @@
 										type="hidden" value="${e.honame }" name="honame"> <input
 										type="hidden" value="${e.num}" name="num">
 									<div class="entry clearfix">
-										<div class="entry-image">
-											<a href="#"> <img src="resources/images/${e.img}" alt="">
+										<div class="entry-image" style="width: 300px; height: 250px;">
+											<a href="#"> <img src="resources/images/${e.img}" alt=""
+												style="width: 300px; height: 250px;">
 											</a>
 										</div>
 										<div class="entry-c">
@@ -67,20 +69,24 @@
 												</h2>
 											</div>
 											<ul class="entry-meta clearfix">
-												<li><a href="#"><i class="icon-time"></i>${e.rdate}</a>/
-													<b>조회수 : ${e.hit }</b></li>
-												<li>호텔명 : ${e.honame }</li>
+												<li><a href="#"><i class="icon-calendar"></i>${e.rdate}</a></li>
+												<li><b><i class="icon-eye"></i>${e.hit }</b></li>
+												<li><b>${e.honame }</b></li>
 											</ul>
 											<div class="entry-content">
 												<p>${e.detail}</p>
+
 												<button type="submit" class="btn button button-small">더
 													읽어보기</button>
 												<c:if test="${e.id eq sessionScope['id']}">
 													<a href="deleteReview?num=${e.num }"
 														class="btn button button-small">삭제</a>
 												</c:if>
+
 											</div>
+
 										</div>
+
 									</div>
 								</form>
 							</c:forEach>
@@ -139,20 +145,20 @@
 					<div class="sidebar nobottommargin col_last clearfix">
 						<div class="sidebar-widgets-wrap">
 
-							<div class="widget clearfix">
+							<div class="widget clearfix" style="padding-top: 10px !important;">
 
 								<h4>조회수 TOP5 리뷰</h4>
 								<div id="post-list-footer">
 									<c:forEach varStatus="i" var="e" items="${review5List}">
-										<div class="spost clearfix">
+										<div class="spost clearfix" style="margin-top: 20px;">
 											<div class="entry-image">
-												<a href="deleteReview?num=${e.num }" class="nobg"><img
+												<a href="goReviewDetail?num=${e.num }&id=${sessionScope['id']}" class="nobg"><img
 													src="resources/images/${e.img}" alt=""></a>
 											</div>
 											<div class="entry-c">
 												<div class="entry-title">
 													<h4>
-														<a href="deleteReview?num=${e.num }">${e.title}</a>
+														<a href="goReviewDetail?num=${e.num }&id=${sessionScope['id']}">${e.title}</a>
 													</h4>
 													<p class="nobottommargin"></p>
 												</div>

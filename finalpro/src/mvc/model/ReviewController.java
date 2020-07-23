@@ -65,7 +65,6 @@ public class ReviewController {
 		vo = reviewDao.getReview(vo);
 		List<ReplVO> list = reviewDao.getReplList(vo);
 		model.addAttribute("repl", list);
-
 		model.addAttribute("vo", vo);
 		// System.out.println(vo.getNum());
 		reviewDao.pluscnt(vo.getNum());

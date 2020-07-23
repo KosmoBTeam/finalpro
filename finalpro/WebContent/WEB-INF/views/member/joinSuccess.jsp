@@ -77,8 +77,8 @@ h3 {
 						</div>
 
 						<button onclick="goLogin()" class="login100-form-btn"
-							style="color: black; margin-top: 50px; bottom: 10%; position: absolute; left: 35%;">
-							<span>로그인하러 가기</span> <i class="icon-angle-right"></i>
+							style="color: black; margin-top: 50px; bottom: 10%; position: absolute; left: 35%;background-color: yellow;">
+							로그인하러 가기
 						</button>
 					</div>
 

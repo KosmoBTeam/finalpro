@@ -244,7 +244,7 @@ h3 {
 
 				<div class="clearfix" style="text-align: center;">
 					<button type="submit" class="login100-form-btn"
-						style="position: absolute; color: black; bottom: 60px; left: 40%;"
+						style="position: absolute; color: black; bottom: 60px; left: 40%;background-color: yellow;"
 						value="회원 가입 완료!">
 						<span>회원 가입 완료!</span>
 					</button>
