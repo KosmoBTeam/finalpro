@@ -3,35 +3,38 @@
 PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-	<typeAliases>
+   <typeAliases>
 
-		<!-- 회원가입 알리아스 -->
-		<typeAlias type="mvc.vo.MemberVO" alias="member" />
-
-
-		<!-- 국내여행 알리아스 -->
-		<typeAlias type="mvc.vo.LocalVO" alias="local" />
-		<!-- 국내식당 알리아스 -->
-		<typeAlias type="mvc.vo.LocalFoodVO" alias="localfood" />
-		<!-- 국내호텔 알리아스 -->
-		<typeAlias type="mvc.vo.LocalHotelVO" alias="localhotel" />
-		<!-- 국내명소 알리아스 -->
-		<typeAlias type="mvc.vo.LocalActVO" alias="localact" />
+      <!-- 회원가입 알리아스 -->
+      <typeAlias type="mvc.vo.MemberVO" alias="member" />
 
 
-		<!-- 후기 알리아스 -->
-		<typeAlias type="mvc.vo.ReviewVO" alias="review" />
-		<typeAlias type="mvc.vo.ReplVO" alias="repl"/>
-		<!-- 페이지 처리용 vo 알리아스 -->
-		<typeAlias type="mvc.vo.PageVO" alias="paging" />
+      <!-- 국내여행 알리아스 -->
+      <typeAlias type="mvc.vo.LocalVO" alias="local" />
+      <!-- 국내식당 알리아스 -->
+      <typeAlias type="mvc.vo.LocalFoodVO" alias="localfood" />
+      <!-- 국내호텔 알리아스 -->
+      <typeAlias type="mvc.vo.LocalHotelVO" alias="localhotel" />
+      <typeAlias type="mvc.vo.HotelTotalVO" alias="htvo" />
+      <!-- 국내호텔 메인 사이드 리뷰 -->
+      <typeAlias type="mvc.vo.HotelReviewVO" alias="hrvo" />
+      <!-- 국내명소 알리아스 -->
+      <typeAlias type="mvc.vo.LocalActVO" alias="localact" />
 
-		<!-- 호텔마다의 방종류와 가격을 지정한 알리아스  -->
-		<typeAlias type="mvc.vo.HotelRadioVO" alias="hotelRadio" />
-		<!-- 호텔예약 알리아스 -->
-		<typeAlias type="mvc.vo.HotelReserve2VO" alias="hotel2" />
-		<!-- 설문조사용 알리아스 -->
-		<typeAlias type="mvc.vo.SurveyViewVO" alias="surveyview" />
 
+      <!-- 후기 알리아스 -->
+      <typeAlias type="mvc.vo.ReviewVO" alias="review" />
+      <typeAlias type="mvc.vo.ReplVO" alias="repl"/>
+      <!-- 페이지 처리용 vo 알리아스 -->
+      <typeAlias type="mvc.vo.PageVO" alias="paging" />
 
-	</typeAliases>
+      <!-- 호텔마다의 방종류와 가격을 지정한 알리아스  -->
+      <typeAlias type="mvc.vo.HotelRadioVO" alias="hotelRadio" />
+      
+      <!-- 호텔예약 알리아스 -->
+      <typeAlias type="mvc.vo.HotelReserve2VO" alias="hotel2" />
+      <!-- 설문조사용 알리아스 -->
+      <typeAlias type="mvc.vo.SurveyViewVO" alias="surveyview" />      
+
+   </typeAliases>
 </configuration>

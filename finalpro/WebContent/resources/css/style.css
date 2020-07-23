@@ -7446,6 +7446,15 @@ body:not(.device-touch) .clients-grid li a {
 .testi-content p:before,
 .testi-content p:after { content: '"'; }
 
+.testi-content1 p {
+    margin-bottom: 0;
+    font-style: normal;
+	font-size:15px;
+	color:#333;}
+
+.testi-content1 p:before,
+.testi-content1 p:after 
+
 .testi-meta {
     margin-top: 10px;
     font-size: 16px;
@@ -8128,12 +8137,12 @@ body:not(.device-touch) .rounded-skill {
 
 .owl-theme:hover .owl-controls .owl-nav [class*=owl-] {
     opacity: 1;
-    left: -18px;
+    left: 0px;
 }
 
 .owl-theme:hover .owl-controls .owl-nav .owl-next {
     left: auto;
-    right: -18px;
+    right: 30px;
 }
 
 .owl-theme .owl-controls .owl-nav [class*=owl-]:hover {
@@ -8167,6 +8176,7 @@ body:not(.device-touch) .rounded-skill {
     -o-transition: all .3s ease;
     transition: all .3s ease;
 }
+
 
 .owl-theme .owl-dots .owl-dot.active span,
 .owl-theme .owl-dots .owl-dot:hover span { opacity: 1; }

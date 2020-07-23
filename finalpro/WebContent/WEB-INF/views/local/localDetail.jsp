@@ -59,10 +59,10 @@
 												</div>
 												<br>
 												<br>
-												<br>
-												<div class="testi-content">
+												
+												<div class="testi-content1" >
 													<p>${e.address }</p>
-													<div class="testi-meta">${e.title }</div>
+													<div class="testi-meta" style="font-weight: bolder; font-size: 25px; ">${e.title }</div>
 												</div>
 											</div>
 										</div>
@@ -74,7 +74,7 @@
 										var ocTesti = $("#oc-testi");
 										ocTesti.owlCarousel({
 											margin : 20,
-											/* nav : true, */
+											nav : true,
 											dots : true,
 											responsive : {
 												0 : {
@@ -121,10 +121,10 @@
 												</div>
 												<br>
 												<br>
-												<br>
-												<div class="testi-content">
+												
+												<div class="testi-content1">
 													<p>${e.address }</p>
-													<div class="testi-meta">${e.title }</div><!--  -->
+													<div class="testi-meta" style="font-weight: bolder; font-size: 25px; ">${e.title }</div><!--  -->
 												</div>
 											</div>
 										</div>
@@ -136,7 +136,7 @@
 										var ocTesti = $("#oc-testi1");
 										ocTesti.owlCarousel({
 											margin : 20,
-											/* nav : true, */
+											nav : true,
 											dots : true,
 											responsive : {
 												0 : {
@@ -184,10 +184,10 @@
 												</div>
 												<br>
 												<br>
-												<br>
-												<div class="testi-content">
-													<p>${e.address }</p>
-													<div class="testi-meta">${e.title }</div>
+												
+												<div class="testi-content1">
+													<p> ${e.address }</p>
+													<div class="testi-meta" style="font-weight: bolder; font-size: 25px; ">${e.title }</div>
 												</div>
 											</div>
 										</div>
@@ -199,7 +199,7 @@
 										var ocTesti = $("#oc-testi2");
 										ocTesti.owlCarousel({
 											margin : 20,
-											/* nav : true, */
+											nav : true,
 											dots : true,
 											responsive : {
 												0 : {

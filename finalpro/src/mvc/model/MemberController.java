@@ -46,6 +46,12 @@ public class MemberController {
 	public String joinMember() {
 		return "member/member";
 	}
+	
+	@RequestMapping(value = "/goPay")
+	public String goPay() {
+		return "final/pay";
+	}
+	
 
 	@RequestMapping(value = "/goLogin", method = { RequestMethod.GET, RequestMethod.POST })
 	public String goLogin(Model model, HttpSession session, HttpServletRequest request) {

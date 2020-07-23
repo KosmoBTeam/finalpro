@@ -272,7 +272,6 @@ $(document).ready(
 							style="color: black;">
 							<span>호텔리뷰작성하기</span> <i class="icon-angle-right"></i>
 						</button>
-
 					</div>
 				</div>
 			</div>
@@ -290,7 +289,7 @@ $(document).ready(
 
 </div>
 <!-- Contact Form Overlay End -->
-
+<script type="text/javascript" src="https://service.iamport.kr/js/iamport.payment-1.1.2.js"></script>
 <script type="text/javascript">
 jQuery(document).ready(function($) {
 
