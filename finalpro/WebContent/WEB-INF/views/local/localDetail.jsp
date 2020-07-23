@@ -4,7 +4,7 @@
 <html dir="ltr" lang="ko">
 <%@ include file="../header.jsp"%>
 <body class="stretched">
-
+	<!-- <link rel="stylesheet" type="text/css" href="resources/css/style.css?after" /> -->
 	<!-- Document Wrapper
     ============================================= -->
 	<div id="wrapper" class="clearfix">
@@ -26,15 +26,210 @@
 				<div class="container clearfix">
 					<!-- Portfolio Filter
                     ============================================= -->
+
+					<!-- #portfolio-filter end -->
+
+
+					<!-- 시작  -->
+
+
+					<div class="section1 noborder nobottommargin bgcolor-grey-light">
+						<div class="container clearfix">
+							<div class="heading-block center nobottommargin">
+								<h3 class="color" data-animate="fadeInDown"
+									style="background-color: #F9F9F9;" >식당</h3>
+								<span data-animate="fadeInUp">스타트립이 추천하는 ${name } 맛집</span>
+							</div>
+						</div>
+					</div>
+
+					<div
+						class="section1 parallax notopmargin nobottommargin notopborder"
+						style="background-image: url(&amp;quot;resources/images/main/main5.jpg&amp;quot;); padding: 50px 0;"
+						data-stellar-background-ratio="0.3">
+						<div class="container clearfix">
+							<div class="row">
+								<div id="oc-testi" class="owl-carousel testimonials-carousel">
+									<c:forEach var="e" items="${listfood }">
+										<div class="oc-item pf-food">
+											<div class="testimonial">
+												<div class="testi-image1">
+													<a><img src="resources/images/local/detail/${e.img}"
+														alt="" style="width: 330px; height: 200px;"></a>
+												</div>
+												<br>
+												<br>
+												
+												<div class="testi-content1" >
+													<p>${e.address }</p>
+													<div class="testi-meta" style="font-weight: bolder; font-size: 25px; ">${e.title }</div>
+												</div>
+											</div>
+										</div>
+									</c:forEach>
+								</div>
+
+								<script type="text/javascript">
+									jQuery(document).ready(function($) {
+										var ocTesti = $("#oc-testi");
+										ocTesti.owlCarousel({
+											margin : 20,
+											nav : true,
+											dots : true,
+											responsive : {
+												0 : {
+													items : 1
+												},
+												768 : {
+													items : 2
+												},
+												992 : {
+													items : 3
+												}
+											}
+										});
+									});
+								</script>
+							</div>
+						</div>
+					</div>
+
+
+					<div class="section1 noborder nobottommargin bgcolor-grey-light">
+						<div class="container clearfix">
+							<div class="heading-block center nobottommargin">
+								<h3 class="color" data-animate="fadeInDown"
+									style="background-color: #F9F9F9;">호텔</h3>
+								<span data-animate="fadeInUp">스타트립이 추천하는 ${name } 호텔</span>
+							</div>
+						</div>
+					</div>
+
+					<div
+						class="section1 parallax notopmargin nobottommargin notopborder"
+						style="background-image: url(&amp;quot;resources/images/main/main5.jpg&amp;quot;); padding: 50px 0;"
+						data-stellar-background-ratio="0.3">
+						<div class="container clearfix">
+							<div class="row">
+								<div id="oc-testi1" class="owl-carousel testimonials-carousel">
+									<c:forEach var="e" items="${listhotel }">
+										<div class="oc-item pf-hotel">
+											<div class="testimonial">
+												<div class="testi-image1">
+													<a><img src="resources/images/local/detail/${e.img}"
+														alt="" style="width: 330px; height: 200px;"></a>
+												</div>
+												<br>
+												<br>
+												
+												<div class="testi-content1">
+													<p>${e.address }</p>
+													<div class="testi-meta" style="font-weight: bolder; font-size: 25px; ">${e.title }</div><!--  -->
+												</div>
+											</div>
+										</div>
+									</c:forEach>
+								</div>
+
+								<script type="text/javascript">
+									jQuery(document).ready(function($) {
+										var ocTesti = $("#oc-testi1");
+										ocTesti.owlCarousel({
+											margin : 20,
+											nav : true,
+											dots : true,
+											responsive : {
+												0 : {
+													items : 1
+												},
+												768 : {
+													items : 2
+												},
+												992 : {
+													items : 3
+												}
+											}
+										});
+									});
+								</script>
+							</div>
+						</div>
+					</div>
+
+
+
+					<div class="section1 noborder nobottommargin bgcolor-grey-light">
+						<div class="container clearfix">
+							<div class="heading-block center nobottommargin">
+								<h3 class="color" data-animate="fadeInDown"
+									style="background-color: #F9F9F9;">액티비티</h3>
+								<span data-animate="fadeInUp">스타트립이 추천하는 ${name } 액티비티</span>
+							</div>
+						</div>
+					</div>
+
+					<div
+						class="section1 parallax notopmargin nobottommargin notopborder"
+						style="background-image: url(&amp;quot;resources/images/main/main5.jpg&amp;quot;); padding: 50px 0;"
+						data-stellar-background-ratio="0.3">
+						<div class="container clearfix">
+							<div class="row">
+								<div id="oc-testi2" class="owl-carousel testimonials-carousel">
+									<c:forEach var="e" items="${listact }">
+										<div class="oc-item pf-act">
+											<div class="testimonial">
+												<div class="testi-image1">
+													<a><img src="resources/images/local/detail/${e.img}"
+														alt="" style="width: 330px; height: 200px;"></a>
+												</div>
+												<br>
+												<br>
+												
+												<div class="testi-content1">
+													<p> ${e.address }</p>
+													<div class="testi-meta" style="font-weight: bolder; font-size: 25px; ">${e.title }</div>
+												</div>
+											</div>
+										</div>
+									</c:forEach>
+								</div>
+
+								<script type="text/javascript">
+									jQuery(document).ready(function($) {
+										var ocTesti = $("#oc-testi2");
+										ocTesti.owlCarousel({
+											margin : 20,
+											nav : true,
+											dots : true,
+											responsive : {
+												0 : {
+													items : 1
+												},
+												768 : {
+													items : 2
+												},
+												992 : {
+													items : 3
+												}
+											}
+										});
+									});
+								</script>
+							</div>
+						</div>
+					</div>
+
+					<!-- 끝  -->
 					<ul id="portfolio-filter" class="clearfix">
 						<li class="activeFilter"><a href="#" data-filter="*">All</a></li>
 						<li><a href="#" data-filter=".pf-food">식당</a></li>
 						<li><a href="#" data-filter=".pf-hotel">호텔</a></li>
 						<li><a href="#" data-filter=".pf-act">여행지</a></li>
 					</ul>
-					<!-- #portfolio-filter end -->
-
-					<div class="clear"></div>
+					<br>
+					<br>
+					<br>
+					<br>
 
 					<!-- Portfolio Items
                     ============================================= -->
@@ -70,18 +265,18 @@
 
 
 
-						<c:forEach var="f" items="${listhotel }">
+						<c:forEach var="e" items="${listhotel }">
 
 							<article class="portfolio-item pf-classes pf-hotel alt clearfix">
 								<form action="goHotelReserve" method="post">
-									<input type="hidden" value="${f.title}" name="title"> <input
-										type="hidden" value="${f.num}" name="num">
+									<input type="hidden" value="${e.title}" name="title"> <input
+										type="hidden" value="${e.num}" name="num">
 									<div class="portfolio-image">
 										<div class="fslider" data-arrows="false">
 											<div class="flexslider">
 												<div class="slider-wrap">
 													<div class="slide">
-														<img src="resources/images/local/detail/${f.img }" alt="">
+														<img src="resources/images/local/detail/${e.img }" alt="">
 													</div>
 												</div>
 											</div>
@@ -89,20 +284,15 @@
 									</div>
 
 									<div class="portfolio-desc">
-										<h3>${f.title }</h3>
+										<h3>${e.title }</h3>
 										<span>${f.address }</span>
-										<p>${f.tel }<br>${f.detail }
+										<p>${e.tel }<br>${e.detail }
 										</p>
+										<br> <br> <br> <br> <br> <br> <br>
 										<br>
-										<br>
-										<br>
-										<br>
-										<br>
-										<br>
-										<br>
-										<br> <button type="submit"
-											class="btn button button-light noleftmargin">예약하러 가기</button> <a
-											href="goHotelDetail?num=${f.num}"
+										<button type="submit"
+											class="btn button button-light noleftmargin">예약하러 가기</button>
+										<a href="goHotelDetail?num=${e.num}"
 											class="btn button button-light noleftmargin">상세페이지</a>
 									</div>
 								</form>
@@ -117,7 +307,7 @@
 
 
 
-						<c:forEach var="g" items="${listact }">
+						<c:forEach var="e" items="${listact }">
 
 							<article class="portfolio-item pf-classes pf-act alt clearfix">
 
@@ -126,7 +316,7 @@
 										<div class="flexslider">
 											<div class="slider-wrap">
 												<div class="slide">
-													<img src="resources/images/local/detail/${g.img }" alt="">
+													<img src="resources/images/local/detail/${e.img }" alt="">
 												</div>
 											</div>
 										</div>
@@ -134,9 +324,9 @@
 								</div>
 
 								<div class="portfolio-desc">
-									<h3>${g.title }</h3>
-									<span>${g.address }</a></span>
-									<p>${g.tel }<br>${g.detail }
+									<h3>${e.title }</h3>
+									<span>${e.address }</a></span>
+									<p>${e.tel }<br>${e.detail }
 									</p>
 								</div>
 								<!-- Portfolio Single - Share

@@ -6,6 +6,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import mvc.vo.HotelReviewVO;
+import mvc.vo.HotelTotalVO;
 import mvc.vo.LocalActVO;
 import mvc.vo.LocalFoodVO;
 import mvc.vo.LocalVO;
@@ -56,5 +58,15 @@ public class LocalDao {
 		// TODO Auto-generated method stub
 		return ss.selectOne("lvo.getLocnum", loc);
 	}
+	   // 국내호텔 메인 UI 바뀐것.
+	   public List<HotelTotalVO> localtotalList() {
+	      return ss.selectList("lvo.reslist4");
 
+	   }
+	   
+	   // 국내호텔 메인 사이드 바 리뷰 순 정렬.
+	   public List<HotelReviewVO> localreviewList() {
+	      return ss.selectList("lvo.reslist5");
+
+	   }
 }
