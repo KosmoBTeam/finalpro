@@ -56,4 +56,10 @@ public void deleteAllMyRepl(String id) {
 	ss.delete("mvo.deleteRepl", id);
 	
 }
+public void changePwd(MemberVO vo) {
+	 ss.update("mvo.changePwd", vo);
+}
+public int checkPwd(MemberVO vo) {
+	return ss.selectOne("mvo.chkPwd", vo);
+}
 }

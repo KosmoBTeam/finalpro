@@ -91,10 +91,9 @@ h3 {
 					</div>
 
 					<div class="container-login100-form-btn">
+<<<<<<< HEAD
 						<button class="login100-form-btn" type="submit" style="background-color: yellow;color: black;">로그인</button>
-						<button class="login100-form-btn" type="button" value="회원가입" style="background-color: yellow; color: black;"
-							onclick="location.href='goMember'">회원가입</button>
-						<!-- 	onclick="location.href='MemberAddForm2.jsp'"></button> -->
+						<button class="login100-form-btn" type="button" value="회원가입" style="background-color: yellow; color: black;" onclick="location.href='goMember'">회원가입</button>
 					</div>
 					<input type="hidden" value="${next }" name="next">
 					<%-- <div id="naver_id_login" style="text-align:center;margin-top: 20px;"><a href="${url}"><img width="223" src="resources/images/naver.PNG"/></a></div> --%>

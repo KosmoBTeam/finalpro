@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import mvc.dao.MemberDao;
+import mvc.vo.MemberVO;
 
 @RestController
 public class MemberRestController {
@@ -29,6 +30,12 @@ public class MemberRestController {
 		if(!matcher.matches()) {
 			cnt=-1;
 		}
+		return cnt;
+	}
+	@RequestMapping(value = "/checkPwd")
+	public int checkPwd(MemberVO vo,String nowpwd) {
+		int cnt = memberDao.checkPwd(vo);
+		System.out.println(cnt);
 		return cnt;
 	}
 }

@@ -32,7 +32,7 @@
 
             <div class="container clearfix">
                 <h1>호텔이름</h1>
-                <span></span>
+                <span>호텔 예약 </span>
             </div>
 
         </section><!-- #page-title end -->
