@@ -51,6 +51,8 @@
 
                     <!-- Contact Form
                     ============================================= -->
+                    
+                    
                     <!-- 예약 정보 출력 -->
                     <form class="form-horizontal"  style="margin: 0 auto;" action="goHotelSuccess" method="get">   
                     <c:forEach items="${list}" var="list">        
@@ -58,6 +60,7 @@
                   <div class="section nobg notopmargin noborder nobottommargin">
                         <div >
                             <img src="resources/images/hotel/${list.img}" alt="" data-animate="fadeInUp">  
+                            <div class="divider"><i class="icon-circle"></i></div>
                             <input type="hidden" value="${list.num }" name="num">                      
                         </div>
                        <table class="table table-hover" style="font-size: 20px ">
@@ -111,10 +114,93 @@
     
 
   </table>
+  <div class="divider"><i class="icon-circle"></i></div>
   <!-- 지도 start -->
-  
+  <div id="map" style="width: 760px; height: 400px;"></div>
+ 
+    <script type="text/javascript"
+        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4ebe4b5dd8c56619a4b9036bc01619aa&libraries=services"></script>
+    <script>
+        var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+        mapOption = {
+            center : new daum.maps.LatLng(33.247418, 126.408039), // 지도의 중심좌표
+            level : 5
+        // 지도의 확대 레벨
+        };
+ 
+        // 지도를 생성합니다    
+        var map = new daum.maps.Map(mapContainer, mapOption);
+ 
+        // 주소-좌표 변환 객체를 생성합니다
+        var geocoder = new daum.maps.services.Geocoder();
+ 
+        var myAddress = [
+                "제주 서귀포시 중문관광로72번길 75", "제주 서귀포시 중문관광로72번길 35 롯데호텔 제주", "제주 서귀포시 색달로 18" ];
+ 
+        function myMarker(address) {
+            // 주소로 좌표를 검색합니다
+            geocoder
+                    .addressSearch(
+                            //'주소',
+                            address,
+                            function(result, status) {
+                                // 정상적으로 검색이 완료됐으면 
+                                if (status === daum.maps.services.Status.OK) {
+ 
+                                    var coords = new daum.maps.LatLng(
+                                            result[0].y, result[0].x);
+ 
+                                    // 결과값으로 받은 위치를 마커로 표시합니다
+                                   
+                                    var marker = new daum.maps.Marker({
+                                        map : map,
+                                        position : coords
+                                    });
+                                     
+ 
+                                    // 인포윈도우로 장소에 대한 설명을 표시합니다
+                                   
+                                   // var infowindow = new daum.maps.InfoWindow(
+                                           // {
+                                                // content : '<div style="width:50px;text-align:center;padding:3px 0;">I</div>'
+                                               // content : '<div style="color:red;">' + number + '</div>'
+                                           // });
+                                    //infowindow.open(map, marker);
+                                       
+ 
+                                    // 커스텀 오버레이에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+                                   //var content = '<div class="customoverlay">'
+                                            //+ '    <span class="title">'
+                                            //+ '<div style="font-style:normal; color:red; font-weight:bold; font-size:2.0em">'
+                                            //+ number + '</div>' + '</span>'
+                                            //+ '</div>';
+ 
+                                    // 커스텀 오버레이가 표시될 위치입니다 
+                                    var position = new daum.maps.LatLng(
+                                            result[0].y, result[0].x);
+ 
+                                    // 커스텀 오버레이를 생성합니다
+                                    var customOverlay = new daum.maps.CustomOverlay(
+                                            {
+                                                map : map,
+                                                position : position,
+                                                content : content,
+                                                yAnchor : 1
+                                            });
+ 
+                                    // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+                                    map.setCenter(coords);
+                                }
+                            });
+        }
+ 
+        for (i = 0; i < myAddress.length; i++) {
+            myMarker(myAddress[i]);
+        }
+    </script>
   
   <!-- 지도 end -->
+  <div class="divider"><i class="icon-circle"></i></div>
   <div>
       <div style="width: 50%;float: left; margin: 0 auto;">
       <button type="button"
