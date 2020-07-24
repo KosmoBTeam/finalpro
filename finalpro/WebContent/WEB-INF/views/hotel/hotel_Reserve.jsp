@@ -17,7 +17,10 @@
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
  
 <body class="stretched">
 
@@ -33,7 +36,11 @@
 
             <div class="container clearfix">
                 <h1>호텔이름</h1>
+<<<<<<< HEAD
                 <span>제주도 어디 호첼</span>
+=======
+                <span>호텔 예약 </span>
+>>>>>>> master
             </div>
 
         </section><!-- #page-title end -->
@@ -195,6 +202,7 @@
                 </script>            
                        
                         <!-- 예약 내용 끝 -->
+<<<<<<< HEAD
 							<!-- 호텔 사진 -->
                         <div class="divider"><i class="icon-circle"></i></div>
                      <div
@@ -287,6 +295,9 @@
 
 								</div>
 							
+=======
+
+>>>>>>> master
                             <div class="divider"><i class="icon-circle"></i></div>
 
                             <h3 id="faq-1">What are the hours of operation?</h3>

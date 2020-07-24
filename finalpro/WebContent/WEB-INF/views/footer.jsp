@@ -1,11 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-        <!-- Footer
+	pageEncoding="EUC-KR"%>
+<!-- Footer
         ============================================= -->
-        <footer id="footer" class="footer">       
-            <div class="container">
-            </div>        
-            <!-- Copyrights
+<footer id="footer" class="footer">
+	<!-- Copyrights
             ============================================= -->
             <div id="copyrights">
                 <div class="container clearfix">
@@ -56,3 +54,20 @@
                 </div>
             </div><!-- #copyrights end -->
         </footer><!-- #footer end -->
+<!-- #footer end -->
+<div id="frogue-container" class="position-right-bottom"
+	data-chatbot="698092cb-fedc-4ea7-89fb-015441308c39"
+	data-user="woqls0507@netian.com" data-init-key="value"></div>
+<script>
+	(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) {
+			return;
+		}
+		js = d.createElement(s);
+		js.id = id;
+		js.src = "https:\/\/danbee.ai/js/plugins/frogue-embed/frogue-embed.min.js";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'frogue-embed'));
+</script>
+

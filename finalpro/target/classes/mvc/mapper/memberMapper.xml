@@ -44,4 +44,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<delete id="deleteRepl" parameterType="String">
 	delete from repl_table where id=#{id}
 	</delete>
+	<update id="changePwd" parameterType="member">
+	update member_table set pwd=#{pwd} where id=#{id}
+	</update>
+	<select id="chkPwd" resultType="int">
+			select
+		count(*)
+		cnt from member_table where id=#{id} and pwd=#{pwd}
+	</select>
 </mapper>

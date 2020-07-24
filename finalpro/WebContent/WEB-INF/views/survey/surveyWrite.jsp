@@ -5,7 +5,7 @@
 
 <body class="stretched">
 	<script>
-
+		
 	</script>
 	<!-- Document Wrapper
 -->
@@ -63,7 +63,7 @@
 
 									<label class="radio-inline"> <input type="radio"
 										id="inlineRadio1" value="${v.subtype}"
-										name="subtype${i.count }">${v.surveytitle}
+										name="subtype${i.count}">${v.surveytitle}
 									</label>
 
 								</c:forEach>
@@ -77,9 +77,9 @@
 						</div>
 
 						<div class="col_full">
-							<button class="btn button nomargin" type="submit"
+							<button class="btn button nomargin" type="button"
 								id="template-contactform-submit"
-								name="template-contactform-submit" value="submit" onclick="submit()">결과 보기</button>
+								name="template-contactform-submit" value="submit">결과 보기</button>
 						</div>
 					</form>
 
@@ -116,6 +116,41 @@
 -->
 	<script type="text/javascript" src="resources/js/functions.js"></script>
 
+	<script>
+		$(function() {
+			$('#template-contactform-submit').click(
+					function() {
+								var flag = 0;
+								var radio_name = []; //array 
+								var radio = $("input[type=radio]");
+								var surveyForm = document
+										.getElementById("template-contactform");
+								$.each(radio, function(key, value) { // input radio의 name 값을 가져옵니다.
+									radio_name.push($(value).attr('name'));
+								});
+								radio_name = $.unique(radio_name.sort()).sort(); //중복요소 이름을 제거					
+<<<<<<< HEAD
+								for (var i = 0; i < radio_name.length; i++) {
+									var e = $('input:radio[name="'+ radio_name[i] + '"]').is(":checked")
+									if (e == false) {
+										flag = 1;
+										alert((i + 1) + '번째 설문문항 항목을 선택해주세요!');
+=======
+								ee:for (var i = 0; i < radio_name.length; i++) {
+									var e = $('input:radio[name="'+ radio_name[i] + '"]').is(":checked")
+									if (e == false) {
+										flag = 1;
+										alert((i + 1) + '번째 설문문항 항목을 선택해주세요!');
+										break ee;
+>>>>>>> branch 'master' of https://github.com/KosmoBTeam/finalpro
+									}
+								}
+								if (flag == 0) {
+									surveyForm.submit();
+								}
+							});
+		});
+	</script>
 </body>
 </html>
 <%@include file="../footer.jsp"%>

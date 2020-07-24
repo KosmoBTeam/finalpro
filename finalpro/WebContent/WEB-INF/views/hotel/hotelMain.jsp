@@ -29,12 +29,13 @@ pageEncoding="EUC-KR"%>
 
     <!-- Content
     ============================================= -->
+    
     <section id="content">
 
         <div class="content-wrap bgcolor-grey-light">
-
+      
             <div class="container clearfix">
-
+         
                 <!-- Portfolio Filter
                 ============================================= -->
                 <ul id="portfolio-filter" class="clearfix">
@@ -46,43 +47,108 @@ pageEncoding="EUC-KR"%>
                 </ul><!-- #portfolio-filter end -->
 
                 <div class="clear"></div>
+               <div class="sidebar nobottommargin col_last clearfix" style="width: 100px;">
+                  <div class="sidebar-widgets-wrap">
 
+                     <div class="widget clearfix">
+
+                        <h4 style="width: 167px;">리뷰 TOP 5</h4>
+                        <div id="post-list-footer">
+                           <c:forEach var="i" items="${reviewlist}">
+                              <div class="spost clearfix">
+                                 <div class="portfolio-image" style="width: 200px; height: 155px; right: 40px;">
+                                           <img src="resources/images/local/detail/${i.img}" alt="" style="width: auto; height: auto;">
+                                           <p style="height: 0px;">${i.title }</p>
+                                           <p>리뷰 : ${i.cnt }개</p>
+                                       </div>
+                                       
+                                 <div class="entry-c">
+                                    <div class="entry-title">
+                                       <h4>
+                                          <a href=""></a>
+                                       </h4>
+                                       <p class="nobottommargin"></p>
+                                    </div>
+                                 </div>
+                              </div>
+                           </c:forEach>
+                        </div>
+
+                     </div>
+                  </div>
+               </div>
                 <!-- Portfolio Items
                 ============================================= -->
                 <div id="portfolio" class="portfolio-1 clearfix">
                 <c:forEach var="e" items="${list}">
                 <c:choose>
                    <c:when test="${e.locnum eq '1'}">
-                  <article class="portfolio-item pf-jeju alt clearfix">
+                  <article class="portfolio-item pf-jeju alt clearfix" style="width: 79%;">
                 </c:when>
                    <c:when test="${e.locnum eq '2'}">
-                  <article class="portfolio-item pf-incheon alt clearfix">
+                  <article class="portfolio-item pf-incheon alt clearfix" style="width: 79%;">
                 </c:when>
                    </c:choose>
-                <form action="goHotelReserve" method="post">
+                   
+                <form  method="post" name="myform" id="myform">
                 <input type="hidden" value="${e.title}" name="title">
                 <input type="hidden" value="${e.num}" name="num">
-                        <div class="portfolio-image">
-                            <img src="resources/images/local/detail/${e.img}" alt="">
 
+                        <div class="portfolio-image" style="width: 240px; height: 100px;">
+                           <p style="font-weight: bold; font-size: 14px; color: red;">최저가 ${e.pay } ~</p>
+                            <input type="button" class="btn button button-light noleftmargin" value="객실 선택" onclick="location.href ='goHotelReserve?title=${e.title}&num=${e.num }'">
+                            <!-- <a href="goHotelDetail?num=${e.num}" class="btn button button-light noleftmargin">상세 보기</a> -->
+                            <input type="button" class="btn button button-light noleftmargin" value="상세 보기" onclick="click2()">                                                                                
+                            
                         </div>
-                        <div class="portfolio-desc">
+
+
+                        <div class="portfolio-desc" style="height: 100px;">
                             <h3>${e.title }</h3>
                             <p>${e.detail }</p>
-                            <button type="submit" class="btn button button-light noleftmargin">예약 하기</button>                                                                
-                            <a href="goHotelDetail?num=${e.num}" class="btn button button-light noleftmargin">상세 보기</a>
-                        </div>                          
+                     <p>리뷰 : ${e.cnt }개</p>
+                        </div>
+                        
+                        <div class="portfolio-image" style="width: 200px; height: auto; right: 40px;">
+                            <img src="resources/images/local/detail/${e.img}" alt="" style="width: auto; height: auto;">
+
+                        </div>
+                       
                     </form>
-                 </article>
+                    </article>
+                               
                     </c:forEach>
-                </div><!-- #portfolio end -->
+                    
+             
+                </div>
+            
+                
+                <!-- #portfolio end -->
 
                 <!-- Portfolio Script
                 ============================================= -->
                 <script type="text/javascript">
-					
-                    jQuery(window).load(function(){
+               
+                /* function click1(){
+                  
+                  var myform = document.getElementById("myform")
+                  myform.action = 'goHotelReserve'
+                  myform.submit();
 
+               } */
+            function click2(){
+                  
+                  var myform = document.getElementById("myform")
+                  myform.action = 'goHotelDetail?num='+${e.num}
+                  myform.submit()
+                  
+               }
+                
+                    jQuery(window).load(function(){
+                        
+                       
+                       
+                       
                         var $container = $('#portfolio');
 
                         $container.isotope({ transitionDuration: '0.65s' });
@@ -129,6 +195,7 @@ pageEncoding="EUC-KR"%>
 <!-- Footer Scripts
 ============================================= -->
 <script type="text/javascript" src="resources/js/functions.js"></script>
+
 </body>
 </html>
 <%@include file="../footer.jsp" %>

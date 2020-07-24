@@ -35,18 +35,22 @@
 	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="resources/css/util.css" />
 	<link rel="stylesheet" type="text/css" href="resources/css/main.css" />
-	<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.2.js" charset="utf-8"></script>
-  <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-  <style type="text/css">
-  html, div, body,h3{
-  	margin: 0;
-  	padding: 0;
-  }
-  h3{
-  	display: inline-block;
-  	padding: 0.6em;
-  }
-  </style>
+	<script type="text/javascript"
+		src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.2.js"
+		charset="utf-8"></script>
+	<script type="text/javascript"
+		src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<style type="text/css">
+html, div, body, h3 {
+	margin: 0;
+	padding: 0;
+}
+
+h3 {
+	display: inline-block;
+	padding: 0.6em;
+}
+</style>
 
 	<div class="limiter">
 		<div class="container-login100">
@@ -54,12 +58,13 @@
 				<div class="login100-form-title"
 					style="background-image: url(<c:url value='/resources/images/bg-01.jpg'/>);">
 					<!-- 					<span class="login100-form-title-1"></span> -->
-					<span class="login100-form-title-1">Hotel Delluna</span>
+					<span class="login100-form-title-1">S t a r T r i p!</span>
 				</div>
 
 				<%-- <form class="login100-form validate-form" action="<c:url value='/member/memLogin'/>" method="post" >  --%>
 				<form class="login100-form validate-form" action="login"
-					onsubmit="return beforeSubmit()" method="post">
+					onsubmit="return beforeSubmit()" method="post"
+					style="padding: 43px 88px 93px 190px;">
 					<div class="wrap-input100 validate-input m-b-26"
 						data-validate="ID를 입력해주세요">
 						<span class="label-input100">아이디</span> <input class="input100"
@@ -86,13 +91,11 @@
 					</div>
 
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn" type="submit">로그인</button>
-						<button class="login100-form-btn" type="button" value="회원가입"
-							onclick="location.href='goMember'">회원가입</button>
-						<!-- 	onclick="location.href='MemberAddForm2.jsp'"></button> -->
+						<button class="login100-form-btn" type="submit" style="background-color: yellow;color: black;">로그인</button>
+						<button class="login100-form-btn" type="button" value="회원가입" style="background-color: yellow; color: black;" onclick="location.href='goMember'">회원가입</button>
 					</div>
 					<input type="hidden" value="${next }" name="next">
-					<div id="naver_id_login" style="text-align:center;margin-top: 20px;"><a href="${url}"><img width="223" src="resources/images/naver.PNG"/></a></div>
+					<%-- <div id="naver_id_login" style="text-align:center;margin-top: 20px;"><a href="${url}"><img width="223" src="resources/images/naver.PNG"/></a></div> --%>
 					<h3>${error}</h3>
 				</form>
 

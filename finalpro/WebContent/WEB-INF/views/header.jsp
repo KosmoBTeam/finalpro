@@ -166,6 +166,7 @@
                      <li><a href="goReviewMain"><div>여행 게시판</div></a></li>
                   </ul></li>
 
+
                <li><a href="#"><div>여행 가이드</div></a>
                   <ul>
                      <li><a href="goSurveyWrite"><div>나만의 여행지 찾기</div></a></li>

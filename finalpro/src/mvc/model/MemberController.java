@@ -46,7 +46,23 @@ public class MemberController {
 	public String joinMember() {
 		return "member/member";
 	}
+	
+	@RequestMapping(value = "/goPay")
+	public String goPay() {
+		return "final/pay";
+	}
+	
 
+	@RequestMapping(value = "/gopwd")
+	public String gopwd() {
+		return "member/pwdch";
+	}
+	@RequestMapping(value = "/changepwd")
+	public String changepwd(MemberVO vo) {
+		System.out.println(vo.getPwd());
+		memberDao.changePwd(vo);
+		return "redirect:goMypage?id="+vo.getId();
+	}
 	@RequestMapping(value = "/goLogin", method = { RequestMethod.GET, RequestMethod.POST })
 	public String goLogin(Model model, HttpSession session, HttpServletRequest request) {
 		/* 네이버아이디로 인증 URL을 생성하기 위하여 naverLoginBO클래스의 getAuthorizationUrl메소드 호출 */
