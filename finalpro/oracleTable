@@ -52,15 +52,16 @@ START WITH 2;
 
 commit;
 
-insert into survey_trip VALUES(survey_trip_seq.nextVal, '선호지역', 6, sysdate);
-insert into survey_trip VALUES(survey_trip_seq.nextVal, '같이 가고 싶은 동행인은', 4, sysdate);
-insert into survey_trip VALUES(survey_trip_seq.nextVal, '선호하는 여행 컨셉은', 3, sysdate);
-insert into survey_trip VALUES(survey_trip_seq.nextVal, '선호하는 여행 장소는', 3, sysdate);
-insert into survey_trip VALUES(survey_trip_seq.nextVal, '선호하는 여행지역은', 3, sysdate);
-insert into survey_trip VALUES(survey_trip_seq.nextVal, '선호하는 여행 기간은', 4, sysdate);
-insert into survey_trip VALUES(survey_trip_seq.nextVal, '서울 기준 적당한 거리 소요시간은', 4, sysdate);
-insert into survey_trip VALUES(survey_trip_seq.nextVal, '가장 떠나고 싶은 계절은', 4, sysdate);
-
+insert into survey_trip VALUES(survey_trip_seq.nextVal, '좋아하는 또는 가보고 싶은 여행 지역은 어디인가요?', 12, sysdate);
+insert into survey_trip VALUES(survey_trip_seq.nextVal, '누구와 함께 여행을 떠나고 싶으신가요?', 5, sysdate);
+insert into survey_trip VALUES(survey_trip_seq.nextVal, '여행 시 가장 중요하게 생각하는 요소는 무엇인가요?', 6, sysdate);
+insert into survey_trip VALUES(survey_trip_seq.nextVal, '선호하는 여행 컨셉은 무엇인가요?', 5, sysdate);
+insert into survey_trip VALUES(survey_trip_seq.nextVal, '여행의 주된 목적은 무엇인가요?', 5, sysdate);
+insert into survey_trip VALUES(survey_trip_seq.nextVal, '어디로 여행을 떠나고 싶으신가요?', 5, sysdate);
+insert into survey_trip VALUES(survey_trip_seq.nextVal, '선호하는 여행 기간은 며칠인가요?', 4, sysdate);
+insert into survey_trip VALUES(survey_trip_seq.nextVal, '여행을 떠날때 가장 적절한 소요시간은 얼마인가요?', 4, sysdate);
+insert into survey_trip VALUES(survey_trip_seq.nextVal, '가장 여행을 떠나고 싶은 계절은 언제 인가요?', 5, sysdate);
+insert into survey_trip VALUES(survey_trip_seq.nextVal, '코로나 19가 종식 되면 가장 먼저 무엇을 하고 싶은 가요?', 5, sysdate);
 commit;
 
 insert all
@@ -121,7 +122,29 @@ into surveycontent_trip values('B',9,'여름',0)
 into surveycontent_trip values('C',9,'가을',0)
 into surveycontent_trip values('D',9,'겨울',0)
 select * from dual;
+
+insert all
+into surveycontent_trip values('A',10,'봄',0)
+into surveycontent_trip values('B',10,'여름',0)
+into surveycontent_trip values('C',10,'가을',0)
+into surveycontent_trip values('D',10,'겨울',0)
+into surveycontent_trip values('E',10,'상관 없음',0)
+select * from dual;
+
+
+insert all
+into surveycontent_trip values('A',11,'국내 여행',0)
+into surveycontent_trip values('B',11,'지인 모임',0)
+into surveycontent_trip values('C',11,'영화/공연 관람',0)
+into surveycontent_trip values('D',11,'운동',0)
+into surveycontent_trip values('E',11,'기타',0)
+select * from dual;
+
+
+
+
 commit;
+
 
 
 --local 테이블
