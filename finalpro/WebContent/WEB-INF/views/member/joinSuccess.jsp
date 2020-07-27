@@ -52,13 +52,13 @@ h3 {
 }
 </style>
 
-	<div class="limiter">
+	<div class="limiter" style="background-image: url('resourcs/images/main/success.jpg');">
 		<div class="container-login100">
 			<div class="wrap-login100">
 				<div class="login100-form-title"
-					style="background-image: url(<c:url value='/resources/images/bg-01.jpg'/>);">
+					style="background-color: white;">
 					<!-- 					<span class="login100-form-title-1"></span> -->
-					<span class="login100-form-title-1">당신의 새로운 여행에 어서오세요!</span>
+					<span class="login100-form-title-1" >Start Your Trip!</span>
 				</div>
 
 				<%-- <form class="login100-form validate-form" action="<c:url value='/member/memLogin'/>" method="post" >  --%>
@@ -67,8 +67,8 @@ h3 {
 
 					<div class="clearfix">
 						<div class="row">
-							<img alt="" src="resources/images/joinsuccess.jpg"
-								style="padding-bottom: 30px;">
+							<!-- <img alt="" src="resources/images/joinsuccess.jpg"
+								style="padding-bottom: 30px;"> -->
 						</div>
 						<div class="row">
 							<h1>
@@ -77,8 +77,8 @@ h3 {
 						</div>
 
 						<button onclick="goLogin()" class="login100-form-btn"
-							style="color: black; margin-top: 50px; bottom: 10%; position: absolute; left: 35%;background-color: yellow;">
-							로그인하러 가기
+							style=" margin-top: 50px; bottom: 10%; position: absolute; left: 35%;background-color: #EAAF22;">
+							로그인
 						</button>
 					</div>
 

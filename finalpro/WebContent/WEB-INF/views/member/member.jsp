@@ -70,9 +70,9 @@ h3 {
 	<div class="container-login100">
 		<div class="wrap-login100">
 			<div class="login100-form-title"
-				style="background-color: white;">
+				style="background-image: url('resources/images/main/main3.jpg');">
 				<!-- 					<span class="login100-form-title-1"></span> -->
-				<span class="login100-form-title-1">회 원 가 입</span>
+				<span class="login100-form-title-1" >회 원 가 입</span>
 			</div>
 
 			<div id="contact-form-result" data-notify-type="success"
@@ -163,7 +163,7 @@ h3 {
 					<div class="col-md-6">
 						<label for="template-contactform-name">아이디
 							<button type="button" class="btn btn-primary" id="duplicateCheck"
-								onclick="duplicate()" style="">중복확인</button>
+								onclick="duplicate()" style="background-color: #EAAF22">중복확인</button>
 						</label> <input type="text" class="well well-sm" name="id" id="m_id"
 							size="85" placeholder="ID" required="required" maxlength="12"
 							style="width: 300px;">
@@ -195,7 +195,7 @@ h3 {
 					<div class="col-md-6">
 						<label for="template-contactform-name">우편번호
 							<button type="button" class="btn btn-primary"
-								onclick="sample2_execDaumPostcode()">우편번호 찾기</button>
+								onclick="sample2_execDaumPostcode()" style="background-color: #EAAF22">우편번호 찾기</button>
 						</label><br> <input type="text" class="well well-sm" name="ad0"
 							id="sample2_postcode" size="35" placeholder="ex) 19xxx"
 							readonly="readonly">
@@ -250,9 +250,9 @@ h3 {
 
 				<div class="clearfix" style="text-align: center;">
 					<button type="submit" class="login100-form-btn"
-						style="position: absolute; color: black; bottom: 60px; left: 40%; background-color: yellow;"
+						style="position: absolute; bottom: 60px; left: 40%; background-color: #EAAF22; margin: 0 auto;"
 						value="회원 가입 완료!">
-						<span>회원 가입 완료!</span>
+						<span>가입 하기</span>
 					</button>
 				</div>
 			</form>

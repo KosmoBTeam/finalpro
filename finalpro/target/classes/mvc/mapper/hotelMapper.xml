@@ -26,4 +26,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		hr.*,h.img,h.address,h.tel
 		from hotel h, (select num,name,phone,honame,hrnum,roomtype,checkin,checkout,pay,totalpay,people, ROW_NUMBER() over(order by hrnum desc) as rk from hotel_reserve) hr where hr.rk=1 and h.title=hr.honame
 	</select>
+	<select id="hdetail" parameterType="int" resultType="hdvo">
+   select 
+   h.num,h.title,h.locnum,h.img,h.address,h.tel,h.mapx,h.mapy , hit.foodplace  from hotel h, hotelitem hit where h.num = hit.hnum and h.num=#{num}
+   </select>
+	
 </mapper>

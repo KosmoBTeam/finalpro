@@ -16,7 +16,7 @@
 
 		<!-- Page Title
         ============================================= -->
-<section id="page-title" class="page-title-parallax page-title-dark"
+			<section id="page-title" class="page-title-parallax page-title-dark"
 			style="background-image: url('resources/images/main/gps.jpg'); padding: 120px 0; margin: 0 auto;"
 			data-stellar-background-ratio="0.3">
 

@@ -6,6 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import mvc.vo.HotelDetailVO;
 import mvc.vo.HotelRadioVO;
 import mvc.vo.HotelReserve2VO;
 
@@ -39,4 +40,9 @@ public class HotelDao {
 		// 호텔 예약 직후 상세정보 표시용 리스트임
 		return ss.selectList("hvo.reslist3", vo);
 	}
+	public HotelDetailVO dlist(int num)  {
+	      // 호텔 상세페이지용 리스트
+	      return ss.selectOne("hvo.hdetail", num);
+	   }
+	
 }

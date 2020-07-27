@@ -151,7 +151,7 @@ td th{padding: 4px;}
                               <p style="font-weight: bold; font-size: 14px; color: red;">최저가 ${e.pay } ~</p>
                                <input type="button" class="btn button button-light noleftmargin" value="객실 선택" onclick="location.href ='goHotelReserve?title=${e.title}&num=${e.num }'">
                                <!-- <a href="goHotelDetail?num=${e.num}" class="btn button button-light noleftmargin">상세 보기</a> -->
-                               <input type="button" class="btn button button-light noleftmargin" value="상세 보기" onclick="click2()">                                                                                                            
+                               <input type="button" class="btn button button-light noleftmargin" value="상세 보기" onclick="location.href='goHotelDetail?num=${e.num }'">                                                                                                            
                         </div>
                         <div class="portfolio-desc" style="height: 100px;">
                             <h3>${e.title }</h3>
