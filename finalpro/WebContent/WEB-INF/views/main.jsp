@@ -360,13 +360,12 @@
                <!-- End Feature Boxes -->
 
             </div>
-				<!-- 날씨 정보 or 코로나 맵 -->
-					 <div class="divider"><i class="icon-circle"></i></div>
-					<div class="row" style="background-color:yellow; width: 100%; height: 580px;">
-  						<div class="col-md-6" style="height: 580px; text-align: center;" >코로나 지도</div>
-  						<div class="col-md-6" style="height: 580px; text-align: center;">코로나 통계</div>
-					</div>
-         	    <!-- 날씨정보 or 코로나맵 -->
+ 
+ <!-- 코로나 맵 이동 -->
+ 
+
+
+ <!-- 코로나 맵 이동 -->
 
 <div class="divider"><i class="icon-circle"></i></div>
             <div class="section noborder nobottommargin bgcolor-grey-light" style="background-color:#ebecf1;">
@@ -520,27 +519,15 @@
 
             </div>
 
-<div class="divider"><i class="icon-circle"></i></div>
+			<div class="divider"><i class="icon-circle"></i></div>
 
-            <div
-               class="section notopmargin noborder nobottommargin bgcolor-grey-light">
-
-
-
+            <div class="section notopmargin noborder nobottommargin bgcolor-grey-light">
                <div class="container clearfix">
-
                   <div class="heading-block center nobottommargin">
-
                      <h3 class="color" data-animate="fadeInDown">국내 여행지</h3>
-
                      <span data-animate="fadeInUp">StarTripper의 최근 추천 여행지</span>
-
                   </div>
-
                </div>
-
-
-
             </div>
 
             <!-- Portfolio Items

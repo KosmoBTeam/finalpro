@@ -19,16 +19,16 @@ $(document).ready(
         });
 </script>
 <section id="page-title" class="page-title-parallax"
-	style="background-image: url(&amp;quot;resources/images/main/main5.jpg&amp;quot;); padding: 120px 0;"
+	style="background-image: url(&quot;resources/images/main/mypagemain.jpg&quot;); padding: 120px 0;"
 	data-stellar-background-ratio="0.3">
 
 	<div class="container clearfix" style="border-width: 3px;">
-		<h1>${sessionScope['name']}님의정보</h1>
+		<h1 style="color: #ffffff">${sessionScope['name']}&nbsp;님의&nbsp;정보</h1>
 		<!--홈/호텔소개/회원가입 이거임  -->
 		<ol class="breadcrumb">
-			<li><a href="/">홈</a></li>
-			<li><a href="logout">로그아웃</a></li>
-			<li class="active">마이페이지</li>
+			<li><a href="/" style="color: #ffffff">홈</a></li>
+			<li><a href="logout" style="color: #ffffff">로그아웃</a></li>
+			<li class="active" style="color: #ffffff">마이페이지</li>
 		</ol>
 	</div>
 </section>

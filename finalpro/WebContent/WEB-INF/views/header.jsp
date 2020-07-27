@@ -12,6 +12,7 @@
     ============================================= -->
 <link rel="icon" type="image/png" sizes="16x16"
    href="resources/images/favicon/favicon-16x16.png">
+  <link rel="stylesheet" href="resources/css/weather-icons.min.css">
 <link rel="icon" type="image/png" sizes="32x32"
    href="resources/images/favicon/favicon-32x32.png">
 <link
@@ -126,49 +127,37 @@
          <nav id="primary-menu">
             <ul>
                <li class="current"><a href="main"><div>Home</div></a></li>
-               <li><a href="#"><div>메뉴</div></a>
+               <li><a href="#"><div>예약</div></a>
                   <ul>
-                     <li><a href="#"><div>예약</div></a>
-                        <ul>
-                           <!-- <li><a href="faqs.jsp"><div>항공 예약</div></a></li> -->
-                           <li><a href="goHotelMain"><div>호텔 예약</div></a></li>
-                           <!-- <li><a href="faqs.jsp"><div>렌트카 예약</div></a></li> -->
-                        </ul></li>
-                     <li><a href="#"><div>국내여행지</div></a>
-                        <ul>
-                           <li><a href="goLocalMain"><div>전국</div></a></li>
-                           <li><a href="goLocalMain"><div>패키지 여행</div></a></li>
-                        </ul></li>
-                     <li><a href="#"><div>후기 게시판</div></a>
-                        <ul>
-                           <li><a href="goReviewWrite"><div>여행 후기 남기기</div></a></li>
-                           <li><a href=goReviewMain"><div>여행 후기 보기</div></a></li>
-                        </ul></li>
+                     <li><a href="goHotelMain"><div>호텔 예약</div></a></li>
+                       
+                 
+                  
 
-                     <li><a href="events-list-parallax.jsp"><div>패키지 추천</div></a>
-                        <ul>
-                           <!-- <li><a href="events-list.jsp"><div>항공</div></a></li> -->
-                           <li><a href="goHotelMain"><div>숙박</div></a></li>
-                           <!-- <li><a href="events-single.jsp"><div>렌트</div></a></li> -->
-                        </ul></li>
+                 
                      <li><!-- <a href="sub-page-dark.jsp"><div>Sub Page Dark</div></a></li> -->
                      <!-- <li><a href="faqs.jsp"><div>FAQs</div></a></li> -->
                      <!-- <li><a href="404.jsp"><div>404</div></a></li> -->
                      <!-- <li><a href="coming-soon.jsp"><div>Coming Soon</div></a></li> -->
                   </ul></li>
+                  
+                  <li><a href="#"><div>실시간 코로나</div></a> 
+                  
                <li><a href="goLocalMain"><div>국내 여행지</div></a>
                   <ul>
                      <li><a href="goLocalMain"><div>전국</div></a></li>
-                     
+                     <li><a href="goLocalMain"><div>패키지 여행</div></a></li>
                   </ul></li>
                <li><a href="#"><div>여행 후기</div></a>
                   <ul>
                      <li><a href="goReviewMain"><div>여행 게시판</div></a></li>
+                     <li><a href="goReviewWrite"><div>여행 후기 남기기</div></a></li>                     
                   </ul></li>
 
                <li><a href="#"><div>여행 가이드</div></a>
                   <ul>
                      <li><a href="goSurveyWrite"><div>나만의 여행지 찾기</div></a></li>
+                     <li><a href="goSurveyWrite"><div>주변 명소 모아보기</div></a></li>
                   </ul></li>
                <c:choose>
                   <c:when test="${sessionScope['email'] == null}">
@@ -183,6 +172,7 @@
                         <ul>
                            <li><a href="goMypage?id=${sessionScope['id']}"><div>마이페이지</div></a></li>
                            <li><a href="logout"><div>로그아웃</div></a></li>
+                           <li><a href="#"><div>버킷 리스트</div></a></li>
                         </ul></li>
                   </c:when>
                </c:choose>

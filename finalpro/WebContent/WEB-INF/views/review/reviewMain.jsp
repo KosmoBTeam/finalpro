@@ -16,12 +16,12 @@
 		<!-- Page Title
         ============================================= -->
 		<section id="page-title" class="page-title-parallax page-title-dark"
-			style="background-image: url('resources/images/logo.png'); padding: 120px 0;"
+			style="background-image: url('resources/images/main/reviewmain.jpg'); padding: 120px 0;"
 			data-stellar-background-ratio="0.3">
 
 			<div class="container clearfix">
 				<h1>리뷰게시판</h1>
-				<span>Starter들의 여행 후기게시판입니다.</span>
+				<span style="color: #ffffff">StarTripper들의 여행 후기게시판입니다.</span>
 				<ol class="breadcrumb">
 					<li><a href="main">Home</a></li>
 					<li class="active">후기게시판</li>

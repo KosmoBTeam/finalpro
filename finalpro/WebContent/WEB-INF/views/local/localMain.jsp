@@ -8,7 +8,7 @@
     <!-- Document Wrapper
     ============================================= -->
     <div id="wrapper" class="clearfix">
-	
+   
         <!-- #header end -->
         
         <!-- Page Title
@@ -20,7 +20,7 @@
                 <span>국내의 다양한 여행지를 만나보세요</span>
             </div>
 
-   	  </section><!-- #page-title end -->        
+        </section><!-- #page-title end -->        
 
         <!-- Content
         ============================================= -->

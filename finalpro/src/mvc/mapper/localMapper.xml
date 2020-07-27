@@ -32,4 +32,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getLocnum" parameterType="String" resultType="int">
 	select locnum from local where loc = #{loc}
 	</select>
+	
+	   <select id="reslist4" resultType="htvo">
+      <![CDATA[ select h.num,h.locnum,h.title,h.img,h.address,h.tel,min(hr.pay) pay from hotel h, hotelradio hr
+            where h.num=hr.num group by h.num, h.locnum, h.title, h.img, h.address,h.tel ]]>
+   </select>
+   
+   <select id="reslist5" resultType="hrvo">
+      <![CDATA[ select DISTINCT h.img,h.title,(select count(rt.honame) from review_table rt where rt.honame=h.title) cnt
+      from hotel h,review_table rt where rt.honame = h.title and h.title = rt.honame order by 3 desc ]]>
+   </select>
 </mapper>

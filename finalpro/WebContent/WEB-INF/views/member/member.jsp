@@ -8,7 +8,7 @@
 <!-- Contact Form & Map Overlay Section
         ============================================= -->
 <section id="page-title" class="page-title-parallax"
-	style="background-image: url(&amp;quot;resources/images/main/main5.jpg&amp;quot;); padding: 120px 0;"
+	style="background-image: url(&quot;resources/images/main/logo.jpg&quot;); padding: 120px 0;"
 	data-stellar-background-ratio="0.3">
 
 	<div class="container clearfix" style="border-width: 3px;">
