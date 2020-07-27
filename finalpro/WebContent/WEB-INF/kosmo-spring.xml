@@ -53,9 +53,6 @@
 		<mvc:interceptor>
 			<mvc:mapping path="/goHotelMain" />
 			<mvc:mapping path="/goSurveyWrite" />
-			<mvc:mapping path="/goReviewWrite" />
-			<mvc:mapping path="/goReviewDetail" />
-			<mvc:mapping path="/goReviewMain" />
 			<ref bean="commonInterceptor" />
 		</mvc:interceptor>
 	</mvc:interceptors>

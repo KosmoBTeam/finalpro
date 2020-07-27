@@ -38,6 +38,9 @@ public class HotelController {
       List<HotelTotalVO> list = localDao.localtotalList();
       List<HotelReviewVO> reviewlist = localDao.localreviewList();
       model.addAttribute("list", list);
+      for (HotelReviewVO e : reviewlist) {
+		System.out.println(e.getHoname());
+	}
       model.addAttribute("reviewlist", reviewlist);
       return "hotel/hotelMain";
    }

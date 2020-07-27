@@ -128,21 +128,13 @@
 								$.each(radio, function(key, value) { // input radio의 name 값을 가져옵니다.
 									radio_name.push($(value).attr('name'));
 								});
-								radio_name = $.unique(radio_name.sort()).sort(); //중복요소 이름을 제거					
-<<<<<<< HEAD
-								for (var i = 0; i < radio_name.length; i++) {
+								radio_name = $.unique(radio_name); //중복요소 이름을 제거					
+								rr:for (var i = 0; i < radio_name.length; i++) {
 									var e = $('input:radio[name="'+ radio_name[i] + '"]').is(":checked")
 									if (e == false) {
 										flag = 1;
 										alert((i + 1) + '번째 설문문항 항목을 선택해주세요!');
-=======
-								ee:for (var i = 0; i < radio_name.length; i++) {
-									var e = $('input:radio[name="'+ radio_name[i] + '"]').is(":checked")
-									if (e == false) {
-										flag = 1;
-										alert((i + 1) + '번째 설문문항 항목을 선택해주세요!');
-										break ee;
->>>>>>> branch 'master' of https://github.com/KosmoBTeam/finalpro
+										break rr;
 									}
 								}
 								if (flag == 0) {

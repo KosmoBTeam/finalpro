@@ -3,7 +3,19 @@ package mvc.vo;
 //테이블 이름은 hotel
 //hotel_reserve와 연결되어 있다.
 public class LocalHotelVO {
-	private int num,locnum;
+	private int num,locnum,pay,cnt;
+	public int getCnt() {
+		return cnt;
+	}
+	public void setCnt(int cnt) {
+		this.cnt = cnt;
+	}
+	public int getPay() {
+		return pay;
+	}
+	public void setPay(int pay) {
+		this.pay = pay;
+	}
 	private String title, img, address, tel, detail;
 	public int getNum() {
 		return num;

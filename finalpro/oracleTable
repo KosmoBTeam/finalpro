@@ -22,7 +22,7 @@ title varchar2(100),
 detail varchar2(1600),
 rdate date,
 img varchar2(100),
-hit number(5) DEFAULT 0,
+hit number DEFAULT 0,
 honame varchar2(100),
 CONSTRAINT review_table_id_fk foreign key(id)
 references member_table(id)
