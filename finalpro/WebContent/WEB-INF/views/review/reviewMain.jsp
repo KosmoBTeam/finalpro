@@ -75,7 +75,10 @@
 												<li><b><i class="icon-eye"></i>${e.hit }</b></li>
 												<li><b>${e.honame }</b></li>
 											</ul>
-											<ul  class="entry-meta clearfix"><li style="position: absolute;"><i class="fas fa-user"></i><b> ${e.id }ดิ</b></li></ul>
+											<ul class="entry-meta clearfix">
+												<li style="position: absolute;"><i class="fas fa-user"></i><b>
+														${e.id }ดิ</b></li>
+											</ul>
 											<div class="entry-content">
 												<p>${e.detail}</p>
 												<c:choose>

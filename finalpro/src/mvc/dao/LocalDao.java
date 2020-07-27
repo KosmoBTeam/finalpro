@@ -29,7 +29,7 @@ public class LocalDao {
 	}
 
 	// 패키지여행 페이지의 호텔항목에 대한 리스트를 반환함
-	public List<LocalHotelVO> localhotelList1(int locnum) {
+	public List<LocalHotelVO> localhotelList(int locnum) {
 		return ss.selectList("lvo.lochotel", locnum);
 	}
 
@@ -74,5 +74,4 @@ public class LocalDao {
 	public List<HotelTotalVO> localtotalList() {
 		return ss.selectList("lvo.reslist4");
 	}
-
 }
