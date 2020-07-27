@@ -4,7 +4,6 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="ko">
 <head>
-
 <meta http-equiv="content-type" content="text/html; charset=EUC-KR" />
 <meta name="description" content="Bootstrap 3 Website Template" />
 

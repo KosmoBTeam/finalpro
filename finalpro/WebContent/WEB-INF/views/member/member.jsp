@@ -52,11 +52,15 @@ h3 {
 	display: inline-block;
 	padding: 0.6em;
 }
+.login100-form-title::before{
+
+}
+.login100-form-title{
+	
+}
+
 </style>
 
-<section id="page-title" class="page-title-parallax"
-	style="background-image: url(&quot;resources/images/main/logo.jpg&quot;); padding: 120px 0;"
-	data-stellar-background-ratio="0.3">
 
 
 <div class="limiter">
@@ -66,7 +70,7 @@ h3 {
 	<div class="container-login100">
 		<div class="wrap-login100">
 			<div class="login100-form-title"
-				style="background-image: url(<c:url value='/resources/images/bg-01.jpg'/>);">
+				style="background-color: white;">
 				<!-- 					<span class="login100-form-title-1"></span> -->
 				<span class="login100-form-title-1">회 원 가 입</span>
 			</div>
@@ -246,7 +250,7 @@ h3 {
 
 				<div class="clearfix" style="text-align: center;">
 					<button type="submit" class="login100-form-btn"
-						style="position: absolute; color: black; bottom: 60px; left: 40%;background-color: yellow;"
+						style="position: absolute; color: black; bottom: 60px; left: 40%; background-color: yellow;"
 						value="회원 가입 완료!">
 						<span>회원 가입 완료!</span>
 					</button>

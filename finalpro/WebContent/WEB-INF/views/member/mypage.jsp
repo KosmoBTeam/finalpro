@@ -74,7 +74,7 @@ $(document).ready(
 	data-stellar-background-ratio="0.3">
 
 	<div class="container clearfix" style="border-width: 3px;">
-		<h1 style="color: #ffffff">${sessionScope['name']}&nbsp;님의&nbsp;정보</h1>
+		<h1 style="color: #ffffff;font-size: 70px;">${sessionScope['name']}님의&nbsp;마이페이지</h1>
 		<!--홈/호텔소개/회원가입 이거임  -->
 		<ol class="breadcrumb">
 			<li><a href="/" style="color: #ffffff">홈</a></li>
@@ -93,12 +93,7 @@ $(document).ready(
 <div class="limiter">
 	<div class="container-login100">
 		<div class="wrap-login100">
-			<div class="login100-form-title"
-				style="background-image: url(<c:url value='/resources/images/bg-01.jpg'/>);">
-				<!-- 					<span class="login100-form-title-1"></span> -->
-				<span class="login100-form-title-1">${sessionScope['name']}님의
-					마이페이지</span>
-			</div>
+
 
 			<form name="form1" method="post" action="editMember" id="joinForm"
 				onsubmit="return beforeSubmit()"

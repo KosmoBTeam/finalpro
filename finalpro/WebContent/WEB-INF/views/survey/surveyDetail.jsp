@@ -27,40 +27,40 @@
 
         <!-- Page Title
         ============================================= -->
-        <section id="page-title" class="page-title-parallax" style="background-image: url(&quot;resources/images/survey/surveymain.jpg&quot;); padding: 120px 0;" data-stellar-background-ratio="0.3">
+        <section id="page-title" class="page-title-parallax" style="background-image: url(&quot;resources/images/survey/surveymain.png&quot;); padding: 120px 0;" data-stellar-background-ratio="0.3">
 
             <div class="container clearfix">
-                <h1 style="color: #ffffff">여행 가이드</h1>
-                <span style="color: #ffffff">StarTrip Trip Guide</span>
+                <h1>여행 가이드</h1>
+                <span>StarTrip Trip Guide</span>
                 <ol class="breadcrumb">
-                    <li><a href="index.jsp" style="color: #ffffff">Home</a></li>
-                    <li class="active" style="color: #ffffff">설문조사</li>
+                    <li><a href="index.jsp">Home</a></li>
+                    <li class="active">설문조사</li>
                 </ol>
             </div>
 
-   	  </section><!-- #page-title end -->
+        </section><!-- #page-title end -->
 
         <!-- Contact Form & Map Overlay Section
         ============================================= -->
         <section id="map-overlay">
 
-            <div class="container clearfix">
+            <div class="container clearfix bgcolor-grey" style="width: 1200px">
 
                 <!-- Contact Form Overlay
                 ============================================= -->
-                <div id="contact-form-overlay" class="clearfix bgcolor-grey" style="width: 85%">
+                <div id="contact-form-overlay" class="clearfix bgcolor-grey" style="width: ">
 
                     <div class="fancy-title title-dotted-border">
                         <h3>설문조사</h3>
                     </div>
-					<!-- submit후 완료 메세지 장소 -->
+               <!-- submit후 완료 메세지 장소 -->
                     <div></div>
 
                     <!-- Contact Form
                     ============================================= -->
                     <form class="nobottommargin" id="template-contactform" name="template-contactform" action="" method="post" >
-					<h1>설문조사 결과지</h1>
-						<div class="section nobg notopmargin noborder nobottommargin">
+               <h1>설문조사 결과지</h1>
+                  <div class="section nobg notopmargin noborder nobottommargin">
                         <div class="col_half nobottommargin center">
                             <img src="resources/images/main/tripper.jpg" alt="" data-animate="fadeInUp">                        
                         </div>
@@ -72,11 +72,14 @@
                             <p>설문 조사를 통한 추천 여행지는 '<strong style="font-size: 20px; color: orange;">${loc}</strong>' 입니다!</p>
                             <a href="goLocalDetail?locnum=${locnum}" 
                             class="button button-rounded button-reveal button-large button-3d topmargin-sm noleftmargin tright" 
-                            style="color:#FFF"><i class="icon-angle-right"></i><span>추천 여행지로 이동하기</span></a>                       	
+                            style="color:#FFF"><i class="icon-angle-right"></i><span>추천 여행지로 이동하기</span></a> 
+                            <a href="goChartDetail?locnum=${locnum}" 
+                            class="button button-rounded button-reveal button-large button-3d topmargin-sm noleftmargin tright" 
+                            style="color:#FFF"><i class="icon-angle-right"></i><span>전체 투표결과 보러가기</span></a>                          
 
                         </div>
-							</div>              			
-						
+                     </div>                       
+                  
                     </form>
                     <div class="line"></div>
 
@@ -109,7 +112,7 @@
     <!-- Footer Scripts
     ============================================= -->
     <script type="text/javascript" src="resources/js/functions.js"></script>
-	
+   
 </body>
 </html>
 <%@include file="../footer.jsp"%>

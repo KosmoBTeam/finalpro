@@ -41,13 +41,9 @@ td th{padding: 4px;}
     <section id="content">
       
         <div class="content-wrap bgcolor-grey-light">
-      
-            <div class="container clearfix">
-         
-
 
             <div class="container clearfix" style="width: 1800px;">
-
+            
                 <!-- Portfolio Filter
                 ============================================= -->
                 <ul id="portfolio-filter" class="clearfix" style="margin-left: 391px;">
@@ -110,13 +106,15 @@ td th{padding: 4px;}
                </div>
             <!-- review 순 호텔 순위 오른쪽 사이드 바  끝 -->
                
+
+                    
                 <!-- Portfolio Items
                 ============================================= -->
                 <div id="portfolio" class="portfolio-1 clearfix">
                 <c:forEach var="e" items="${list}">
                 <c:choose>
                    <c:when test="${e.locnum eq '1'}">
-                                           <article class="portfolio-item pf-seoul alt clearfix" style="width: 73%;">
+                        <article class="portfolio-item pf-seoul alt clearfix" style="width: 73%;">
                      </c:when>
                    <c:when test="${e.locnum eq '2'}">
                         <article class="portfolio-item pf-incheon alt clearfix" style="width: 73%;">
@@ -163,12 +161,19 @@ td th{padding: 4px;}
                         <div class="portfolio-image" style="width: 250px; height: 153px; right: 40px;">
                             <img src="${e.img}" alt="" style="width: 250px; height: 153px;">
                         </div>                      
-                </form>                           
+                </form>
+                    </article>                              
                 </c:forEach>            
                 </div>
+                
+                
+            
+                
+                <!-- #portfolio end -->
 
+                <!-- Portfolio Script
+                ============================================= -->
                 <script type="text/javascript">
-
                 
 ///////////////////////////////////////////////////////////// 날씨 스크립트 시작               
                 $(document).ready(function() {
@@ -302,23 +307,15 @@ td th{padding: 4px;}
                   var myform = document.getElementById("myform")
                   myform.action = 'goHotelReserve'
                   myform.submit();
-
                } */
-
-            function click2(){
-                  
+            function click2(){                  
                   var myform = document.getElementById("myform")
                   myform.action = 'goHotelDetail?num='+${e.num}
-                  myform.submit()
-                  
-               }
-                
-                    jQuery(window).load(function(){
-
+                  myform.submit()                  
+               }               
+                    jQuery(window).load(function(){                      
                         var $container = $('#portfolio');
-
                         $container.isotope({ transitionDuration: '0.65s' });
-
                         $('#portfolio-filter a').click(function(){
                             $('#portfolio-filter li').removeClass('activeFilter');
                             $(this).parent('li').addClass('activeFilter');
@@ -349,7 +346,6 @@ td th{padding: 4px;}
 <!-- Footer Scripts
 ============================================= -->
 <script type="text/javascript" src="resources/js/functions.js"></script>
-
 </body>
 </html>
 <%@include file="../footer.jsp" %>

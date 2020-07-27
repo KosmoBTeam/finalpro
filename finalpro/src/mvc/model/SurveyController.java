@@ -25,7 +25,7 @@ public class SurveyController {
 
 	@Autowired
 	private LocalDao localDao;
-	
+
 	@Autowired
 	private SurveyService surveyService;
 
@@ -44,20 +44,20 @@ public class SurveyController {
 	}
 
 	@RequestMapping(value = "/goSurveyDetail", method = RequestMethod.POST)
-	public ModelAndView surveyUpdate(SurveyViewVO vo,HttpSession session) {
+	public ModelAndView surveyUpdate(SurveyViewVO vo, HttpSession session) {
 		String[] str = { vo.getSubtype1(), vo.getSubtype2(), vo.getSubtype3(), vo.getSubtype4(), vo.getSubtype5(),
 				vo.getSubtype6(), vo.getSubtype7(), vo.getSubtype8() };
 		for (int i = 2; i < 10; i++) {
 			SurveyViewVO v = new SurveyViewVO();
-			v.setSubtype(str[i-2]);
+			v.setSubtype(str[i - 2]);
 			v.setSubcode(i);
 			surveyDao.surveyClientUpdatecnt(v);
 		}
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("survey/surveyDetail");	
-		//오라클에 저장되어 있는 subtype은 Char형이기 때문에 bit가 전부 채워져서 저장되기 때문에 대량의 띄어쓰기가 포함되어 있음!
-		//현재 getSubtype1~8은 전부 띄어쓰기가 포함된 문자임 그러기 때문에 문자열로 활용하려면 trim()을 쓰고
-		//오라클에서 활용하려면 다시 띄어쓰기를 포함해줘야함 (vo.getSubtype1().length()=9)
+		mav.setViewName("survey/surveyDetail");
+		// 오라클에 저장되어 있는 subtype은 Char형이기 때문에 bit가 전부 채워져서 저장되기 때문에 대량의 띄어쓰기가 포함되어 있음!
+		// 현재 getSubtype1~8은 전부 띄어쓰기가 포함된 문자임 그러기 때문에 문자열로 활용하려면 trim()을 쓰고
+		// 오라클에서 활용하려면 다시 띄어쓰기를 포함해줘야함 (vo.getSubtype1().length()=9)
 		String subtype = vo.getSubtype1();
 		System.out.println(vo.getSubtype1().length());
 		SurveyViewVO voc = new SurveyViewVO();
@@ -68,12 +68,27 @@ public class SurveyController {
 		String loc = surveyDao.getLoc(voc);
 		System.out.println(loc);
 		int locnum = localDao.getLocnum(loc);
-		
+
 		System.out.println(locnum);
-		System.out.println(loc);	
-		
+		System.out.println(loc);
+
 		mav.addObject("loc", loc);
 		mav.addObject("locnum", locnum);
 		return mav;
 	}
+
+	@RequestMapping(value = "/goChartDetail")
+	public ModelAndView goSurveyWrite2(int locnum) {
+		/*
+		 * List<List<SurveyViewVO>> chartlist = new ArrayList<List<SurveyViewVO>>(); for
+		 * (int i = 2; i < 12; i++) { List<SurveyViewVO> list = surveyDao.surveyView(i);
+		 * chartlist.add(list); }
+		 */
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("survey/chartDetail");
+		mav.addObject("locnum", locnum);
+		/* mav.addObject("list", chartlist); */
+		return mav;
+	}
+
 }
