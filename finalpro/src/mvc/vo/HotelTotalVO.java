@@ -1,7 +1,6 @@
 package mvc.vo;
 
 public class HotelTotalVO {
-
    private int num, pay, locnum;
    private String honame, img, title, detail,address,tel;
    
@@ -76,4 +75,5 @@ public class HotelTotalVO {
    public void setDetail(String detail) {
       this.detail = detail;
    }
+
 }

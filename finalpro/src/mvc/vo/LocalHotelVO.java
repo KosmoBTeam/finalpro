@@ -1,10 +1,8 @@
 package mvc.vo;
-
 //국내패키지 여행의 호텔 항목에 관한 내용이 담겨있는 VO
 //테이블 이름은 hotel
 //hotel_reserve와 연결되어 있다.
 public class LocalHotelVO {
-
 	private int num, locnum, pay;
 	private String title, img, address, tel, detail, honame;
 

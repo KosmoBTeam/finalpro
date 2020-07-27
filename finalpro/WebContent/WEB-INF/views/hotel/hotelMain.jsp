@@ -163,8 +163,7 @@ td th{padding: 4px;}
                         <div class="portfolio-image" style="width: 250px; height: 153px; right: 40px;">
                             <img src="${e.img}" alt="" style="width: 250px; height: 153px;">
                         </div>                      
-                </form>
-                    </article>                              
+                </form>                           
                 </c:forEach>            
                 </div>
 
