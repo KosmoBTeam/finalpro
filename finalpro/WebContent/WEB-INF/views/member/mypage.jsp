@@ -69,6 +69,20 @@ $(document).ready(
         });
 </script>
 
+<section id="page-title" class="page-title-parallax"
+	style="background-image: url(&quot;resources/images/main/mypagemain.jpg&quot;); padding: 120px 0;"
+	data-stellar-background-ratio="0.3">
+
+	<div class="container clearfix" style="border-width: 3px;">
+		<h1 style="color: #ffffff">${sessionScope['name']}&nbsp;님의&nbsp;정보</h1>
+		<!--홈/호텔소개/회원가입 이거임  -->
+		<ol class="breadcrumb">
+			<li><a href="/" style="color: #ffffff">홈</a></li>
+			<li><a href="logout" style="color: #ffffff">로그아웃</a></li>
+			<li class="active" style="color: #ffffff">마이페이지</li>
+		</ol>
+	</div>
+</section>
 <!-- #page-title end -->
 <p>
 <div class="container clearfix"></div>

@@ -24,6 +24,7 @@
 				<span style="font-size: 100px !important; font-weight: bold;">리
 					뷰 게 시 판</span> <span style="font-size: 50px !important;">Starter들의
 					여행 후기게시판입니다.</span>
+
 				<ol class="breadcrumb">
 					<li><a href="main">Home</a></li>
 					<li class="active">후기게시판</li>

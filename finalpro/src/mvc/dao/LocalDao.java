@@ -11,6 +11,7 @@ import mvc.vo.HotelTotalVO;
 import mvc.vo.LocalActVO;
 import mvc.vo.LocalFoodVO;
 import mvc.vo.LocalVO;
+import mvc.vo.PageVO;
 import mvc.vo.LocalHotelVO;
 
 @Repository
@@ -50,7 +51,6 @@ public class LocalDao {
 	// hotelController에서 사용되기 위해 DB에 저장되어 있는 모든 호텔의 항목을 꺼내옴
 	public List<LocalHotelVO> localhotelAllList() {
 		return ss.selectList("lvo.localhotelAllList");
-
 	}
 
 	// 국내호텔 메인 사이드 바 리뷰 순 정렬.

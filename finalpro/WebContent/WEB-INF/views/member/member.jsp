@@ -53,8 +53,10 @@ h3 {
 	padding: 0.6em;
 }
 </style>
-<!-- Page Title
-        ============================================= -->
+
+<section id="page-title" class="page-title-parallax"
+	style="background-image: url(&quot;resources/images/main/logo.jpg&quot;); padding: 120px 0;"
+	data-stellar-background-ratio="0.3">
 
 
 <div class="limiter">

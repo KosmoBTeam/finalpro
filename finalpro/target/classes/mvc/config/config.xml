@@ -33,6 +33,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<typeAlias type="mvc.vo.HotelReserve2VO" alias="hotel2" />
 		<!-- 설문조사용 알리아스 -->
 		<typeAlias type="mvc.vo.SurveyViewVO" alias="surveyview" />
+<<<<<<< HEAD
 
 		<!-- 호텔마다의 방종류와 가격을 지정한 알리아스 -->
 		<typeAlias type="mvc.vo.HotelRadioVO" alias="hotelRadio" />
@@ -42,6 +43,13 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<typeAlias type="mvc.vo.SurveyViewVO" alias="surveyview" />
 		<typeAlias type="mvc.vo.HotelTotalVO" alias="htvo" />
 		<typeAlias type="mvc.vo.HotelReviewVO" alias="hrvo" />
+=======
+		
+		
+	<typeAlias type="mvc.vo.HotelTotalVO" alias="htvo" />
+      <!-- 국내호텔 메인 사이드 리뷰 -->
+      <typeAlias type="mvc.vo.HotelReviewVO" alias="hrvo" />
+>>>>>>> refs/remotes/origin/branchOfreserve
 
 	</typeAliases>
 

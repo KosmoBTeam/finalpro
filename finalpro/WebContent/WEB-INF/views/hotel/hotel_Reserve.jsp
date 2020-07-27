@@ -17,10 +17,6 @@
 
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> master
  
 <body class="stretched">
 
@@ -32,15 +28,11 @@
 
         <!-- Page Title
         ============================================= -->
-        <section id="page-title" class="page-title-parallax page-title-dark" style="padding: 200px 0; background-image: url('http://placehold.it/2000x1333'); background-size: cover; background-position: center center;" data-stellar-background-ratio="0.2">
+        <section id="page-title" class="page-title-parallax page-title-dark" style="padding: 200px 0; background-image: ${img }; background-size: cover; background-position: center center;" data-stellar-background-ratio="0.2">
 
             <div class="container clearfix">
-                <h1>호텔이름</h1>
-<<<<<<< HEAD
-                <span>제주도 어디 호첼</span>
-=======
+                <h1>호텔 예약하기</h1>
                 <span>호텔 예약 </span>
->>>>>>> master
             </div>
 
         </section><!-- #page-title end -->
@@ -202,7 +194,7 @@
                 </script>            
                        
                         <!-- 예약 내용 끝 -->
-<<<<<<< HEAD
+
 							<!-- 호텔 사진 -->
                         <div class="divider"><i class="icon-circle"></i></div>
                      <div
@@ -294,10 +286,7 @@
 
 
 								</div>
-							
-=======
-
->>>>>>> master
+						
                             <div class="divider"><i class="icon-circle"></i></div>
 
                             <h3 id="faq-1">What are the hours of operation?</h3>
