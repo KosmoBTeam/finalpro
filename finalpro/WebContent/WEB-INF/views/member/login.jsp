@@ -91,7 +91,6 @@ h3 {
 					</div>
 
 					<div class="container-login100-form-btn">
-<<<<<<< HEAD
 						<button class="login100-form-btn" type="submit" style="background-color: yellow;color: black;">로그인</button>
 						<button class="login100-form-btn" type="button" value="회원가입" style="background-color: yellow; color: black;" onclick="location.href='goMember'">회원가입</button>
 					</div>

@@ -4,20 +4,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="lvo">
 
-   <select id="locfood" resultType="localfood" parameterType="int">
-      select * from food where locnum=#{locnum}
-   </select>
-   <select id="lochotel" resultType="localhotel"
-      parameterType="int">
-      select * from hotel where locnum=#{locnum}
-   </select>
-   <select id="locact" resultType="localact" parameterType="int">
-      select * from act where locnum=#{locnum}
-   </select>
+	<select id="locfood" resultType="localfood" parameterType="int">
+		select * from food where locnum=#{locnum}
+	</select>
+	<select id="lochotel" resultType="localhotel"
+		parameterType="int">
+		select * from hotel where locnum=#{locnum}
+	</select>
+	<select id="locact" resultType="localact" parameterType="int">
+		select * from act where locnum=#{locnum}
+	</select>
 
-   <select id="locname" resultType="String" parameterType="int">
-      select loc from local where locnum=#{locnum}
-   </select>
+	<select id="locname" resultType="String" parameterType="int">
+		select loc from local where locnum=#{locnum}
+	</select>
 
 	<select id="locinfo" resultType="local">
 		select * from local
@@ -30,17 +30,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		desc) as rk from local ) a where a.rk<5]]>
 	</select>
 	<select id="getLocnum" parameterType="String" resultType="int">
-	select locnum from local where loc = #{loc}
+		select locnum from local where loc = #{loc}
 	</select>
-	   <select id="reslist4" resultType="htvo">
-      <![CDATA[ select h.num,h.locnum,h.title,h.img,h.detail,min(hr.pay) pay,
-      (select count(rt.honame) from review_table rt where rt.honame=h.title) cnt from hotel h , review_table rt, hotelradio hr
-      where h.num=hr.num and rt.honame = h.title
-      group by h.num, h.locnum, h.title, h.img, h.detail ]]>
-   </select>
-   
-   <select id="reslist5" resultType="hrvo">
+	<select id="reslist4" resultType="htvo">
+      <![CDATA[   select h.num,h.locnum,h.title,h.img,h.address,h.tel,min(hr.pay) pay from hotel h , hotelradio hr
+      where h.num=hr.num
+      group by h.num, h.locnum, h.title, h.img,h.address,h.tel ]]>
+	</select>
+
+	<select id="reslist5" resultType="hrvo">
       <![CDATA[ select DISTINCT h.img,h.title,(select count(rt.honame) from review_table rt where rt.honame=h.title) cnt
       from hotel h,review_table rt where rt.honame = h.title and h.title = rt.honame order by 3 desc ]]>
-   </select>
+	</select>
 </mapper>

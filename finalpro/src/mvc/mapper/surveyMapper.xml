@@ -16,6 +16,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		subcode=#{subcode} and subtype=#{subtype}
 	</update>
 	<select id="getLoc" resultType="String" parameterType="surveyview">
-		select surveytitle from surveycontent_trip where subtype = #{subtype} and subcode=#{subcode}
+		select surveytitle from surveycontent_trip where subtype = #{subtype} and subcode=#{subcode} order by 1 asc
 	</select>
 </mapper>

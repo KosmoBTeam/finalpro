@@ -54,7 +54,7 @@
 										<div class="oc-item pf-food">
 											<div class="testimonial">
 												<div class="testi-image1">
-													<a><img src="resources/images/local/detail/${e.img}"
+													<a><img src="${e.img}"
 														alt="" style="width: 330px; height: 200px;"></a>
 												</div>
 												<br>

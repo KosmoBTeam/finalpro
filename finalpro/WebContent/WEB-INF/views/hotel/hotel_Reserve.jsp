@@ -17,6 +17,10 @@
 
 
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> master
  
 <body class="stretched">
 
@@ -32,7 +36,11 @@
 
             <div class="container clearfix">
                 <h1>호텔이름</h1>
+<<<<<<< HEAD
+                <span>제주도 어디 호첼</span>
+=======
                 <span>호텔 예약 </span>
+>>>>>>> master
             </div>
 
         </section><!-- #page-title end -->
@@ -194,7 +202,102 @@
                 </script>            
                        
                         <!-- 예약 내용 끝 -->
+<<<<<<< HEAD
+							<!-- 호텔 사진 -->
+                        <div class="divider"><i class="icon-circle"></i></div>
+                     <div
+                        class="section1 parallax notopmargin nobottommargin notopborder"
+                        style="background-image: url(&amp;quot;resources/images/main/main5.jpg&amp;quot;); padding: 50px 0;"
+                        data-stellar-background-ratio="0.3">
+                        <div class="container clearfix">
+                           <div class="row">
+                              <div id="oc-testi" class="owl-carousel testimonials-carousel">
+                                 <c:forEach var="e" items="${listfood }">
+                                    <div class="oc-item pf-food">
+                                       <div class="testimonial">
+                                          <div class="testi-image1">
+                                             <a><img src="resources/images/hotel/jejuhotel1.JPG"
+                                                alt="" style=" width:336px; height:225px;"></a>
+                                          </div>
+                                          <br><br><br>
+                                       </div>
+                                    </div>
+                                 </c:forEach>
+                              </div>
 
+                              <script type="text/javascript">
+                                 jQuery(document).ready(function($) {
+                                    var ocTesti = $("#oc-testi");
+                                    ocTesti.owlCarousel({
+                                       margin : 20,
+                                       nav : true,
+                                       dots : true,
+                                       responsive : {0 : {items : 1},768 : {items : 2},992 : {items : 3}}});});
+                              </script>
+                           </div>
+                        </div>
+                     </div>
+      
+                        
+							<!-- 호텔 상세 내용 -->
+                            <div class="divider"><i class="icon-circle"></i></div>
+
+							<div class="row">
+									<div class="col-xs-6 col-sm-4" id="faq-1">
+										<h3>편의 시설</h3>
+										<ul>
+											<li>464개의 금연 객실</li>
+											<li>매일 하우스키핑</li>
+											<li>6 개의 레스토랑 및 바/라운지</li>
+											<li>풀서비스 스파</li>
+											<li>실내 수영장</li>
+											<li>루프탑 테라스</li>
+											<li>아침 식사 가능</li>
+											<li>무료 지역 셔틀</li>
+											<li>피트니스 센터</li>
+											<li>컨퍼런스 센터</li>
+											<li>공항 셔틀</li>
+											<li>24시간 운영 프런트 데스크</li>
+											<li>무료 WiFi</li>
+										</ul>
+									</div>
+									<div class="col-xs-6 col-sm-4">
+										<h3>주변 명소</h3>
+										<ul>
+											<li>중구에 위치</li>
+											<li>동대문역사문화공원(걸어서 18분 거리)</li>
+											<li>N서울타워(걸어서 25분 거리)</li>
+											<li>명동거리(걸어서 28분 거리)</li>
+											<li>남대문시장(걸어서 36분 거리)</li>
+											<li>서울특별시청(걸어서 37분 거리)</li>
+											<li>남산공원(걸어서 8분 거리)</li>
+											<li>한국의집(걸어서 13분 거리)</li>
+											<li>동대문 디자인 플라자(걸어서 14분 거리)</li>
+											<li>동대문역사문화공원(걸어서 15분 거리)</li>
+											<li>흥인지문(걸어서 22분 거리)</li>
+										</ul>
+
+									</div>
+
+									<div class="col-xs-6 col-sm-4">
+										<h3>가족 편의 시설</h3>
+
+										<ul>
+											<li>어린이 수영장</li>
+											<li>냉장고</li>
+											<li>프리미엄 TV 채널</li>
+											<li>TV</li>
+											<li>무료 세면용품</li>
+											<li>정원</li>
+										</ul>
+									</div>
+
+
+								</div>
+							
+=======
+
+>>>>>>> master
                             <div class="divider"><i class="icon-circle"></i></div>
 
                             <h3 id="faq-1">What are the hours of operation?</h3>

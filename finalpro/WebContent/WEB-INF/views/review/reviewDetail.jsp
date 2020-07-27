@@ -57,8 +57,7 @@
 						<label for="sujung">수정</label>
 					</button>
 					<button class="btn button button-small">
-						<label for="sakje">삭제</label>
-					</button>
+						<label for="sakje">삭제</label></button>
 				</c:if>
 			</h2>
 			<ul class="entry-meta clearfix"
@@ -86,8 +85,8 @@
 						value="${vo.num}" name="num" />
 
 					<c:if test="${vo.id eq sessionScope['id']}">
-						<a href="deleteReview?num=${vo.num }"
-							class="btn button button-small" id="sakje" style="display: none;">삭제</a>
+						<button type="button" onclick="location.href='deleteReview?num=${vo.num }' "
+							class="btn button button-small" id="sakje" style="display: none;">삭제</button>
 						<button class="btn button button-small" type="submit" id="sujung"
 							style="display: none;">수정</button>
 					</c:if>

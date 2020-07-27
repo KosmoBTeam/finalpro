@@ -52,6 +52,11 @@ public class ReviewController {
 		vo.setSearchType(type);
 		List<ReviewVO> reviewList = reviewDao.reviewList(vo);
 		List<ReviewVO> review5List = reviewDao.review5List();
+		for (int i = 0; i < reviewList.size(); i++) {
+			String[] detailarr= reviewList.get(i).getDetail().split(" ");
+			reviewList.get(i).setDetail(detailarr[0]);
+		}
+		
 		model.addAttribute("list", reviewList);
 	
 		model.addAttribute("review5List", review5List);
@@ -82,7 +87,7 @@ public class ReviewController {
 
 	@RequestMapping(value = "/reviewWrite", method = { RequestMethod.GET, RequestMethod.POST })
 	public String reviewWrite(ReviewVO vo, MultipartFile mfile, String honame, String img) {
-
+		System.out.println(vo.getNum());
 		String file = saveFile(mfile, img);
 		System.out.println(file);
 		vo.setImg(file);
@@ -93,7 +98,9 @@ public class ReviewController {
 	}
 
 	
+
 	private static final String UPLOAD_PATH="C:\\Users\\KOSMO-25\\git\\finalpro\\finalpro\\WebContent\\resources\\images";
+
 	private String saveFile(MultipartFile mfile, String img) {
 		// 파일 이름 변경
 		UUID uuid = UUID.randomUUID();
@@ -134,7 +141,7 @@ public class ReviewController {
 
 	@RequestMapping(value = "/editReview", method = RequestMethod.POST)
 	public String editReview(ReviewVO vo, MultipartFile mfile, String img) {
-
+		System.out.println(vo.getTitle());
 		String file = saveFile(mfile, img);
 		vo.setImg(file);
 		reviewDao.updateReview(vo);
