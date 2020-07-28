@@ -50,6 +50,7 @@ public class ReviewController {
 		vo = new PageVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
 		vo.setSearchValue(value);
 		vo.setSearchType(type);
+		
 		List<ReviewVO> reviewList = reviewDao.reviewList(vo);
 		List<ReviewVO> review5List = reviewDao.review5List();
 		for (int i = 0; i < reviewList.size(); i++) {
@@ -60,6 +61,8 @@ public class ReviewController {
 		model.addAttribute("list", reviewList);
 	
 		model.addAttribute("review5List", review5List);
+		vo.setNowPage(Integer.parseInt(nowPage));
+		vo.setCntPerPage(Integer.parseInt(cntPerPage));
 		model.addAttribute("paging", vo);
 		// model.addAttribute("list", boardDao.getBrdList(svo));
 		return "review/reviewMain";

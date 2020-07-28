@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import mvc.vo.HotelRadioVO;
 import mvc.vo.HotelReserve2VO;
+import mvc.vo.PageVO;
 
 
 @Repository
@@ -38,5 +39,10 @@ public class HotelDao {
 	public List<HotelReserve2VO> resList3(HotelReserve2VO vo) {
 		// 호텔 예약 직후 상세정보 표시용 리스트임
 		return ss.selectList("hvo.reslist3", vo);
+	}
+
+	public int total(PageVO vo) {
+		// TODO Auto-generated method stub
+		return ss.selectOne("hvo.total", vo);
 	}
 }

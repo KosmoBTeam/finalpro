@@ -88,7 +88,7 @@ td th{padding: 4px;}
                               <c:forEach var="i" items="${reviewlist}">
                                  <div class="spost clearfix">
                                     <div class="portfolio-image" style="width: 200px; height: 155px; right: 40px;">
-                                              <img src="${i.img}" alt="" style="width: auto; height: auto;">
+                                             <img src="${i.img}" alt="" style="width: 200px; height: 180px;">
                                               <p style="height: 0px;">${i.title }</p>
                                               <p>REVIEW : ${i.cnt }개</p>
                                           </div>                                       
@@ -161,11 +161,55 @@ td th{padding: 4px;}
                         <div class="portfolio-image" style="width: 250px; height: 153px; right: 40px;">
                             <img src="${e.img}" alt="" style="width: 250px; height: 153px;">
                         </div>                      
-                </form>
-                    </article>                              
+                </form>  
+                </article>                           
                 </c:forEach>            
                 </div>
-                
+                	<div style="text-align: center;">
+						<ul class="pagination">
+
+							<li class="previous"><c:if test="${paging.startPage != 1 }">
+									<a
+										href="goHotelMain?locnum=${paging.locnum }&nowPage=${paging.nowPage-1}&cntPerPage=${paging.cntPerPage}">&larr;
+										Older</a>
+								</c:if> <c:if test="${paging.startPage==1}">
+									<a href="#">&larr; Older</a>
+								</c:if></li>
+							<c:forEach begin="${paging.startPage }" end="${paging.endPage }"
+								var="p">
+								<c:choose>
+									<c:when test="${p == paging.nowPage }">
+										<li><a>${p }</a></li>
+										<!-- 현재 페이지 일 경우 링크 해제 -->
+									</c:when>
+									<c:when test="${p != paging.nowPage }">
+										<!-- 다른 페이지 링크 -->
+										<li><a
+											href="goHotelMain?locnum=${paging.locnum }&nowPage=${p}&cntPerPage=${paging.cntPerPage}">${p }</a></li>
+									</c:when>
+								</c:choose>
+							</c:forEach>
+
+							<li class="next"><c:if
+									test="${paging.endPage != paging.lastPage}">
+									<a
+										href="goHotelMain?locnum=${paging.locnum }&nowPage=${paging.nowPage+1 }&cntPerPage=${paging.cntPerPage}">Newer
+										&rarr;</a>
+								</c:if> <c:if test="${paging.endPage == paging.lastPage}">
+									<a href="#">Newer &rarr;</a>
+								</c:if></li>
+
+						</ul>
+						<ul style="text-align: center; list-style: none;">
+							<li><form action="goHotelMain?locnum=${paging.locnum }" method="post">
+									<%-- <input type="hidden" name="page" value="${param.page }"> --%>
+									<select name="searchType">
+										<option value="1">상호명</option>
+									</select>&nbsp;<input type="text" name="searchValue"> <input
+										type="submit" value="Search">
+								</form></li>
+						</ul>
+					</div>
                 
             
                 

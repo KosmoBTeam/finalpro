@@ -20,7 +20,7 @@
 			style="background-image: url('resources/images/main/tripper.jpg'); padding: 120px 0;"
 			data-stellar-background-ratio="0.3">
 
-			<div class="container clearfix" style="text-align: center;">
+			<div class="container clearfix" style="">
 				<span style="font-size: 100px !important; font-weight: bold;">리
 					뷰 게 시 판</span> <span style="font-size: 50px !important;">Starter들의
 					여행 후기게시판입니다.</span>
@@ -125,7 +125,7 @@
 										<c:when test="${p != paging.nowPage }">
 											<!-- 다른 페이지 링크 -->
 											<li><a
-												href="goReviewMain?nowPage=${p }&cntPerPage=${paging.cntPerPage}">${p }</a>
+												href="goReviewMain?nowPage=${p+1}&cntPerPage=${paging.cntPerPage}">${p }</a>
 											</li>
 										</c:when>
 									</c:choose>

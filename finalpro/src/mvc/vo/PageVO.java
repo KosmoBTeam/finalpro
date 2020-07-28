@@ -9,8 +9,24 @@ public class PageVO {
 	// cntPerPage - 페이지당 글 갯수, 마지막페이지
 	// lastPage - 마지막페이지
 	// start, end - 페이지 분할 값
-	private int nowPage, startPage, endPage, total, cntPerPage, lastPage, start, end;
-//패이지 블록의 Cnt
+	private int nowPage, startPage, endPage, total, cntPerPage, lastPage, start, end,locnum,hrnum;
+public int getHrnum() {
+		return hrnum;
+	}
+
+	public void setHrnum(int hrnum) {
+		this.hrnum = hrnum;
+	}
+
+public int getLocnum() {
+		return locnum;
+	}
+
+	public void setLocnum(int locnum) {
+		this.locnum = locnum;
+	}
+
+	//패이지 블록의 Cnt
 	private int cntPage = 5;
 	private String searchType, searchValue;
 

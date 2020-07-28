@@ -74,4 +74,41 @@ public class LocalDao {
 	public List<HotelTotalVO> localtotalList() {
 		return ss.selectList("lvo.reslist4");
 	}
+
+	public List<LocalFoodVO> localfoodListp(PageVO vo) {
+		// TODO Auto-generated method stub
+		return ss.selectList("lvo.locfoodp", vo);
+	}
+
+	public List<LocalHotelVO> localhotelListp(PageVO vo) {
+		// TODO Auto-generated method stub
+		return ss.selectList("lvo.lochotelp", vo);
+	}
+
+	public List<LocalActVO> localactListp(PageVO vo) {
+		// TODO Auto-generated method stub
+		return ss.selectList("lvo.locactp", vo);
+	}
+
+	public int total(PageVO vo) {
+		// TODO Auto-generated method stub
+		return ss.selectOne("lvo.total", vo);
+	}
+	public int total1(PageVO vo) {
+		// TODO Auto-generated method stub
+		return ss.selectOne("lvo.total1", vo);
+	}
+	public int total2(PageVO vo) {
+		// TODO Auto-generated method stub
+		return ss.selectOne("lvo.total2", vo);
+	}
+public int totalhotelmain(PageVO vo) {
+	return ss.selectOne("lvo.totalhotelmain", vo);
+}
+
+public List<HotelTotalVO> localtotalListwithp(PageVO vo) {
+	// TODO Auto-generated method stub
+	return ss.selectList("lvo.hotelmain", vo);
+}
+
 }

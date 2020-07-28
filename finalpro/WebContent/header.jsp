@@ -1,6 +1,8 @@
+<?php header("Access-Control-Allow-Origin:*"); ?>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
    pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ include file="../../resources/include/proxy.php"%>
 <!DOCTYPE html>
 <html dir="ltr" lang="ko">
 <head>
@@ -19,6 +21,7 @@
 <link rel="stylesheet" href="resources/css/bootstrap.css"
    type="text/css" />
 <link rel="stylesheet" href="resources/css/style.css" type="text/css" />
+<link rel="stylesheet" href="weather-icons.min.css" type="text/css" />
 <link rel="stylesheet" href="resources/css/dark.css" type="text/css" />
 <link rel="stylesheet" href="resources/css/font-icons.css"
    type="text/css" />
@@ -44,7 +47,6 @@
    src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
 <script type="text/javascript"
    src="${pageContext.request.contextPath}/resources/js/plugins.js"></script>
-
 <!-- SLIDER REVOLUTION 4.x SCRIPTS  -->
 <script type="text/javascript"
    src="${pageContext.request.contextPath}/resources/include/rs-plugin/js/jquery.themepunch.tools.min.js"></script>

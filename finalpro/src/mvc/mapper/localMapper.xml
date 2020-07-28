@@ -45,5 +45,134 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
       <![CDATA[ select h.num,h.locnum,h.title,h.img,h.address,h.tel,min(hr.pay) pay from hotel h, hotelradio hr
             where h.num=hr.num group by h.num, h.locnum, h.title, h.img, h.address,h.tel ]]>
 	</select>
+	<select id="locfoodp" parameterType="paging"
+		resultType="localfood">
+		select * from (
+		select rownum r_num, a.* from
+		(
+		select * from food
+			<where>
+				<choose>
+					<when test="searchType==1 and searchValue != null">
+					title Like '%'|| #{searchValue} ||'%' AND locnum = #{locnum}
+					</when>
+					<otherwise>locnum = #{locnum}</otherwise>
+				</choose>
+			
+			</where>
+		order by num desc
+		) a
+		) WHERE r_num between #{start} and #{end}
+	</select>
+	<select id="lochotelp" parameterType="paging"
+		resultType="localhotel">
+		select * from (
+		select rownum r_num, a.* from
+		(
+		select * from hotel 
+			<where>
+				<choose>
+					<when test="searchType==1 and searchValue != null">
+					title Like '%'|| #{searchValue} ||'%' AND locnum = #{locnum}
+					</when>
+					<otherwise>locnum = #{locnum}</otherwise>
+				</choose>
+			
+			</where>
+		 order by num desc
+		) a
+		) WHERE r_num between #{start} and #{end}
+	</select>
+	<select id="locactp" parameterType="paging"
+		resultType="localact">
+		select * from (
+		select rownum r_num, a.* from
+		(
+		select * from act
+			<where>
+				<choose>
+					<when test="searchType==1 and searchValue != null">
+					title Like '%'|| #{searchValue} ||'%' AND locnum = #{locnum}
+					</when>
+					<otherwise>locnum = #{locnum}</otherwise>
+				</choose>
+			
+			</where>
+		order by num desc
+		) a
+		)  where r_num between
+		#{start} and #{end}
+	</select>
 
+	<select id="total" resultType="int" parameterType="paging">
+		select count(*) total from food
+
+			<where>
+				<choose>
+					<when test="searchType==1 and searchValue != null">
+					title Like '%'|| #{searchValue} ||'%' AND locnum = #{locnum}
+					</when>
+					<otherwise>locnum = #{locnum}</otherwise>
+				</choose>
+			
+			</where>
+
+
+	</select>
+	<select id="total1" resultType="int" parameterType="paging">
+		select count(*) total from hotel
+			<where>
+				<choose>
+					<when test="searchType==1 and searchValue != null">
+					title Like '%'|| #{searchValue} ||'%' AND locnum = #{locnum}
+					</when>
+					<otherwise>locnum = #{locnum}</otherwise>
+				</choose>
+			
+			</where>
+	</select>
+	<select id="total2" resultType="int" parameterType="paging">
+		select count(*) total from act
+			<where>
+				<choose>
+					<when test="searchType==1 and searchValue != null">
+					title Like '%'|| #{searchValue} ||'%' AND locnum = #{locnum}
+					</when>
+					<otherwise>locnum = #{locnum}</otherwise>
+				</choose>
+			
+			</where>
+	</select>
+		<select id="hotelmain" parameterType="paging"
+		resultType="localhotel">
+		select * from (
+		select rownum r_num, a.* from
+		(
+		select * from hotel 
+			<where>
+				<choose>
+					<when test="searchType==1 and searchValue != null">
+					title Like '%'|| #{searchValue} ||'%' AND locnum = #{locnum}
+					
+					</when>	
+					<otherwise>locnum = #{locnum}</otherwise>				
+				</choose>
+			
+			</where>
+		 order by num desc
+		) a
+		) WHERE r_num between #{start} and #{end}
+	</select>
+		<select id="totalhotelmain" resultType="int" parameterType="paging">
+		select count(*) total from hotel 
+			<where>
+				<choose>
+					<when test="searchType==1 and searchValue != null">
+					title Like '%'|| #{searchValue} ||'%' AND locnum = #{locnum}
+					
+					</when>
+					<otherwise>locnum = #{locnum}</otherwise>
+				</choose>
+			</where>
+	</select>
 </mapper>

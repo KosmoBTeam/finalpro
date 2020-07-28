@@ -43,11 +43,21 @@ public class HotelController {
 
 	// 호텔예약 메인페이지로 이동
 	@RequestMapping(value = "/goHotelMain")
-	public String goHotel(Model model) {
-		List<HotelTotalVO> list = localDao.localtotalList();
+	public String goHotel(Model model,PageVO vo,@RequestParam(value = "nowPage", required = false, defaultValue = "1") String nowPage,
+			@RequestParam(value = "cntPerPage", required = false, defaultValue = "5") String cntPerPage) {
+		int total = localDao.totalhotelmain(vo);
+		String value = vo.getSearchValue();
+		String type = vo.getSearchType();
+		vo = new PageVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
+		vo.setSearchValue(value);
+		vo.setSearchType(type);
+		List<HotelTotalVO> list = localDao.localtotalListwithp(vo);
 		List<HotelReviewVO> reviewlist = localDao.localreviewList();
 		model.addAttribute("list", list);
 		model.addAttribute("reviewlist", reviewlist);
+		vo.setNowPage(Integer.parseInt(nowPage));
+		vo.setCntPerPage(Integer.parseInt(cntPerPage));
+		model.addAttribute("paging", vo);
 		return "hotel/hotelMain";
 	}
 
