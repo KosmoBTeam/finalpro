@@ -3,13 +3,19 @@ package mvc.model;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.collections.map.HashedMap;
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import mvc.dao.LocalDao;
@@ -79,16 +85,37 @@ public class SurveyController {
 
 	@RequestMapping(value = "/goChartDetail")
 	public ModelAndView goSurveyWrite2(int locnum) {
-		/*
-		 * List<List<SurveyViewVO>> chartlist = new ArrayList<List<SurveyViewVO>>(); for
-		 * (int i = 2; i < 12; i++) { List<SurveyViewVO> list = surveyDao.surveyView(i);
-		 * chartlist.add(list); }
-		 */
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("survey/chartDetail");
+		mav.setViewName("survey/chartDetail2");
 		mav.addObject("locnum", locnum);
-		/* mav.addObject("list", chartlist); */
 		return mav;
 	}
-
+	
+	@ResponseBody
+	@RequestMapping(value="/getChartDetail")
+	public JSONObject getChartDetail() {
+		List<SurveyViewVO> list = surveyDao.surveyView2();
+		List<Integer> num = new ArrayList<Integer>();
+		List<String> sub = new ArrayList<String>();
+		List<Integer> cnt = new ArrayList<Integer>();
+		List<String> surveyTitle = new ArrayList<String>();
+		Map<String, List> map = new HashedMap();
+		for(SurveyViewVO e: list) {
+			num.add(e.getNum());
+			sub.add(e.getSub());
+			cnt.add(e.getSurveycnt());
+			surveyTitle.add(e.getSurveytitle());
+		}
+		map.put("num",num);
+		map.put("sub",sub);
+		map.put("cnt",cnt);
+		map.put("surveyTitle",surveyTitle);
+		JSONObject object = new JSONObject();
+		for(Entry<String, List> entry:map.entrySet()) {
+			String key = entry.getKey();
+			Object value = entry.getValue();
+			object.put(key, value);
+		}
+		return object;
+	}
 }

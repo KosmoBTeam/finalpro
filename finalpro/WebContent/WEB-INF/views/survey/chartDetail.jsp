@@ -27,18 +27,20 @@
 
         <!-- Page Title
         ============================================= -->
-        <section id="page-title" class="page-title-parallax " style="background-image: url(&quot;resources/images/survey/chart.jpg&quot;); padding: 120px 0;" data-stellar-background-ratio="0.3">
+       <section id="page-title" class="page-title-parallax"
+         style="background-image: url('resources/images/survey/surveychart2.jpg'); padding: 120px 0;"
+         data-stellar-background-ratio="0.3">
 
-            <div class="container clearfix" style="text-align: center;">
-                  <span style="font-size: 100px !important; font-weight: bold; color: white;">여 행 가 이 드</span>
-                <span style="font-size: 50px !important; color: white;">StarTrip Trip Guide</span>
-                <ol class="breadcrumb">
-                    <li><a href="index.jsp">Home</a></li>
-                    <li class="active">전체 투표 결과</li>
-                </ol>
-            </div>
+         <div class="container clearfix">
+            <h1 style="color: #ffffff">설문조사 결과</h1>
+            <span style="color: #ffffff">StarTrip Trip Guide</span>
+            <ol class="breadcrumb">
+               <li><a href="main" style="color: #ffffff">Home</a></li>
+               <li class="active" style="color: #ffffff">설문조사</li>
+            </ol>
+         </div>
 
-        </section><!-- #page-title end -->
+      </section><!-- #page-title end -->
 
         <!-- Contact Form & Map Overlay Section
         ============================================= -->
@@ -215,7 +217,6 @@ function pieChart5(){
       ['도심',20, "silver"],
       ['기타',25, "gold"]
     ]);
-
     var options = {
         title: '어디로 여행을 떠나고 싶으신가요?',
          pieHole: 0.3,
@@ -288,6 +289,9 @@ function pieChart9(){
     var chart = new google.visualization.PieChart(document.getElementById('piechart9'));
     chart.draw(data, options);
   }
+  document.onload(function(){
+	  
+  })
 </script>   
 </body>
 </html>

@@ -27,18 +27,20 @@
 
         <!-- Page Title
         ============================================= -->
-        <section id="page-title" class="page-title-parallax" style="background-image: url(&quot;resources/images/survey/surveymain.png&quot;); padding: 120px 0;" data-stellar-background-ratio="0.3">
+        <section id="page-title" class="page-title-parallax"
+         style="background-image: url('resources/images/survey/surveychart2.jpg'); padding: 120px 0;"
+         data-stellar-background-ratio="0.3">
 
-            <div class="container clearfix">
-                <h1>여행 가이드</h1>
-                <span>StarTrip Trip Guide</span>
-                <ol class="breadcrumb">
-                    <li><a href="index.jsp">Home</a></li>
-                    <li class="active">설문조사</li>
-                </ol>
-            </div>
+         <div class="container clearfix">
+            <h1 style="color: #ffffff">여행 가이드</h1>
+            <span style="color: #ffffff">StarTrip Trip Guide</span>
+            <ol class="breadcrumb">
+               <li><a href="main" style="color: #ffffff">Home</a></li>
+               <li class="active" style="color: #ffffff">설문조사</li>
+            </ol>
+         </div>
 
-        </section><!-- #page-title end -->
+      </section><!-- #page-title end -->
 
         <!-- Contact Form & Map Overlay Section
         ============================================= -->
