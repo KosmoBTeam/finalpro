@@ -5,10 +5,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-public class PackageController {
-	
-		@RequestMapping(value = "gopackage", method = RequestMethod.GET)
-		public String defaultpackage() {
-			return "final/packageProduct";
-		}
+public class MapController {
+
+	@RequestMapping(value = "/gosearchmap", method = RequestMethod.GET)
+	public String searchmap() {
+		
+		return "final/searchMap";
+	}
 }

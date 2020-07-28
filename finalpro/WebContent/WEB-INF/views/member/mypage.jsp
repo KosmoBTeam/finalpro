@@ -69,20 +69,22 @@ $(document).ready(
         });
 </script>
 
-<section id="page-title" class="page-title-parallax"
-	style="background-image: url(&quot;resources/images/main/mypagemain.jpg&quot;); padding: 120px 0;"
-	data-stellar-background-ratio="0.3">
+<section id="page-title" class="page-title-parallax page-title-dark"
+			style="background-image: url('resources/images/main/mypagemain.jpg'); padding: 120px 0; margin: 0 auto;"
+			data-stellar-background-ratio="0.3">
 
-	<div class="container clearfix" style="border-width: 3px;">
-		<h1 style="color: #ffffff;font-size: 70px;">${sessionScope['name']}님의&nbsp;마이페이지</h1>
-		<!--홈/호텔소개/회원가입 이거임  -->
-		<ol class="breadcrumb">
-			<li><a href="/" style="color: #ffffff">홈</a></li>
-			<li><a href="logout" style="color: #ffffff">로그아웃</a></li>
-			<li class="active" style="color: #ffffff">마이페이지</li>
-		</ol>
-	</div>
-</section>
+			<div class="container clearfix">
+				<h1 style="color:#3b2e5a">${sessionScope['name']}&nbsp;님</h1>
+				<span style="color: #ffffff">마이페이지</span>
+			<ol class="breadcrumb">
+				<li><a href="/" style="color: #ffffff">홈</a></li>
+				<li><a href="logout" style="color: #ffffff">로그아웃</a></li>
+				<li class="active" style="color: #ffffff">마이페이지</li>
+			</ol>
+			</div>
+
+		</section>
+	
 <!-- #page-title end -->
 <p>
 <div class="container clearfix"></div>
@@ -92,7 +94,7 @@ $(document).ready(
 
 <div class="limiter">
 	<div class="container-login100">
-		<div class="wrap-login100">
+		<div class="wrap-login100" style="font-size: large; width: 900px;">
 
 
 			<form name="form1" method="post" action="editMember" id="joinForm"
@@ -108,7 +110,7 @@ $(document).ready(
 					<div class="col-md-6">
 						<label for="template-contactform-name"><b
 							class="text-warning">우편번호</b> <a type="button"
-							class="btn btn-primary" onclick="sample2_execDaumPostcode()">우편번호
+							class="btn btn-primary" onclick="sample2_execDaumPostcode()" style="background-color: #EAAF22">우편번호
 								찾기</a> </label><br> <input type="text" class="well well-sm" name="ad0"
 							id="sample2_postcode" size="35" placeholder="ex) 19xxx">
 					</div>
@@ -164,21 +166,21 @@ $(document).ready(
 				</div>
 				<div class="row" style="padding-top: 20px; display: flow-root;">
 					<button type="submit" class="login100-form-btn"
-						style="color: black; background-color: yellow; display: inline-block;"
+						style="color: ; background-color: #EAAF22; display: inline-block;"
 						value="회원정보수정">
 						<span>회원정보수정</span>
 					</button>
 					<button type="button"
 						onclick="location.href='gopwd'"
 						class="login100-form-btn"
-						style="color: black; display: inline-block; background-color: yellow;"
+						style="color: ; display: inline-block; background-color: #EAAF22;"
 						value="비밀번호 변경하기">
 						<span>비밀번호 변경하기</span>
 					</button>
 					<button type="button"
 						onclick="location.href='deleteMember?id=${sessionScope['id']}'"
 						class="login100-form-btn"
-						style="color: black; display: inline-block; background-color: yellow;"
+						style="color: ; display: inline-block; background-color: #EAAF22;"
 						value="탈퇴하기">
 						<span>탈퇴하기</span>
 					</button>
@@ -294,11 +296,11 @@ $(document).ready(
         }
     </script>
 
-			<div class="line"></div>
+			<div class="line" style="background-color: gray;"></div>
 			<!-- 여기서부터 호텔예약 정보  -->
 			<span class="login100-form-title-1"
-				style="position: relative; bottom: 0%; text-align: center; display: block; color: black;">${sessionScope['name']}님의
-				호텔예약현황</span>
+				style="position: relative; bottom: 0%; text-align: center; display: block; color: #EAAF22; ">${sessionScope['name']}&nbsp;님의
+				호텔 예약현황</span>
 			<div class="line"></div>
 			<div class="clearfix" style="margin-top: 5px; padding-left: 7%;">
 

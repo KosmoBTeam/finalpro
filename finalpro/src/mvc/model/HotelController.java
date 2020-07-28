@@ -26,6 +26,7 @@ import mvc.dao.HotelDao;
 import mvc.dao.LocalDao;
 import mvc.dao.ReviewDao;
 import mvc.service.HotelService;
+import mvc.vo.HotelDetailVO;
 import mvc.vo.HotelRadioVO;
 import mvc.vo.HotelReserve2VO;
 import mvc.vo.HotelReviewVO;
@@ -87,14 +88,6 @@ public class HotelController {
 		return mov;
 	}
 
-	// 호텔의 상세정보 페이지를 띄움
-	@RequestMapping(value = "/goHotelDetail")
-	public String goHotelDetail(int num, Model model) {
-		List<LocalHotelVO> list = localDao.localhotelAllList();
-		model.addAttribute("list", list);
-		String[] arr = { "Shinra", "Lotte", "Hidden", "Nest", "Para", "She" };
-		return "hotel/hotelDetail" + arr[num - 2];
-	}
 
 	// 호텔 예약 정보를 인서트함
 	@RequestMapping(value = "/hotelIn", method = RequestMethod.POST)
@@ -106,5 +99,31 @@ public class HotelController {
 		mov.setViewName("hotel/hotel_success");
 		return mov;
 	}
+	
+	// 호텔의 상세정보 페이지를 띄움
+	   @RequestMapping(value = "/goHotelDetail" , method = { RequestMethod.GET, RequestMethod.POST })
+	   public String goHotelDetail(Model model,int num) {
+	      
+	      HotelDetailVO vo = hotelDao.dlist(num);
+	      
+	      String[] arr1 = vo.getFoodplace().split(", ");
+	      List<String> detail = new ArrayList<String>();
+	      for (String string : arr1) {
+	         detail.add(string);
+	      }
+	      double mapx = vo.getMapx();
+	      double mapy = vo.getMapy();
+	      
+	      double x1 = Math.round(mapx*1000000)/1000000.0;
+	      double y1 = Math.round(mapy*1000000)/1000000.0;
+	      
+	      vo.setMapx(x1);
+	      vo.setMapy(y1);
+	      model.addAttribute("detail",detail);
+	      model.addAttribute("vo", vo);
+	      List<HotelRadioVO> rlist = hotelDao.hotelRadioList(num);
+	      model.addAttribute("rlist",rlist);
+	      return "hotel/hotelDetail";
+	   }
 
 }

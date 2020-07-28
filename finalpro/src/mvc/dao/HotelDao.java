@@ -6,6 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import mvc.vo.HotelDetailVO;
 import mvc.vo.HotelRadioVO;
 import mvc.vo.HotelReserve2VO;
 import mvc.vo.PageVO;
@@ -45,4 +46,9 @@ public class HotelDao {
 		// TODO Auto-generated method stub
 		return ss.selectOne("hvo.total", vo);
 	}
+	public HotelDetailVO dlist(int num)  {
+	      // 호텔 상세페이지용 리스트
+	      return ss.selectOne("hvo.hdetail", num);
+	   }
+	
 }

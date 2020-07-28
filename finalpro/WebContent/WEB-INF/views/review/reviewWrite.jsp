@@ -57,7 +57,7 @@ h3 {
 <body class="stretched">
 	<div class="limiter">
 		<div class="container-login100">
-			<div class="wrap-login100">
+			<div class="wrap-login100" style="width: 1000px">
 				<form action="reviewWrite" method="post"
 					enctype="multipart/form-data"
 					style="margin-top: 5%; margin-bottom: 2%;">

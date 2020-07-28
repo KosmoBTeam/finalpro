@@ -16,22 +16,21 @@
 
 		<!-- Page Title
         ============================================= -->
-		<section id="page-title" class="page-title-parallax page-title-dark"
-			style="background-image: url('resources/images/main/tripper.jpg'); padding: 120px 0;"
-			data-stellar-background-ratio="0.3">
+		<section id="page-title" class="page-title-parallax"
+         style="background-image: url('resources/images/main/reviewmain.jpg'); padding: 120px 0;"
+         data-stellar-background-ratio="0.3">
 
-			<div class="container clearfix" style="">
-				<span style="font-size: 100px !important; font-weight: bold;">리
-					뷰 게 시 판</span> <span style="font-size: 50px !important;">Starter들의
-					여행 후기게시판입니다.</span>
 
-				<ol class="breadcrumb">
-					<li><a href="main">Home</a></li>
-					<li class="active">후기게시판</li>
-				</ol>
-			</div>
+         <div class="container clearfix">
+            <h1 style="color: #ffffff">여행 게시판</h1>
+            <span style="color: #ffffff">StarTrip Trip Board</span>
+            <ol class="breadcrumb">
+               <li><a href="main" style="color: #ffffff">Home</a></li>
+               <li class="active" style="color: #ffffff">여행 게시판</li>
+            </ol>
+         </div>
 
-		</section>
+      </section>
 		<!-- #page-title end -->
 
 		<!-- Content
@@ -146,14 +145,14 @@
 						</div>
 						<!-- .pager end -->
 						<ul style="text-align: center; list-style: none;">
-							<li><form action="goReviewMain" method="post">
+							<li><form action="goReviewMain" method="post" class="form-inline">
 									<%-- <input type="hidden" name="page" value="${param.page }"> --%>
-									<select name="searchType">
+									<select name="searchType" class="form-control">
 										<option value="1">아이디</option>
 										<option value="2">제목</option>
 										<option value="3">내용</option>
-									</select>&nbsp;<input type="text" name="searchValue"> <input
-										type="submit" value="Search">
+									</select>&nbsp;<input type="text" name="searchValue" class="form-control"> <input
+										type="submit" value="검색하기" class="btn btn-warning">
 								</form></li>
 						</ul>
 					</div>

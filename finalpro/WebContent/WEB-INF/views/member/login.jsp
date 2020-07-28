@@ -56,7 +56,7 @@ h3 {
 		<div class="container-login100">
 			<div class="wrap-login100">
 				<div class="login100-form-title"
-					style="background-image: url(<c:url value='/resources/images/bg-01.jpg'/>);">
+					style="background-image: url('resources/images/main/main3.jpg');">
 					<!-- 					<span class="login100-form-title-1"></span> -->
 					<span class="login100-form-title-1">S t a r T r i p!</span>
 				</div>
@@ -91,8 +91,8 @@ h3 {
 					</div>
 
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn" type="submit" style="background-color: yellow;color: black;">로그인</button>
-						<button class="login100-form-btn" type="button" value="회원가입" style="background-color: yellow; color: black;" onclick="location.href='goMember'">회원가입</button>
+						<button class="login100-form-btn" type="submit" style="background-color: #EAAF22;">로그인</button>&nbsp;&nbsp;
+						<button class="login100-form-btn" type="button" value="회원가입" style="background-color: #EAAF22;" onclick="location.href='goMember'">회원가입</button>
 					</div>
 					<input type="hidden" value="${next }" name="next">
 					<%-- <div id="naver_id_login" style="text-align:center;margin-top: 20px;"><a href="${url}"><img width="223" src="resources/images/naver.PNG"/></a></div> --%>

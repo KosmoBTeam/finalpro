@@ -141,12 +141,12 @@
                      <!-- <li><a href="coming-soon.jsp"><div>Coming Soon</div></a></li> -->
                   </ul></li>
                   
-                  <li><a href="#"><div>실시간 코로나</div></a> 
+                  <li><a href="gocovidMap"><div>실시간 코로나</div></a> 
                   
                <li><a href="goLocalMain"><div>국내 여행지</div></a>
                   <ul>
                      <li><a href="goLocalMain"><div>전국</div></a></li>
-                     <li><a href="goLocalMain"><div>패키지 여행</div></a></li>
+                     <li><a href="gopackage"><div>패키지 여행</div></a></li>
                   </ul></li>
                <li><a href="#"><div>여행 후기</div></a>
                   <ul>
@@ -158,7 +158,7 @@
                <li><a href="#"><div>여행 가이드</div></a>
                   <ul>
                      <li><a href="goSurveyWrite"><div>나만의 여행지 찾기</div></a></li>
-                     <li><a href="goSurveyWrite"><div>주변 명소 모아보기</div></a></li>
+                     <li><a href="gosearchmap"><div>주변 명소 모아보기</div></a></li>
                   </ul></li>
                <c:choose>
                   <c:when test="${sessionScope['email'] == null}">

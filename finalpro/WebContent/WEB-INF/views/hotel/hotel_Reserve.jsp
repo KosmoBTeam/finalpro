@@ -28,7 +28,7 @@
 
         <!-- Page Title
         ============================================= -->
-        <section id="page-title" class="page-title-parallax page-title-dark" style="padding: 200px 0; background-image: ${img }; background-size: cover; background-position: center center;" data-stellar-background-ratio="0.2">
+        <section id="page-title" class="page-title-parallax page-title-dark" style="padding: 200px 0; background-image:url('resources/images/hotel/hotelreservemain.jpg'); background-size: cover; background-position: center center;" data-stellar-background-ratio="0.2">
 
             <div class="container clearfix">
                 <h1>호텔 예약하기</h1>
@@ -112,11 +112,12 @@
     </thead>
     <tbody>
       <tr>
+      
          <td><c:forEach var="e" items="${list}">
-<input type="checkbox" id="roomtype" name="roomtype"
+		<input type="checkbox" id="roomtype" name="roomtype"
                                  value=${e.roomtype } onclick="doOpenCheck(this);"/>${e.roomtype } : ${e.pay }원
                                  <input type="hidden" value="${e.num }" name="num"> 
-                  &nbsp;    &nbsp; &nbsp; &nbsp;                 
+                  <br>                
                         </c:forEach>
                                     
 </td>
@@ -350,16 +351,16 @@
                         
                             <div class="widget quick-contact-widget clearfix">
 
-                                <h4>Can't Find Answers to Your Questions?</h4>
+                                <h4>호텔 주변 명소는?</h4>
                                 <div id="quick-contact-form-result" data-notify-type="success" data-notify-msg="<i class=icon-ok-sign></i> Message Sent Successfully!"></div>
                                 <form id="quick-contact-form" name="quick-contact-form" action="resources/include/quickcontact.php" method="post" class="quick-contact-form nobottommargin">
                                     <div class="form-process"></div>
                                     
-                                    <input type="text" class="required sm-form-control input-block-level" id="quick-contact-form-name" name="quick-contact-form-name" value="" placeholder="Full Name" />
-                                    <input type="text" class="required sm-form-control email input-block-level" id="quick-contact-form-email" name="quick-contact-form-email" value="" placeholder="Email Address" />
-                                    <textarea class="required sm-form-control input-block-level short-textarea" id="quick-contact-form-message" name="quick-contact-form-message" rows="4" cols="30" placeholder="Message"></textarea>
-                                    <input type="text" class="hidden" id="quick-contact-form-botcheck" name="quick-contact-form-botcheck" value="" />
-                                    <button type="submit" id="quick-contact-form-submit" name="quick-contact-form-submit" class="btn button button-small nomargin" value="submit">Send Email</button>
+                                    <div style="width: 240px; height: 173px; background-image: url('resources/images/icons/mapicon.jpg')"></div>
+                                    <br>
+                                    <button type="button" id="quick-contact-form-submit" name="quick-contact-form-submit" 
+                                    class="btn button button-small nomargin" value="submit"
+                                    onclick="location.href=gosearchmap">주변 검색하기</button>
                                 </form>
 
                                 <script type="text/javascript">
@@ -383,268 +384,7 @@
 
                             </div>
                             
-                            <div class="widget widget-twitter-feed clearfix">
-
-                                <h4>Our Twitter</h4>
-                                <ul id="sidebar-twitter-list-1" class="iconlist">
-                                    <li></li>
-                                </ul>
-
-                                <a href="#" class="btn btn-default btn-sm fright">Follow Us on Twitter</a>
-
-                                <script type="text/javascript">
-                                    jQuery( function($){
-                                        $.getJSON('resources/include/twitter/tweets.php?username=envato', function(tweets){
-                                            $("#sidebar-twitter-list-1").html(sm_format_twitter(tweets));
-                                        });
-                                    });
-                                </script>
-                            </div>                                                   
-                        
-                            <div class="widget clearfix">
-
-                                <div class="tabs nobottommargin clearfix" id="sidebar-tabs">
-
-                                    <ul class="tab-nav clearfix">
-                                        <li><a href="#tabs-1">Popular</a></li>
-                                        <li><a href="#tabs-2">Recent</a></li>
-                                        <li><a href="#tabs-3"><i class="icon-comments-alt norightmargin"></i></a></li>
-                                    </ul>
-
-                                    <div class="tab-container">
-
-                                        <div class="tab-content clearfix" id="tabs-1">
-                                            <div id="popular-post-list-sidebar">
-
-                                                <div class="spost clearfix">
-                                                    <div class="entry-image">
-                                                        <a href="#" class="nobg"><img src="http://placehold.it/100x100" alt=""></a>
-                                                    </div>
-                                                    <div class="entry-c">
-                                                        <div class="entry-title">
-                                                            <h4><a href="#">NYC Restaurant Week</a></h4>
-                                                            <p class="nobottommargin">Lorem ipsum dolor sit amet consectetur adipis...</p>
-                                                        </div>
-                                                        <ul class="entry-meta">
-                                                            <li><i class="icon-comments-alt"></i> 15 Comments</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-
-                                                <div class="spost clearfix">
-                                                    <div class="entry-image">
-                                                        <a href="#" class="nobg"><img src="http://placehold.it/100x100" alt=""></a>
-                                                    </div>
-                                                    <div class="entry-c">
-                                                        <div class="entry-title">
-                                                            <h4><a href="#">Kids Food Fest</a></h4>
-                                                            <p class="nobottommargin">Lorem ipsum dolor sit amet consectetur adipis...</p>
-                                                        </div>
-                                                        <ul class="entry-meta">
-                                                            <li><i class="icon-comments-alt"></i> 18 Comments</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-
-                                                <div class="spost clearfix">
-                                                    <div class="entry-image">
-                                                        <a href="#" class="nobg"><img src="http://placehold.it/100x100" alt=""></a>
-                                                    </div>
-                                                    <div class="entry-c">
-                                                        <div class="entry-title">
-                                                            <h4><a href="#">Taste of the Old World</a></h4>
-                                                            <p class="nobottommargin">Lorem ipsum dolor sit amet consectetur adipis...</p>
-                                                        </div>
-                                                        <ul class="entry-meta">
-                                                            <li><i class="icon-comments-alt"></i> 11 Comments</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                        <div class="tab-content clearfix" id="tabs-2">
-                                            <div id="recent-post-list-sidebar">
-
-                                                <div class="spost clearfix">
-                                                    <div class="entry-image">
-                                                        <a href="#" class="nobg"><img src="http://placehold.it/100x100" alt=""></a>
-                                                    </div>
-                                                    <div class="entry-c">
-                                                        <div class="entry-title">
-                                                            <h4><a href="#">Vegetarian Food Festival</a></h4>
-                                                            <p class="nobottommargin">Lorem ipsum dolor sit amet consectetur adipis...</p>
-                                                        </div>
-                                                        <ul class="entry-meta">
-                                                            <li>9th Sept 2015</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-
-                                                <div class="spost clearfix">
-                                                    <div class="entry-image">
-                                                        <a href="#" class="nobg"><img src="http://placehold.it/100x100" alt=""></a>
-                                                    </div>
-                                                    <div class="entry-c">
-                                                        <div class="entry-title">
-                                                            <h4><a href="#">Brisket King</a></h4>
-                                                            <p class="nobottommargin">Lorem ipsum dolor sit amet consectetur adipis...</p>
-                                                        </div>
-                                                        <ul class="entry-meta">
-                                                            <li>7th Oct 2015</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-
-                                                <div class="spost clearfix">
-                                                    <div class="entry-image">
-                                                        <a href="#" class="nobg"><img src="http://placehold.it/100x100" alt=""></a>
-                                                    </div>
-                                                    <div class="entry-c">
-                                                        <div class="entry-title">
-                                                            <h4><a href="#">Coffee &amp; Tea Festival</a></h4>
-                                                            <p class="nobottommargin">Lorem ipsum dolor sit amet consectetur adipis...</p>
-                                                        </div>
-                                                        <ul class="entry-meta">
-                                                            <li>28th Sept 2015</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                        <div class="tab-content clearfix" id="tabs-3">
-                                            <div id="comments-list-sidebar">
-
-                                                <div class="spost clearfix">
-                                                    <div class="entry-image">
-                                                        <a href="#" class="nobg"><img src="resources/images/icons/avatar.jpg" alt=""></a>
-                                                    </div>
-                                                    <div class="entry-c">
-                                                        <strong>Admin</strong> Lorem ipsum dolor sit vel ante tincidunt metus blandit amet consectetur adipis...
-                                                    </div>
-                                                </div>
-
-                                                <div class="spost clearfix">
-                                                    <div class="entry-image">
-                                                        <a href="#" class="nobg"><img src="resources/images/icons/avatar.jpg" alt=""></a>
-                                                    </div>
-                                                    <div class="entry-c">
-                                                        <strong>Mike Smith</strong> Nullam a felis vel ante tincidunt metus blandit posuere neque suscipi...
-                                                    </div>
-                                                </div>
-
-                                                <div class="spost clearfix">
-                                                    <div class="entry-image">
-                                                        <a href="#" class="nobg"><img src="resources/images/icons/avatar.jpg" alt=""></a>
-                                                    </div>
-                                                    <div class="entry-c">
-                                                        <strong>Sarah David</strong> Phasellus est nunc vel ante tincidunt metus blandit mattis faucibus eros...
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-                                <script>
-                                    $(function() {
-                                        $( "#sidebar-tabs" ).tabs({ show: { effect: "fade", duration: 400 } });
-                                    });
-                                </script>
-
-                            </div>                        
-
-                            <div class="widget clearfix">
-
-                                <h4>Flickr</h4>
-                                <div id="flickr-widget" class="flickr-feed masonry-thumbs" data-id="27725911@N08" data-count="20" data-type="user" data-lightbox="gallery"></div>
-                                
-                            </div>
-
-                            <div class="widget clearfix">
-
-                                <h4>Media Carousel</h4>
-                                <div id="oc-portfolio-sidebar" class="owl-carousel portfolio-5">
-
-                                    <div class="oc-item">
-                                        <div class="iportfolio">
-                                            <div class="portfolio-image">
-                                                <a href="#"><img src="http://placehold.it/400x300" alt=""></a>
-                                                <div class="portfolio-overlay">
-                                                    <a href="http://vimeo.com/16270111" class="center-icon" data-lightbox="iframe"><i class="icon-play"></i></a>                                                </div>
-                                            </div>
-                                            <div class="portfolio-desc center nobottompadding">
-                                                <h3><a href="portfolio-single-video.html">Gastronomy</a></h3>
-                                                <span><a href="#">Entrees</a>, <a href="#">Desserts</a></span>                                            
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="oc-item">
-                                        <div class="iportfolio">
-                                            <div class="portfolio-image">
-                                                <a href="portfolio-single.html"><img src="http://placehold.it/400x300" alt=""></a>
-                                                <div class="portfolio-overlay">
-                                                    <a href="http://placehold.it/1000x667" class="center-icon" data-lightbox="image"><i class="icon-picture"></i></a>                                                </div>
-                                            </div>
-                                            <div class="portfolio-desc center nobottompadding">
-                                                <h3><a href="portfolio-single.html">Specialties</a></h3>
-                                                <span><a href="#">Wines</a>, <a href="#">Beer</a></span>                                            
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <script type="text/javascript">
-
-                                    jQuery(document).ready(function($) {
-
-                                        var ocClients = $("#oc-portfolio-sidebar");
-
-                                        ocClients.owlCarousel({
-                                            items: 1,
-                                            margin: 10,
-                                            loop: true,
-                                            nav: false,
-                                            autoplay: true,
-                                            dots: true,
-                                            autoplayHoverPause: true
-                                        });
-
-                                    });
-
-                                </script>
-                            </div>
-
-                            <div class="widget clearfix">
-
-                                <h4>Tag Cloud</h4>
-                                <div class="tagcloud">
-                                    <a href="#">food</a>
-                                    <a href="#">wine</a>
-                                    <a href="#">entrees</a>
-                                    <a href="#">soups</a>
-                                    <a href="#">salads</a>
-                                    <a href="#">dining</a>
-                                    <a href="#">entertainment</a>
-                                    <a href="#">desserts</a>
-                                    <a href="#">rsvp</a>
-                                    <a href="#">tickets</a>
-                                    <a href="#">drinks</a>
-                                    <a href="#">bar</a>
-                                    <a href="#">lunch</a>
-                                    <a href="#">dinner</a>
-                                    <a href="#">kids</a>
-                                    <a href="#">catering</a>
-                                    <a href="#">careers</a>
-                                    <a href="#">feedback</a>                                 
-                                </div>
-                            </div>
-                        </div>
+                         </div>   
                     </div><!-- .sidebar end -->
                 </div>
 
