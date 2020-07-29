@@ -3,25 +3,33 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="survey">
-	<select id="surveylist" resultType="surveyview"
-		parameterType="int">
-		select s.num num, s.sub sub, s.code code ,s.sdate sdate, sc.subtype subtype,
-		sc.subcode subcode ,sc.surveytitle surveytitle, sc.surveycnt surveycnt
-		from survey_trip s, surveycontent_trip sc
-		where s.num=sc.subcode and s.num =#{num}
-	</select>
-	<select id="surveylist2" resultType="surveyview"
-		parameterType="int">
-		select s.num num, s.sub sub, s.code code ,s.sdate sdate, sc.subtype subtype,
-		sc.subcode subcode ,sc.surveytitle surveytitle, sc.surveycnt surveycnt
-		from survey_trip s, surveycontent_trip sc
-		where s.num=sc.subcode and num between 3 and 11 
-	</select>
-	<update id="updatecnt" parameterType="surveyview">
-		update surveycontent_trip set surveycnt = surveycnt +1 where
-		subcode=#{subcode} and subtype=#{subtype}
-	</update>
-	<select id="getLoc" resultType="String" parameterType="surveyview">
-		select surveytitle from surveycontent_trip where subtype = #{subtype} and subcode=#{subcode} order by 1 asc
-	</select>
+   <select id="surveylist" resultType="surveyview"
+      parameterType="int">
+      select s.num num, s.sub sub, s.code code ,s.sdate sdate, sc.subtype subtype,
+      sc.subcode subcode ,sc.surveytitle surveytitle, sc.surveycnt surveycnt
+      from survey_trip s, surveycontent_trip sc
+      where s.num=sc.subcode and s.num =#{num}
+   </select>
+   
+   <select id="piechartDetail" resultType="surveyview">
+      select s.num num, s.sub sub,sc.surveytitle surveytitle, sc.surveycnt surveycnt
+      from survey_trip s, surveycontent_trip sc
+      where s.num=sc.subcode and num between 3 and 11 
+   </select>
+   
+   <select id="columnChartDetail" resultType="surveyview">
+   select s.num num, s.sub sub,sc.surveytitle surveytitle, sc.surveycnt surveycnt
+   from survey_trip s, surveycontent_trip sc
+   where s.num=sc.subcode and num=2
+   </select>
+   
+   <update id="updatecnt" parameterType="surveyview">
+      update surveycontent_trip set surveycnt = surveycnt +1 where
+      subcode=#{subcode} and subtype=#{subtype}
+   </update>
+   
+   <select id="getLoc" resultType="String" parameterType="surveyview">
+      select surveytitle from surveycontent_trip where subtype = #{subtype} and subcode=#{subcode} order by 1 asc
+   </select>
+   
 </mapper>

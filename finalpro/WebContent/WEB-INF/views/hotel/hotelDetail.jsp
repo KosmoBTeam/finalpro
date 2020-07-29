@@ -7,7 +7,8 @@
 <html dir="ltr" lang="ko">
 
 <%@include file="../header.jsp"%>
-
+<!-- services와 clusterer, drawing 라이브러리 불러오기 -->
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4ebe4b5dd8c56619a4b9036bc01619aa&libraries=services,clusterer,drawing"></script>
 
 
 <body class="stretched">
@@ -143,91 +144,43 @@
 <div class="divider"><i class="icon-circle"></i></div>
                   <div class="entry clearfix">
 
-                     <div class="entry-image clearfix">
-
-                        <div class="portfolio-single-image masonry-thumbs col-6"
-                           data-big="3" data-lightbox="gallery">
-
-                           <a href="resources/images/hotel/sinra1.jpg"
-                              data-lightbox="gallery-item"><img class="image_fade"
-                              src="resources/images/hotel/sinra1.jpg" alt=""></a> <a
-                              href="resources/images/hotel/sinra2.jpg"
-                              data-lightbox="gallery-item"><img class="image_fade"
-                              src="resources/images/hotel/sinra2.jpg" alt=""></a> <a
-                              href="resources/images/hotel/sinra3.jpg"
-                              data-lightbox="gallery-item"><img class="image_fade"
-                              src="resources/images/hotel/sinra3.jpg" alt=""></a> <a
-                              href="resources/images/hotel/sinra4.jpg"
-                              data-lightbox="gallery-item"><img class="image_fade"
-                              src="resources/images/hotel/sinra4.jpg" alt=""></a> <a
-                              href="resources/images/hotel/sinra5.jpg"
-                              data-lightbox="gallery-item"><img class="image_fade"
-                              src="resources/images/hotel/sinra5.jpg" alt=""></a> <a
-                              href="resources/images/hotel/sinra6.jpg"
-                              data-lightbox="gallery-item"><img class="image_fade"
-                              src="resources/images/hotel/sinra6.jpg" alt=""></a> <a
-                              href="resources/images/hotel/sinra7.jpg"
-                              data-lightbox="gallery-item"><img class="image_fade"
-                              src="resources/images/hotel/sinra7.jpg" alt=""></a> <a
-                              href="resources/images/hotel/sinra8.jpg"
-                              data-lightbox="gallery-item"><img class="image_fade"
-                              src="resources/images/hotel/sinra8.jpg" alt=""></a> <a
-                              href="resources/images/hotel/sinra9.jpg"
-                              data-lightbox="gallery-item"><img class="image_fade"
-                              src="resources/images/hotel/sinra9.jpg" alt=""></a>
-
-                        </div>
-
-                     </div>
-
-                      <table class="table table-striped">
+                     <table class="table table-striped">
     <thead>
       <tr>
-        <th>객실종류</th>
-        <th>가격</th>
+        <th style="font-weight: bold;">객실종류</th>
+        <th style="font-weight: bold;">가격</th>
+        <th style="font-weight: bold;">사진</th>
       </tr>
     </thead>
     <tbody>
       
-      <c:forEach var="r" items="${rlist }">
+      <c:forEach var="i" items="${imglist }">
       <tr>
-          <td>${r.roomtype }</td>
-           <td style="font-weight: bold;">${r.pay }원</td>
+          <td style="font-size: large;"><strong>${i.roomtype }</strong></td>
+          <td style="font-size: large; font-weight: bold;" >${i.pay }</td>
+           <td style="font-weight: bold;">
+           <div class="portfolio-single-image masonry-thumbs col-6"
+                           data-big="3" data-lightbox="gallery">
+           <a href="${i.img }" data-lightbox="gallery-item" >
+           <img class="image_fade" src="${i.img }" alt="${i.roomtype }"></a></div>
+                              </td>
         
              </tr>            
       </c:forEach>
-
+       
+       
+    
       </tbody>
       </table>
+ 
 
 					<!-- 지도 -->
+					
 					<div class="divider"><i class="icon-circle"></i></div>
 					<h1>※위치</h1>
 					<div id="map" style="width: 1140px; height: 760px;"></div>
-					<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4ebe4b5dd8c56619a4b9036bc01619aa&libraries=services,clusterer,drawin"></script>
-<script>
-var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-mapOption = { 
-    center: new kakao.maps.LatLng(${vo.mapy}, ${vo.mapx}), // 지도의 중심좌표
-    level: 1 // 지도의 확대 레벨
-};
 
-var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
-//마커가 표시될 위치입니다 
-var markerPosition  = new kakao.maps.LatLng(${vo.mapy}, ${vo.mapx}); 
-
-//마커를 생성합니다
-var marker = new kakao.maps.Marker({
-position: markerPosition
-});
-
-//마커가 지도 위에 표시되도록 설정합니다
-marker.setMap(map);
-
-//아래 코드는 지도 위의 마커를 제거하는 코드입니다
-//marker.setMap(null);    
-</script>
 					
 					<!-- 지도 -->
 
@@ -250,9 +203,30 @@ marker.setMap(map);
     ============================================= -->
 
    <div id="gotoTop" class="icon-angle-up"></div>
+	
 
+<script>
+console.log(${vo.mapy});
+console.log(${vo.mapx});
+var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+mapOption = { 
+    center: new kakao.maps.LatLng(${vo.mapy}, ${vo.mapx}), // 지도의 중심좌표
+    level: 1 // 지도의 확대 레벨
+};
 
+var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
+//마커가 표시될 위치입니다 
+var markerPosition  = new kakao.maps.LatLng(${vo.mapy}, ${vo.mapx}); 
+
+//마커를 생성합니다
+var marker = new kakao.maps.Marker({
+position: markerPosition
+});
+
+//마커가 지도 위에 표시되도록 설정합니다
+marker.setMap(map);
+</script>
    <!-- Footer Scripts
 
     ============================================= -->

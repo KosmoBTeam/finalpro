@@ -29,5 +29,9 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<typeAlias type="mvc.vo.HotelReviewVO" alias="hrvo" />
 		<!-- 호텔 상세 페이지용 알리아스 -->
      	<typeAlias type="mvc.vo.HotelDetailVO" alias="hdvo" />
+     	<!-- 호텔 상세 페이지 이미지용 알리아스 -->
+      <typeAlias type="mvc.vo.HotelRoomImgVO" alias="hrivo" />
+      <!-- 패키지용 알리아스 -->
+      <typeAlias type="mvc.vo.PackageVO" alias="pac" />
 	</typeAliases>
 </configuration>

@@ -14,7 +14,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4ebe4b5dd8c56619a4b9036bc01619aa&libraries=services,clusterer,drawing"></script>
 
 
  
@@ -28,7 +28,10 @@
 
         <!-- Page Title
         ============================================= -->
-        <section id="page-title" class="page-title-parallax page-title-dark" style="padding: 200px 0; background-image:url('resources/images/hotel/hotelreservemain.jpg'); background-size: cover; background-position: center center;" data-stellar-background-ratio="0.2">
+       <section id="page-title" class="page-title-parallax page-title-dark" style="padding: 200px 0; 
+        background-image:url('resources/images/hotel/hotelreservemain.jpg'); background-size: cover; 
+        background-position: center center;" 
+        data-stellar-background-ratio="0.2">
 
             <div class="container clearfix">
                 <h1>호텔 예약하기</h1>
@@ -102,7 +105,7 @@
     </thead>
     <tbody>
       <tr> <td> <input type="text" class="form-control" value="${title }" id="honame" name="honame"
-                           placeholder=""></td>
+                           placeholder="${title }"></td>
       </tr>
     </tbody>
     <thead>
@@ -112,12 +115,11 @@
     </thead>
     <tbody>
       <tr>
-      
          <td><c:forEach var="e" items="${list}">
-		<input type="checkbox" id="roomtype" name="roomtype"
+<input type="checkbox" id="roomtype" name="roomtype"
                                  value=${e.roomtype } onclick="doOpenCheck(this);"/>${e.roomtype } : ${e.pay }원
                                  <input type="hidden" value="${e.num }" name="num"> 
-                  <br>                
+                  <br>               
                         </c:forEach>
                                     
 </td>
@@ -196,147 +198,14 @@
                        
                         <!-- 예약 내용 끝 -->
 
-							<!-- 호텔 사진 -->
-                        <div class="divider"><i class="icon-circle"></i></div>
-                     <div
-                        class="section1 parallax notopmargin nobottommargin notopborder"
-                        style="background-image: url(&amp;quot;resources/images/main/main5.jpg&amp;quot;); padding: 50px 0;"
-                        data-stellar-background-ratio="0.3">
-                        <div class="container clearfix">
-                           <div class="row">
-                              <div id="oc-testi" class="owl-carousel testimonials-carousel">
-                                 <c:forEach var="e" items="${listfood }">
-                                    <div class="oc-item pf-food">
-                                       <div class="testimonial">
-                                          <div class="testi-image1">
-                                             <a><img src="resources/images/hotel/jejuhotel1.JPG"
-                                                alt="" style=" width:336px; height:225px;"></a>
-                                          </div>
-                                          <br><br><br>
-                                       </div>
-                                    </div>
-                                 </c:forEach>
-                              </div>
-
-                              <script type="text/javascript">
-                                 jQuery(document).ready(function($) {
-                                    var ocTesti = $("#oc-testi");
-                                    ocTesti.owlCarousel({
-                                       margin : 20,
-                                       nav : true,
-                                       dots : true,
-                                       responsive : {0 : {items : 1},768 : {items : 2},992 : {items : 3}}});});
-                              </script>
-                           </div>
-                        </div>
-                     </div>
+                     <!-- 호텔 사진 -->
+                      
       
                         
-							<!-- 호텔 상세 내용 -->
-                            <div class="divider"><i class="icon-circle"></i></div>
+                     <!-- 호텔 상세 내용 -->
 
-							<div class="row">
-									<div class="col-xs-6 col-sm-4" id="faq-1">
-										<h3>편의 시설</h3>
-										<ul>
-											<li>464개의 금연 객실</li>
-											<li>매일 하우스키핑</li>
-											<li>6 개의 레스토랑 및 바/라운지</li>
-											<li>풀서비스 스파</li>
-											<li>실내 수영장</li>
-											<li>루프탑 테라스</li>
-											<li>아침 식사 가능</li>
-											<li>무료 지역 셔틀</li>
-											<li>피트니스 센터</li>
-											<li>컨퍼런스 센터</li>
-											<li>공항 셔틀</li>
-											<li>24시간 운영 프런트 데스크</li>
-											<li>무료 WiFi</li>
-										</ul>
-									</div>
-									<div class="col-xs-6 col-sm-4">
-										<h3>주변 명소</h3>
-										<ul>
-											<li>중구에 위치</li>
-											<li>동대문역사문화공원(걸어서 18분 거리)</li>
-											<li>N서울타워(걸어서 25분 거리)</li>
-											<li>명동거리(걸어서 28분 거리)</li>
-											<li>남대문시장(걸어서 36분 거리)</li>
-											<li>서울특별시청(걸어서 37분 거리)</li>
-											<li>남산공원(걸어서 8분 거리)</li>
-											<li>한국의집(걸어서 13분 거리)</li>
-											<li>동대문 디자인 플라자(걸어서 14분 거리)</li>
-											<li>동대문역사문화공원(걸어서 15분 거리)</li>
-											<li>흥인지문(걸어서 22분 거리)</li>
-										</ul>
-
-									</div>
-
-									<div class="col-xs-6 col-sm-4">
-										<h3>가족 편의 시설</h3>
-
-										<ul>
-											<li>어린이 수영장</li>
-											<li>냉장고</li>
-											<li>프리미엄 TV 채널</li>
-											<li>TV</li>
-											<li>무료 세면용품</li>
-											<li>정원</li>
-										</ul>
-									</div>
-
-
-								</div>
-						
-                            <div class="divider"><i class="icon-circle"></i></div>
-
-                            <h3 id="faq-1">What are the hours of operation?</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam dolor elit, vulputate a lorem eu, maximus sodales nunc. Mauris enim diam, posuere quis eros a, pretium semper mauris. Pellentesque ac ligula volutpat, pharetra mauris id, tempus velit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum quis justo egestas, euismod ligula sed, auctor quam. Nulla iaculis consequat tellus, nec tincidunt erat bibendum in. Phasellus iaculis ipsum orci, eget placerat ipsum rhoncus ut. Praesent vel purus faucibus, hendrerit velit a, sollicitudin magna. Morbi congue fringilla elementum. Quisque bibendum lorem vel ex viverra tempus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-
-                            <div class="divider divider-right"><a href="#" data-scrollto="#faqs-list"><i class="icon-chevron-up"></i></a></div>
-
-                            <h3 id="faq-2">Holiday Hours</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam dolor elit, vulputate a lorem eu, maximus sodales nunc. Mauris enim diam, posuere quis eros a, pretium semper mauris. Pellentesque ac ligula volutpat, pharetra mauris id, tempus velit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum quis justo egestas, euismod ligula sed, auctor quam. Nulla iaculis consequat tellus, nec tincidunt erat bibendum in. Phasellus iaculis ipsum orci, eget placerat ipsum rhoncus ut. Praesent vel purus faucibus, hendrerit velit a, sollicitudin magna. Morbi congue fringilla elementum. Quisque bibendum lorem vel ex viverra tempus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-
-                            <div class="divider divider-right"><a href="#" data-scrollto="#faqs-list"><i class="icon-chevron-up"></i></a></div>
-
-                            <h3 id="faq-3">What is the current promotion? Are there any specials?</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam dolor elit, vulputate a lorem eu, maximus sodales nunc. Mauris enim diam, posuere quis eros a, pretium semper mauris. Pellentesque ac ligula volutpat, pharetra mauris id, tempus velit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum quis justo egestas, euismod ligula sed, auctor quam. Nulla iaculis consequat tellus, nec tincidunt erat bibendum in. Phasellus iaculis ipsum orci, eget placerat ipsum rhoncus ut. Praesent vel purus faucibus, hendrerit velit a, sollicitudin magna. Morbi congue fringilla elementum. Quisque bibendum lorem vel ex viverra tempus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-
-                            <div class="divider divider-right"><a href="#" data-scrollto="#faqs-list"><i class="icon-chevron-up"></i></a></div>
-
-                            <h3 id="faq-4">Do you offer catering?</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam dolor elit, vulputate a lorem eu, maximus sodales nunc. Mauris enim diam, posuere quis eros a, pretium semper mauris. Pellentesque ac ligula volutpat, pharetra mauris id, tempus velit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum quis justo egestas, euismod ligula sed, auctor quam. Nulla iaculis consequat tellus, nec tincidunt erat bibendum in. Phasellus iaculis ipsum orci, eget placerat ipsum rhoncus ut. Praesent vel purus faucibus, hendrerit velit a, sollicitudin magna. Morbi congue fringilla elementum. Quisque bibendum lorem vel ex viverra tempus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-
-                            <div class="divider divider-right"><a href="#" data-scrollto="#faqs-list"><i class="icon-chevron-up"></i></a></div>
-
-                            <h3 id="faq-5">Where will you be building future restaurants?</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam dolor elit, vulputate a lorem eu, maximus sodales nunc. Mauris enim diam, posuere quis eros a, pretium semper mauris. Pellentesque ac ligula volutpat, pharetra mauris id, tempus velit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum quis justo egestas, euismod ligula sed, auctor quam. Nulla iaculis consequat tellus, nec tincidunt erat bibendum in. Phasellus iaculis ipsum orci, eget placerat ipsum rhoncus ut. Praesent vel purus faucibus, hendrerit velit a, sollicitudin magna. Morbi congue fringilla elementum. Quisque bibendum lorem vel ex viverra tempus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-
-                            <div class="divider divider-right"><a href="#" data-scrollto="#faqs-list"><i class="icon-chevron-up"></i></a></div>
-
-                            <h3 id="faq-6">Where do I fill out a survey of my visit?</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam dolor elit, vulputate a lorem eu, maximus sodales nunc. Mauris enim diam, posuere quis eros a, pretium semper mauris. Pellentesque ac ligula volutpat, pharetra mauris id, tempus velit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum quis justo egestas, euismod ligula sed, auctor quam. Nulla iaculis consequat tellus, nec tincidunt erat bibendum in. Phasellus iaculis ipsum orci, eget placerat ipsum rhoncus ut. Praesent vel purus faucibus, hendrerit velit a, sollicitudin magna. Morbi congue fringilla elementum. Quisque bibendum lorem vel ex viverra tempus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-
-                            <div class="divider divider-right"><a href="#" data-scrollto="#faqs-list"><i class="icon-chevron-up"></i></a></div>
-
-                            <h3 id="faq-7">Where can I get a coupon?</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam dolor elit, vulputate a lorem eu, maximus sodales nunc. Mauris enim diam, posuere quis eros a, pretium semper mauris. Pellentesque ac ligula volutpat, pharetra mauris id, tempus velit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum quis justo egestas, euismod ligula sed, auctor quam. Nulla iaculis consequat tellus, nec tincidunt erat bibendum in. Phasellus iaculis ipsum orci, eget placerat ipsum rhoncus ut. Praesent vel purus faucibus, hendrerit velit a, sollicitudin magna. Morbi congue fringilla elementum. Quisque bibendum lorem vel ex viverra tempus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-
-                            <div class="divider divider-right"><a href="#" data-scrollto="#faqs-list"><i class="icon-chevron-up"></i></a></div>
-
-                            <h3 id="faq-8">Do you give back to local organizations?</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam dolor elit, vulputate a lorem eu, maximus sodales nunc. Mauris enim diam, posuere quis eros a, pretium semper mauris. Pellentesque ac ligula volutpat, pharetra mauris id, tempus velit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum quis justo egestas, euismod ligula sed, auctor quam. Nulla iaculis consequat tellus, nec tincidunt erat bibendum in. Phasellus iaculis ipsum orci, eget placerat ipsum rhoncus ut. Praesent vel purus faucibus, hendrerit velit a, sollicitudin magna. Morbi congue fringilla elementum. Quisque bibendum lorem vel ex viverra tempus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-
-                            <div class="divider divider-right"><a href="#" data-scrollto="#faqs-list"><i class="icon-chevron-up"></i></a></div>
-
-                            <h3 id="faq-9">Do you offer group discounts?</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam dolor elit, vulputate a lorem eu, maximus sodales nunc. Mauris enim diam, posuere quis eros a, pretium semper mauris. Pellentesque ac ligula volutpat, pharetra mauris id, tempus velit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum quis justo egestas, euismod ligula sed, auctor quam. Nulla iaculis consequat tellus, nec tincidunt erat bibendum in. Phasellus iaculis ipsum orci, eget placerat ipsum rhoncus ut. Praesent vel purus faucibus, hendrerit velit a, sollicitudin magna. Morbi congue fringilla elementum. Quisque bibendum lorem vel ex viverra tempus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-
-                            <div class="divider divider-right"><a href="#" data-scrollto="#faqs-list"><i class="icon-chevron-up"></i></a></div>
-
-                            <h3 id="faq-10">Is there a free birthday offer in the restaurant?</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam dolor elit, vulputate a lorem eu, maximus sodales nunc. Mauris enim diam, posuere quis eros a, pretium semper mauris. Pellentesque ac ligula volutpat, pharetra mauris id, tempus velit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum quis justo egestas, euismod ligula sed, auctor quam. Nulla iaculis consequat tellus, nec tincidunt erat bibendum in. Phasellus iaculis ipsum orci, eget placerat ipsum rhoncus ut. Praesent vel purus faucibus, hendrerit velit a, sollicitudin magna. Morbi congue fringilla elementum. Quisque bibendum lorem vel ex viverra tempus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+                  
+                         
 
                         </div>
                         <!-- End FAQs -->
@@ -350,41 +219,57 @@
                         <div class="sidebar-widgets-wrap">
                         
                             <div class="widget quick-contact-widget clearfix">
-
-                                <h4>호텔 주변 명소는?</h4>
-                                <div id="quick-contact-form-result" data-notify-type="success" data-notify-msg="<i class=icon-ok-sign></i> Message Sent Successfully!"></div>
-                                <form id="quick-contact-form" name="quick-contact-form" action="resources/include/quickcontact.php" method="post" class="quick-contact-form nobottommargin">
-                                    <div class="form-process"></div>
-                                    
-                                    <div style="width: 240px; height: 173px; background-image: url('resources/images/icons/mapicon.jpg')"></div>
-                                    <br>
-                                    <button type="button" id="quick-contact-form-submit" name="quick-contact-form-submit" 
-                                    class="btn button button-small nomargin" value="submit"
-                                    onclick="location.href=gosearchmap">주변 검색하기</button>
-                                </form>
-
-                                <script type="text/javascript">
-
-                                    $("#quick-contact-form").validate({
-                                        submitHandler: function(form) {
-                                            $(form).find('.form-process').fadeIn();
-                                            $(form).ajaxSubmit({
-                                                target: '#quick-contact-form-result',
-                                                success: function() {
-                                                    $(form).find('.form-process').fadeOut();
-                                                    $(form).find('.sm-form-control').val('');
-                                                    $('#quick-contact-form-result').attr('data-notify-msg', $('#quick-contact-form-result').html()).html('');
-                                                    IGNITE.widget.notifications($('#quick-contact-form-result'));
-                                                }
-                                            });
-                                        }
-                                    });
-
-                                </script>
+                     <!-- 여기부터 -->
+                     <h3 style="font-weight: bold;">${title }</h3>
+                     
+                     <img  src="${vo.img }">
+                     
+                               
 
                             </div>
                             
-                         </div>   
+                            <div class="widget clearfix" style="height: 100%;">
+
+                                <h3 style="font-weight: bold;">상세 정보</h3>
+                                <ul>
+                                     <li>${vo.address }</li>
+                                     <li>${vo.tel }</li>
+                                     <c:forEach var="e" items="${detail }">
+                                     <li>${e }</li>
+                                     </c:forEach>
+                                </ul>
+
+                               
+
+                                
+                            </div>                                                   
+                        
+                            <div class="widget clearfix">
+
+                                
+
+                                  <h3>위치</h3>
+                                  <div id="map" style="width: 240px; height: 180px;"></div>
+                                  
+
+                                   
+
+                                
+
+                                <script>
+                                    $(function() {
+                                        $( "#sidebar-tabs" ).tabs({ show: { effect: "fade", duration: 400 } });
+                                    });
+                                </script>
+
+                            </div>                        
+
+                          
+
+                        
+
+                           
+                        </div>
                     </div><!-- .sidebar end -->
                 </div>
 
@@ -394,7 +279,27 @@
 
         <!-- Footer
         ============================================= -->
-      
+      <script>
+      var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+      mapOption = { 
+          center: new kakao.maps.LatLng(${vo.mapy}, ${vo.mapx}), // 지도의 중심좌표
+          level: 3 // 지도의 확대 레벨
+      };
+
+  var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+  // 마커가 표시될 위치입니다 
+  var markerPosition  = new kakao.maps.LatLng(${vo.mapy}, ${vo.mapx}); 
+
+  // 마커를 생성합니다
+  var marker = new kakao.maps.Marker({
+      position: markerPosition
+  });
+
+  // 마커가 지도 위에 표시되도록 설정합니다
+  marker.setMap(map);
+
+      </script>
 
     </div><!-- #wrapper end -->
 

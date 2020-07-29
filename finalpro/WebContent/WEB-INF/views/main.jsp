@@ -274,11 +274,23 @@
          <div class="content-wrap">
 
             <!-- Promo -->
-            <div class="promo promo-light promo-full header-stick nobottommargin" style="background-color:#ebfcfd; ">
-               <div class="container clearfix" style="margin: 0 auto; text-align: center;">
-                  <strong style="color:; font-size: 38px; ">StarTrip에서 추천하는 여행지 TOP3</strong>
+            
+            <div class="section noborder nobottommargin" style="background-color:#fff6e1;">
+
+               <div class="container clearfix">
+
+                  <div class="heading-block center nobottommargin" style="background-color: #fff6e1">
+
+                     <h3 class="color" data-animate="fadeInDown" style="color:#1b1c25">여행지 <strong>TOP 3!</strong></h3>
+
+                     <span data-animate="fadeInUp" style="color: #1b1c25">StarTripper가 뽑은 TOP 여행지</span>
+
+                  </div>
+
                </div>
+
             </div>
+            <div class="divider"><i class="icon-circle"></i></div>
             <!-- End Promo -->
 
             <div class="container clearfix">
@@ -296,7 +308,7 @@
 
                      </div>
 
-                     <div class="fbox-desc" style="background-color: #ebfcfd">
+                     <div class="fbox-desc" style="background-color: #fff6e1">
 
                         <h3>제주</h3>
                         <span class="subtitle">제주도 소개</span>
@@ -321,7 +333,7 @@
 
                      </div>
 
-                     <div class="fbox-desc" style="background-color: #ebfcfd">
+                     <div class="fbox-desc" style="background-color: #fff6e1">
 
                         <h3>인천</h3>
                         <span class="subtitle">인천 소개</span>
@@ -346,7 +358,7 @@
 
                      </div>
 
-                     <div class="fbox-desc" style="background-color: #ebfcfd">
+                     <div class="fbox-desc" style="background-color: #fff6e1">
 
                         <h3>서울 </h3>
                            <span class="subtitle">서울 소개</span>
@@ -368,7 +380,7 @@
  <!-- 코로나 맵 이동 -->
 
 <div class="divider"><i class="icon-circle"></i></div>
-            <div class="section noborder nobottommargin bgcolor-grey-light" style="background-color:#ebecf1;">
+            <div class="section noborder nobottommargin" style="background-color:#fff6e1;">
 
                <div class="container clearfix">
 
@@ -486,6 +498,22 @@
 
 
 <div class="divider"><i class="icon-circle"></i></div>
+ <div class="section noborder nobottommargin" style="background-color:#fff6e1;">
+
+               <div class="container clearfix">
+
+                  <div class="heading-block center nobottommargin">
+
+                     <h3 class="color" data-animate="fadeInDown" style="color:#1b1c25">설문조사</h3>
+
+                     <span data-animate="fadeInUp" style="color: #1b1c25">설문조사로 분석하여 여행지를 추천!</span>
+
+                  </div>
+
+               </div>
+
+            </div>
+
             <div class="section nobg notopmargin noborder nobottommargin" style="background-color:#ebecf1;">
 
                <div class="container clearfix">
@@ -521,7 +549,7 @@
 
 			<div class="divider"><i class="icon-circle"></i></div>
 
-            <div class="section notopmargin noborder nobottommargin bgcolor-grey-light">
+             <div class="section noborder nobottommargin" style="background-color:#fff6e1;">
                <div class="container clearfix">
                   <div class="heading-block center nobottommargin">
                      <h3 class="color" data-animate="fadeInDown">국내 여행지</h3>

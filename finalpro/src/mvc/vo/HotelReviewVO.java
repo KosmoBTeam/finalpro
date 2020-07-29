@@ -1,8 +1,24 @@
 package mvc.vo;
 
 public class HotelReviewVO {
-   private int cnt;
+   private int cnt, locnum, num;
    private String honame, title, img;
+
+   public int getNum() {
+      return num;
+   }
+
+   public void setNum(int num) {
+      this.num = num;
+   }
+
+   public int getLocnum() {
+      return locnum;
+   }
+
+   public void setLocnum(int locnum) {
+      this.locnum = locnum;
+   }
 
    public int getCnt() {
       return cnt;

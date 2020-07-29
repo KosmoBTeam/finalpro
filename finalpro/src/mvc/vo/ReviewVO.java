@@ -3,7 +3,7 @@ package mvc.vo;
 //테이블 이름은 review_table
 public class ReviewVO {
 	private int num, hit;
-	private String id, title, detail, rdate, img,honame;
+	private String id, title, detail, rdate, img, honame;
 	private MemberVO member;
 	public String getHoname() {
 		return honame;

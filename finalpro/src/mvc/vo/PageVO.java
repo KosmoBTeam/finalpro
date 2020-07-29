@@ -2,153 +2,177 @@ package mvc.vo;
 //페이징처리를 위한 VO
 public class PageVO {
 
-	// nowPage - 현재페이지
-	// startPage - 시작페이지
-	// endPage - 끝페이지
-	// total - 게시글 총 갯수
-	// cntPerPage - 페이지당 글 갯수, 마지막페이지
-	// lastPage - 마지막페이지
-	// start, end - 페이지 분할 값
-	private int nowPage, startPage, endPage, total, cntPerPage, lastPage, start, end;
-//패이지 블록의 Cnt
-	private int cntPage = 5;
-	private String searchType, searchValue;
+   // nowPage - 현재페이지
+   // startPage - 시작페이지
+   // endPage - 끝페이지
+   // total - 게시글 총 갯수
+   // cntPerPage - 페이지당 글 갯수, 마지막페이지
+   // lastPage - 마지막페이지
+   // start, end - 페이지 분할 값
+   private int nowPage, startPage, endPage, total, cntPerPage, lastPage, start, end,locnum,hrnum,pay;
+public int getPay() {
+      return pay;
+   }
 
-	public int getCntPage() {
-		return cntPage;
-	}
+   public void setPay(int pay) {
+      this.pay = pay;
+   }
 
-	public void setCntPage(int cntPage) {
-		this.cntPage = cntPage;
-	}
+public int getHrnum() {
+      return hrnum;
+   }
 
-	public String getSearchType() {
-		return searchType;
-	}
+   public void setHrnum(int hrnum) {
+      this.hrnum = hrnum;
+   }
 
-	public void setSearchType(String searchType) {
-		this.searchType = searchType;
-	}
+public int getLocnum() {
+      return locnum;
+   }
 
-	public String getSearchValue() {
-		return searchValue;
-	}
+   public void setLocnum(int locnum) {
+      this.locnum = locnum;
+   }
 
-	public void setSearchValue(String searchValue) {
-		this.searchValue = searchValue;
-	}
+   //패이지 블록의 Cnt
+   private int cntPage = 5;
+   private String searchType, searchValue;
 
-	public PageVO() {
-	}
+   public int getCntPage() {
+      return cntPage;
+   }
 
-	public PageVO(int total, int nowPage, int cntPerPage) {
-		this.nowPage = nowPage;
-		this.cntPerPage = cntPerPage;
-		this.total = total;
-		memberLastPage(total, cntPerPage);
-		memberStartEndPage(nowPage, cntPage);
-		memberStartEnd(nowPage, cntPerPage);
-	}
+   public void setCntPage(int cntPage) {
+      this.cntPage = cntPage;
+   }
 
-	// 제일 마지막 페이지 계산
-	private void memberLastPage(int total, int cntPerPage) {
-		lastPage = (int) Math.ceil((double) total / (double) cntPerPage);
-	}
+   public String getSearchType() {
+      return searchType;
+   }
 
-	// 시작, 끝 페이지 계산
-	private void memberStartEndPage(int nowPage, int cntPage) {
-		endPage = ((int) Math.ceil((double) nowPage / (double) cntPage)) * cntPage;
-		if (getLastPage() < getEndPage()) {
-			endPage = getLastPage();
-		}
-		startPage = getEndPage() - cntPage + 1;
-		if (getStartPage() < 1) {
-			startPage = 1;
-		}
-	}
+   public void setSearchType(String searchType) {
+      this.searchType = searchType;
+   }
 
-	private void memberStartEnd(int nowPage, int cntPerPage) {
-		end = nowPage * cntPerPage;
-		start = end - cntPerPage + 1;
-	}
+   public String getSearchValue() {
+      return searchValue;
+   }
 
-	public int getNowPage() {
-		return nowPage;
-	}
+   public void setSearchValue(String searchValue) {
+      this.searchValue = searchValue;
+   }
 
-	public void setNowPage(int nowPage) {
-		this.nowPage = nowPage;
-	}
+   public PageVO() {
+   }
 
-	public int getStartPage() {
-		return startPage;
-	}
+   public PageVO(int total, int nowPage, int cntPerPage) {
+      this.nowPage = nowPage;
+      this.cntPerPage = cntPerPage;
+      this.total = total;
+      memberLastPage(total, cntPerPage);
+      memberStartEndPage(nowPage, cntPage);
+      memberStartEnd(nowPage, cntPerPage);
+   }
 
-	public void setStartPage(int startPage) {
-		this.startPage = startPage;
-	}
+   // 제일 마지막 페이지 계산
+   private void memberLastPage(int total, int cntPerPage) {
+      lastPage = (int) Math.ceil((double) total / (double) cntPerPage);
+   }
 
-	public int getEndPage() {
-		return endPage;
-	}
+   // 시작, 끝 페이지 계산
+   private void memberStartEndPage(int nowPage, int cntPage) {
+      endPage = ((int) Math.ceil((double) nowPage / (double) cntPage)) * cntPage;
+      if (getLastPage() < getEndPage()) {
+         endPage = getLastPage();
+      }
+      startPage = getEndPage() - cntPage + 1;
+      if (getStartPage() < 1) {
+         startPage = 1;
+      }
+   }
 
-	public void setEndPage(int endPage) {
-		this.endPage = endPage;
-	}
+   private void memberStartEnd(int nowPage, int cntPerPage) {
+      end = nowPage * cntPerPage;
+      start = end - cntPerPage + 1;
+   }
 
-	public int getTotal() {
-		return total;
-	}
+   public int getNowPage() {
+      return nowPage;
+   }
 
-	public void setTotal(int total) {
-		this.total = total;
-	}
+   public void setNowPage(int nowPage) {
+      this.nowPage = nowPage;
+   }
 
-	public int getCntPerPage() {
-		return cntPerPage;
-	}
+   public int getStartPage() {
+      return startPage;
+   }
 
-	public void setCntPerPage(int cntPerPage) {
-		this.cntPerPage = cntPerPage;
-	}
+   public void setStartPage(int startPage) {
+      this.startPage = startPage;
+   }
 
-	public int getLastPage() {
-		return lastPage;
-	}
+   public int getEndPage() {
+      return endPage;
+   }
 
-	public void setLastPage(int lastPage) {
-		this.lastPage = lastPage;
-	}
+   public void setEndPage(int endPage) {
+      this.endPage = endPage;
+   }
 
-	public int getStart() {
-		return start;
-	}
+   public int getTotal() {
+      return total;
+   }
 
-	public void setStart(int start) {
-		this.start = start;
-	}
+   public void setTotal(int total) {
+      this.total = total;
+   }
 
-	public int getEnd() {
-		return end;
-	}
+   public int getCntPerPage() {
+      return cntPerPage;
+   }
 
-	public void setEnd(int end) {
-		this.end = end;
-	}
+   public void setCntPerPage(int cntPerPage) {
+      this.cntPerPage = cntPerPage;
+   }
 
-	public int setCntPage() {
-		return cntPage;
-	}
+   public int getLastPage() {
+      return lastPage;
+   }
 
-	public void getCntPage(int cntPage) {
-		this.cntPage = cntPage;
-	}
+   public void setLastPage(int lastPage) {
+      this.lastPage = lastPage;
+   }
 
-	@Override
-	public String toString() {
-		return "PagingVO [nowPage=" + nowPage + ", startPage=" + startPage + ", endPage=" + endPage + ", total=" + total
-				+ ", cntPerPage=" + cntPerPage + ", lastPage=" + lastPage + ", start=" + start + ", end=" + end
-				+ ", cntPage=" + cntPage + "]";
-	}
+   public int getStart() {
+      return start;
+   }
+
+   public void setStart(int start) {
+      this.start = start;
+   }
+
+   public int getEnd() {
+      return end;
+   }
+
+   public void setEnd(int end) {
+      this.end = end;
+   }
+
+   public int setCntPage() {
+      return cntPage;
+   }
+
+   public void getCntPage(int cntPage) {
+      this.cntPage = cntPage;
+   }
+
+   @Override
+   public String toString() {
+      return "PagingVO [nowPage=" + nowPage + ", startPage=" + startPage + ", endPage=" + endPage + ", total=" + total
+            + ", cntPerPage=" + cntPerPage + ", lastPage=" + lastPage + ", start=" + start + ", end=" + end
+            + ", cntPage=" + cntPage + "]";
+   }
 
 }

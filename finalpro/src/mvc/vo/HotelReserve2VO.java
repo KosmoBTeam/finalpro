@@ -5,8 +5,22 @@ public class HotelReserve2VO {
 	private int num,pay,totalpay,people,hrnum;
 	private String id,name,phone,honame,roomtype
 	,checkin,checkout,img,tel,address;
+	private double mapx, mapy;
 	
 	
+	
+	public double getMapx() {
+		return mapx;
+	}
+	public void setMapx(double mapx) {
+		this.mapx = mapx;
+	}
+	public double getMapy() {
+		return mapy;
+	}
+	public void setMapy(double mapy) {
+		this.mapy = mapy;
+	}
 	public int getNum() {
 		return num;
 	}

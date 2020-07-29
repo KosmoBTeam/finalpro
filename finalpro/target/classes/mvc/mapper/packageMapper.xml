@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pvo">
+
+<select id="inact" resultType="pac">
+select title,img,address,tel,mapx,mapy from act where num=403
+</select>
+
+<select id="inhotel" resultType="pac">
+select title,img,address,tel,mapx,mapy from hotel where num=92
+</select>
+
+<select id="infood" resultType="pac">
+select title,img,address,tel,mapx,mapy from food where num=160
+</select>
+
+<select id="daefood" resultType="pac">
+select title,img,address,tel,mapx,mapy from food where num=214
+</select>
+
+<select id="daehotel" resultType="pac">
+select title,img,address,tel,mapx,mapy from hotel where num=124
+</select>
+
+<select id="daeact" resultType="pac">
+select title,img,address,tel,mapx,mapy from act where num=120
+</select>
+
+<select id="seofood" resultType="pac">
+select title,img,address,tel,mapx,mapy from food where num=25
+</select>
+
+<select id="seohotel" resultType="pac">
+select title,img,address,tel,mapx,mapy from hotel where num=35
+</select>
+
+<select id="seoact" resultType="pac">
+select title,img, address ,tel,mapx,mapy from act where num=76
+</select>
+</mapper>

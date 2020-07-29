@@ -4,46 +4,193 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="lvo">
 
-	<select id="locfood" resultType="localfood" parameterType="int">
-		select * from food where locnum=#{locnum}
-	</select>
-	<select id="lochotel" resultType="localhotel"
-		parameterType="int">
-		select * from hotel where locnum=#{locnum}
-	</select>
-	<select id="locact" resultType="localact" parameterType="int">
-		select *
-		from act where locnum=#{locnum}
-	</select>
+   <select id="locfood" resultType="localfood" parameterType="int">
+      select * from food where locnum=#{locnum}
+   </select>
+   <select id="lochotel" resultType="localhotel"
+      parameterType="int">
+      select * from hotel where locnum=#{locnum}
+   </select>
+   <select id="locact" resultType="localact" parameterType="int">
+      select *
+      from act where locnum=#{locnum}
+   </select>
 
-	<select id="locname" resultType="String" parameterType="int">
-		select
-		loc from local where locnum=#{locnum}
-	</select>
+   <select id="locname" resultType="String" parameterType="int">
+      select
+      loc from local where locnum=#{locnum}
+   </select>
 
-	<select id="locinfo" resultType="local">
-		select * from local
-	</select>
-	<select id="localhotelAllList" resultType="localhotel">
-		select * from hotel
-	</select>
-	<select id="mainLocalList" resultType="local">
-		<![CDATA[ select a.* from (select loc, img, locnum, ROW_NUMBER() over(order by locnum
-		desc) as rk from local ) a where a.rk<5]]>
-	</select>
-	<select id="getLocnum" parameterType="String" resultType="int">
-		select
-		locnum from local where loc = #{loc}
-	</select>
+   <select id="locinfo" resultType="local">
+      select * from local
+   </select>
+   <select id="localhotelAllList" resultType="localhotel">
+      select * from hotel
+   </select>
+   <select id="mainLocalList" resultType="local">
+      <![CDATA[ select a.* from (select loc, img, locnum, ROW_NUMBER() over(order by locnum
+      desc) as rk from local ) a where a.rk<5]]>
+   </select>
+   <select id="getLocnum" parameterType="String" resultType="int">
+      select
+      locnum from local where loc = #{loc}
+   </select>
 
-	<select id="reslist5" resultType="hrvo">
-      <![CDATA[ select DISTINCT h.img,h.title,(select count(rt.honame) from review_table rt where rt.honame=h.title) cnt
-      from hotel h,review_table rt where rt.honame = h.title and h.title = rt.honame order by 3 desc ]]>
-	</select>
+   <select id="reslist5" resultType="hrvo">
+            <![CDATA[ select DISTINCT h.num,h.locnum,h.img,h.title,(select count(rt.honame) from review_table rt where rt.honame=h.title) cnt
+      from hotel h,review_table rt where rt.honame = h.title and h.title = rt.honame order by 5 desc ]]>
+   </select>
 
-	<select id="reslist4" resultType="htvo">
+   <select id="reslist4" resultType="htvo">
       <![CDATA[ select h.num,h.locnum,h.title,h.img,h.address,h.tel,min(hr.pay) pay from hotel h, hotelradio hr
             where h.num=hr.num group by h.num, h.locnum, h.title, h.img, h.address,h.tel ]]>
-	</select>
+   </select>
+   <select id="locfoodp" parameterType="paging"
+      resultType="localfood">
+      select * from (
+      select rownum r_num, a.* from
+      (
+      select * from food
+         <where>
+            <choose>
+               <when test="searchType==1 and searchValue != null">
+               title Like '%'|| #{searchValue} ||'%' AND locnum = #{locnum}
+               </when>
+               <otherwise>locnum = #{locnum}</otherwise>
+            </choose>
+         
+         </where>
+      order by num desc
+      ) a
+      ) WHERE r_num between #{start} and #{end}
+   </select>
+   <select id="lochotelp" parameterType="paging"
+      resultType="localhotel">
+      select * from (
+      select rownum r_num, a.* from
+      (
+      select * from hotel 
+         <where>
+            <choose>
+               <when test="searchType==1 and searchValue != null">
+               title Like '%'|| #{searchValue} ||'%' AND locnum = #{locnum}
+               </when>
+               <otherwise>locnum = #{locnum}</otherwise>
+            </choose>
+         
+         </where>
+       order by num desc
+      ) a
+      ) WHERE r_num between #{start} and #{end}
+   </select>
+   <select id="locactp" parameterType="paging"
+      resultType="localact">
+      select * from (
+      select rownum r_num, a.* from
+      (
+      select * from act
+         <where>
+            <choose>
+               <when test="searchType==1 and searchValue != null">
+               title Like '%'|| #{searchValue} ||'%' AND locnum = #{locnum}
+               </when>
+               <otherwise>locnum = #{locnum}</otherwise>
+            </choose>
+         
+         </where>
+      order by num desc
+      ) a
+      )  where r_num between
+      #{start} and #{end}
+   </select>
 
+   <select id="total" resultType="int" parameterType="paging">
+      select count(*) total from food
+
+         <where>
+            <choose>
+               <when test="searchType==1 and searchValue != null">
+               title Like '%'|| #{searchValue} ||'%' AND locnum = #{locnum}
+               </when>
+               <otherwise>locnum = #{locnum}</otherwise>
+            </choose>
+         
+         </where>
+
+
+   </select>
+   <select id="total1" resultType="int" parameterType="paging">
+      select count(*) total from hotel
+         <where>
+            <choose>
+               <when test="searchType==1 and searchValue != null">
+               title Like '%'|| #{searchValue} ||'%' AND locnum = #{locnum}
+               </when>
+               <otherwise>locnum = #{locnum}</otherwise>
+            </choose>
+         
+         </where>
+   </select>
+   <select id="total2" resultType="int" parameterType="paging">
+      select count(*) total from act
+         <where>
+            <choose>
+               <when test="searchType==1 and searchValue != null">
+               title Like '%'|| #{searchValue} ||'%' AND locnum = #{locnum}
+               </when>
+               <otherwise>locnum = #{locnum}</otherwise>
+            </choose>
+         
+         </where>
+   </select>
+      <select id="hotelmain" parameterType="paging"
+      resultType="localhotel">
+      select * from (
+      select rownum r_num, a.* from
+      (
+      select h.*,min(hr.pay) pay from hotel h, hotelradio hr
+         <where>
+            <choose>
+               <when test="searchType==1 and searchValue !=null">
+               title Like '%'|| #{searchValue} ||'%' AND hr.num=h.num AND locnum = #{locnum}
+               </when>   
+               <otherwise>locnum = #{locnum} AND hr.num=h.num </otherwise>            
+            </choose>
+         
+         </where>
+      group by h.num,h.mapx,h.mapy, h.locnum, h.title, h.img, h.address,h.tel order by h.num asc
+      ) a
+      ) WHERE r_num between #{start} and #{end}
+   </select>
+      <select id="totalhotelmain" resultType="int" parameterType="paging">
+      select count(*) total from hotel
+         <where>
+            <choose>
+               <when test="searchType==1 and searchValue != null">
+               title Like '%'|| #{searchValue} ||'%' AND locnum = #{locnum}
+               
+               </when>
+               <otherwise>locnum = #{locnum}</otherwise>
+            </choose>
+         </where>
+   </select>
+   <select id="locno" resultType="int">select count(loc) from local</select>
+      <select id="lochotelall" parameterType="paging"
+      resultType="localhotel">
+      select * from (
+      select rownum r_num, a.* from
+      (
+      select h.*,min(hr.pay) pay from hotel h, hotelradio hr
+         <where>
+            <choose>
+               <when test="searchType==1 and searchValue != null">
+               title Like '%'|| #{searchValue} ||'%' AND hr.num=h.num
+               </when>
+               <otherwise>hr.num=h.num</otherwise>
+            </choose>      
+         </where>
+      group by h.num,h.mapx,h.mapy, h.locnum, h.title, h.img, h.address,h.tel order by h.num asc
+      ) a
+      ) WHERE r_num between #{start} and #{end}
+   </select>
 </mapper>

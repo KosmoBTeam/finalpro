@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
     <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
@@ -21,10 +20,12 @@
 
         <!-- Page Title
         ============================================= -->
-        <section id="page-title" class="page-title-parallax" style="background-image: url(&quot;resources/images/survey/surveymain.png&quot;); padding: 120px 0;" data-stellar-background-ratio="0.3">
+        <section id="page-title" class="page-title-parallax" 
+        style="background-image: url('resources/images/hotel/detail/hoteldetail.jpg'); 
+        padding: 120px 0;" data-stellar-background-ratio="0.3">
 
             <div class="container clearfix">
-                <h1>호텔 예약 확인</h1>
+                <h1 style="color: #ffffff">호텔 예약 확인</h1>
                 
                 <ol class="breadcrumb">
                     <li><a href="main">Home</a></li>
@@ -55,12 +56,11 @@
                     
                     
                     <!-- 예약 정보 출력 -->
-                    <form class="form-horizontal"  style="margin: 0 auto;" action="goHotelSuccess" method="get">   
-                    <c:forEach items="${list}" var="list">        
+                    <form class="form-horizontal"  style="margin: 0 auto;" action="goHotelSuccess" method="get">           
                <h1 style="font-size: 30px;">예약 확인하기</h1>
                   <div class="section nobg notopmargin noborder nobottommargin">
                         <div >
-                            <img src="resources/images/hotel/${list.img}" alt="" data-animate="fadeInUp">  
+                            <img src="${list.img}" alt="" data-animate="fadeInUp">  
                             <div class="divider"><i class="icon-circle"></i></div>
                             <input type="hidden" value="${list.num }" name="num">                      
                         </div>
@@ -122,83 +122,26 @@
     <script type="text/javascript"
         src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4ebe4b5dd8c56619a4b9036bc01619aa&libraries=services"></script>
     <script>
-        var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-        mapOption = {
-            center : new daum.maps.LatLng(33.247418, 126.408039), // 지도의 중심좌표
-            level : 5
-        // 지도의 확대 레벨
-        };
- 
-        // 지도를 생성합니다    
-        var map = new daum.maps.Map(mapContainer, mapOption);
- 
-        // 주소-좌표 변환 객체를 생성합니다
-        var geocoder = new daum.maps.services.Geocoder();
- 
-        var myAddress = [
-                "제주 서귀포시 중문관광로72번길 75", "제주 서귀포시 중문관광로72번길 35 롯데호텔 제주", "제주 서귀포시 색달로 18" ];
- 
-        function myMarker(address) {
-            // 주소로 좌표를 검색합니다
-            geocoder
-                    .addressSearch(
-                            //'주소',
-                            address,
-                            function(result, status) {
-                                // 정상적으로 검색이 완료됐으면 
-                                if (status === daum.maps.services.Status.OK) {
- 
-                                    var coords = new daum.maps.LatLng(
-                                            result[0].y, result[0].x);
- 
-                                    // 결과값으로 받은 위치를 마커로 표시합니다
-                                   
-                                    var marker = new daum.maps.Marker({
-                                        map : map,
-                                        position : coords
-                                    });
-                                     
- 
-                                    // 인포윈도우로 장소에 대한 설명을 표시합니다
-                                   
-                                   // var infowindow = new daum.maps.InfoWindow(
-                                           // {
-                                                // content : '<div style="width:50px;text-align:center;padding:3px 0;">I</div>'
-                                               // content : '<div style="color:red;">' + number + '</div>'
-                                           // });
-                                    //infowindow.open(map, marker);
-                                       
- 
-                                    // 커스텀 오버레이에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
-                                   //var content = '<div class="customoverlay">'
-                                            //+ '    <span class="title">'
-                                            //+ '<div style="font-style:normal; color:red; font-weight:bold; font-size:2.0em">'
-                                            //+ number + '</div>' + '</span>'
-                                            //+ '</div>';
- 
-                                    // 커스텀 오버레이가 표시될 위치입니다 
-                                    var position = new daum.maps.LatLng(
-                                            result[0].y, result[0].x);
- 
-                                    // 커스텀 오버레이를 생성합니다
-                                    var customOverlay = new daum.maps.CustomOverlay(
-                                            {
-                                                map : map,
-                                                position : position,
-                                                content : content,
-                                                yAnchor : 1
-                                            });
- 
-                                    // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-                                    map.setCenter(coords);
-                                }
-                            });
-        }
- 
-        for (i = 0; i < myAddress.length; i++) {
-            myMarker(myAddress[i]);
-        }
-    </script>
+      var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+      mapOption = { 
+          center: new kakao.maps.LatLng(${list.mapy}, ${list.mapx}), // 지도의 중심좌표
+          level: 3 // 지도의 확대 레벨
+      };
+
+  var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+  // 마커가 표시될 위치입니다 
+  var markerPosition  = new kakao.maps.LatLng(${list.mapy}, ${list.mapx}); 
+
+  // 마커를 생성합니다
+  var marker = new kakao.maps.Marker({
+      position: markerPosition
+  });
+
+  // 마커가 지도 위에 표시되도록 설정합니다
+  marker.setMap(map);
+
+      </script>
   
   <!-- 지도 end -->
   <div class="divider"><i class="icon-circle"></i></div>
@@ -218,10 +161,10 @@ style="color: black; text-align: center;">
                   </button>
       
       </div>
-      <div style=""></div>
+
       </div>
                      </div>                       
-               </c:forEach>   
+          
                     </form>
                     <!-- 예약 정보 출력 끝 -->
                     <div class="line"></div>

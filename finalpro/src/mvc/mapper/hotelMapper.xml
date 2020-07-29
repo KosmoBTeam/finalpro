@@ -3,32 +3,38 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="hvo">
-	<insert id="addhotel" parameterType="hotel2">
-		insert into hotel_reserve (num, id, name,phone,honame,hrnum,roomtype,checkin,checkout,pay,totalpay,people)
-		values(#{num},#{id},#{name},#{phone},#{honame},hrnum_seq.nextVal,#{roomtype},#{checkin},#{checkout},(select pay from HotelRadio where roomtype=#{roomtype} and num=#{num}),(select pay from HotelRadio where roomtype=#{roomtype} and num=#{num})*1.1,#{people})
-	</insert>
+   <insert id="addhotel" parameterType="hotel2">
+      insert into hotel_reserve (num, id, name,phone,honame,hrnum,roomtype,checkin,checkout,pay,totalpay,people)
+      values(#{num},#{id},#{name},#{phone},#{honame},hrnum_seq.nextVal,#{roomtype},#{checkin},#{checkout},(select pay from HotelRadio where roomtype=#{roomtype} and num=#{num}),(select pay from HotelRadio where roomtype=#{roomtype} and num=#{num})*1.1,#{people})
+   </insert>
 
-	<select id="reslist" parameterType="hotel2" resultType="hotel2">
-		select
-		hr.num,hr.name,hr.phone,hr.honame,hr.hrnum,hr.roomtype,hr.checkin,hr.checkout,hr.pay,hr.totalpay,hr.people,h.img,h.address,h.tel
-		from hotel h, hotel_reserve hr where hr.id=#{id} and hr.hrnum=#{hrnum} and h.title=hr.honame
-	</select>
-		<select id="reslist2" parameterType="hotel2" resultType="hotel2">
-		select
-		hr.num,hr.name,hr.phone,hr.honame,hr.hrnum,hr.roomtype,hr.checkin,hr.checkout,hr.pay,hr.totalpay,hr.people,h.img,h.address,h.tel
-		from hotel h, hotel_reserve hr where hr.id=#{id} and h.title=hr.honame
-	</select>
-	<select id="radioList" resultType="hotelRadio" parameterType="int">
-		select * from hotelRadio where num=#{num}
-	</select>
-			<select id="reslist3" parameterType="hotel2" resultType="hotel2">
-		select
-		hr.*,h.img,h.address,h.tel
-		from hotel h, (select num,name,phone,honame,hrnum,roomtype,checkin,checkout,pay,totalpay,people, ROW_NUMBER() over(order by hrnum desc) as rk from hotel_reserve) hr where hr.rk=1 and h.title=hr.honame
-	</select>
-	<select id="hdetail" parameterType="int" resultType="hdvo">
+   <select id="reslist" parameterType="int" resultType="hotel2">
+      select
+      hr.num,hr.name,hr.phone,hr.honame,hr.hrnum,hr.roomtype,hr.checkin,hr.checkout,hr.pay,hr.totalpay,hr.people,h.img,h.address,h.tel
+      from hotel h, hotel_reserve hr where  hr.hrnum=#{hrnum} and h.title=hr.honame
+   </select>
+      <select id="reslist2" parameterType="hotel2" resultType="hotel2">
+      select
+      hr.num,hr.name,hr.phone,hr.honame,hr.hrnum,hr.roomtype,hr.checkin,hr.checkout,hr.pay,hr.totalpay,hr.people,h.img,h.address,h.tel
+      from hotel h, hotel_reserve hr where hr.id=#{id} and h.title=hr.honame
+   </select>
+   <select id="radioList" resultType="hotelRadio" parameterType="int">
+      select * from hotelRadio where num=#{num}
+   </select>
+         <select id="reslist3"  resultType="hotel2">
+      select
+      hr.*,h.img,h.address,h.tel,h.mapx,h.mapy 
+      from hotel h, (select num,name,phone,honame,hrnum,roomtype,checkin,checkout,pay,totalpay,people, ROW_NUMBER() over(order by hrnum desc) as rk from hotel_reserve) hr where hr.rk=1 and h.title=hr.honame
+   </select>
+   
+   
+   <select id="hdetail" parameterType="int" resultType="hdvo">
    select 
    h.num,h.title,h.locnum,h.img,h.address,h.tel,h.mapx,h.mapy , hit.foodplace  from hotel h, hotelitem hit where h.num = hit.hnum and h.num=#{num}
    </select>
-	
+   
+   <select id="hrimg" parameterType="int" resultType="hrivo">
+      select distinct h.img , h.roomtype,hr.pay from hotelimg h ,hotelradio hr where h.hnum=#{hnum}
+    and h.hnum = hr.num and hr.roomtype = h.roomtype
+   </select>
 </mapper>

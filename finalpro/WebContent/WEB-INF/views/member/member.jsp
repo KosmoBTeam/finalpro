@@ -1,45 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+<!DOCTYPE html>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<html dir="ltr" lang="ko">
 <%@include file="../header.jsp"%>
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<title></title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->
-<link rel="icon" type="image/png"
-	href="resources/images/icons/favicon.ico" />
-<!--===============================================================================================-->
-<link rel="stylesheet" type="text/css"
-	href="resources/vendor/bootstrap/css/bootstrap.min.css" />
-<!--===============================================================================================-->
-<link rel="stylesheet" type="text/css"
-	href="resources/fonts/font-awesome-4.7.0/css/font-awesome.min.css" />
-<!--===============================================================================================-->
-<link rel="stylesheet" type="text/css"
-	href="resources/fonts/Linearicons-Free-v1.0.0/icon-font.min.css" />
-<!--===============================================================================================-->
-<link rel="stylesheet" type="text/css"
-	href="resources/vendor/animate/animate.css" />
-<!--===============================================================================================-->
-<!--===============================================================================================-->
-<link rel="stylesheet" type="text/css"
-	href="resources/vendor/animsition/css/animsition.min.css" />
-<!--===============================================================================================-->
-<link rel="stylesheet" type="text/css"
-	href="resources/vendor/select2/select2.min.css" />
-<!--===============================================================================================-->
-<link rel="stylesheet" type="text/css"
-	href="resources/vendor/daterangepicker/daterangepicker.css" />
-<!--===============================================================================================-->
 <link rel="stylesheet" type="text/css" href="resources/css/util.css" />
 <link rel="stylesheet" type="text/css" href="resources/css/main.css" />
-<script type="text/javascript"
-	src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.2.js"
-	charset="utf-8"></script>
+
 <script type="text/javascript"
 	src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 <style type="text/css">
@@ -52,13 +23,6 @@ h3 {
 	display: inline-block;
 	padding: 0.6em;
 }
-.login100-form-title::before{
-
-}
-.login100-form-title{
-	
-}
-
 </style>
 
 
@@ -68,11 +32,12 @@ h3 {
 	<!-- Contact Form Overlay
                 ============================================= -->
 	<div class="container-login100">
-		<div class="wrap-login100">
+		<div class="wrap-login100"
+			style="width: 60%; height: 100%; background: #fff; border-radius: 10px; overflow: hidden; position: relative;">
 			<div class="login100-form-title"
 				style="background-image: url('resources/images/main/main3.jpg');">
 				<!-- 					<span class="login100-form-title-1"></span> -->
-				<span class="login100-form-title-1" >회 원 가 입</span>
+				<span class="login100-form-title-1" style="font-size: 70px;">회   원   가   입</span>
 			</div>
 
 			<div id="contact-form-result" data-notify-type="success"
@@ -155,7 +120,7 @@ h3 {
 
 			<form name="form1" method="post" action="joinMember" id="joinForm"
 				class="login100-form validate-form" onsubmit="return beforeSubmit()"
-				style="padding: 43px 88px 93px 100px;">
+				style="padding: 43px 88px 93px 100px; display: block;">
 				<%-- <input type="hidden" name="reservation_number" id="reservation_number" value="${reservation_number}"> --%>
 
 				<div class="row">
@@ -166,7 +131,7 @@ h3 {
 								onclick="duplicate()" style="background-color: #EAAF22">중복확인</button>
 						</label> <input type="text" class="well well-sm" name="id" id="m_id"
 							size="85" placeholder="ID" required="required" maxlength="12"
-							style="width: 300px;">
+							style="">
 					</div>
 					<font id="OK" size="1"> </font>
 				</div>
@@ -177,7 +142,7 @@ h3 {
 						<label for="template-contactform-name">비밀번호</label> <br> <input
 							type="password" class="well well-sm" name="pwd" id="m_password"
 							size="85" placeholder="Password" required="required"
-							maxlength="15" style="width: 300px;">
+							maxlength="12" style="width: -webkit-fill-available;">
 					</div>
 				</div>
 
@@ -187,7 +152,7 @@ h3 {
 							id="PasswordCheck" size="2"> </font> <br> <input
 							type="password" class="well well-sm" name="cpwd" id="m_password2"
 							size="85" placeholder="Password Check" required="required"
-							maxlength="15" style="width: 300px;">
+							maxlength="12" style="width: -webkit-fill-available;">
 					</div>
 				</div>
 
@@ -195,7 +160,8 @@ h3 {
 					<div class="col-md-6">
 						<label for="template-contactform-name">우편번호
 							<button type="button" class="btn btn-primary"
-								onclick="sample2_execDaumPostcode()" style="background-color: #EAAF22">우편번호 찾기</button>
+								onclick="sample2_execDaumPostcode()"
+								style="background-color: #EAAF22">우편번호 찾기</button>
 						</label><br> <input type="text" class="well well-sm" name="ad0"
 							id="sample2_postcode" size="35" placeholder="ex) 19xxx"
 							readonly="readonly">
@@ -244,13 +210,13 @@ h3 {
 				<div class="col_full">
 					<label for="template-contactform-name">E-mail</label> <br> <input
 						type="email" class="well well-sm" name="email" id="m_userEmail"
-						size="85" placeholder="Email" required="required">
+						size="85" placeholder="Email" required="required" style="width: -webkit-fill-available;">
 				</div>
 
 
 				<div class="clearfix" style="text-align: center;">
 					<button type="submit" class="login100-form-btn"
-						style="position: absolute; bottom: 60px; left: 40%; background-color: #EAAF22; margin: 0 auto;"
+						style="position: relative;  background-color: #EAAF22; margin: 0 auto; width: 10%;"
 						value="회원 가입 완료!">
 						<span>가입 하기</span>
 					</button>
@@ -436,7 +402,11 @@ h3 {
 
 <!-- Footer Scripts
     ============================================= -->
+<style>
+input[type=text]{
+width: -webkit-fill-available;
+}
+</style>
 <script type="text/javascript" src="resources/js/functions.js"></script>
-
 </body>
 </html>

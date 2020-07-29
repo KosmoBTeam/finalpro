@@ -33,7 +33,7 @@
                   <div class="container clearfix">
                      <div class="heading-block center nobottommargin">
                         <h3 class="color" data-animate="fadeInDown"
-                           style="background-color: #F9F9F9;" >식당</h3>
+                           style="background-color: #F9F9F9;">식당</h3>
                         <span data-animate="fadeInUp">스타트립이 추천하는 ${name } 맛집</span>
                      </div>
                   </div>
@@ -50,15 +50,15 @@
                               <div class="oc-item pf-food">
                                  <div class="testimonial">
                                     <div class="testi-image1">
-                                       <a><img src="${e.img}"
-                                          alt="" style="width: 330px; height: 200px;"></a>
+                                       <a><img src="${e.img}" alt=""
+                                          style="width: 330px; height: 200px;"></a>
                                     </div>
-                                    <br>
-                                    <br>
-                                    
-                                    <div class="testi-content1" >
+                                    <br> <br>
+
+                                    <div class="testi-content1">
                                        <p>${e.address }</p>
-                                       <div class="testi-meta" style="font-weight: bolder; font-size: 25px; ">${e.title }</div>
+                                       <div class="testi-meta"
+                                          style="font-weight: bolder; font-size: 25px;">${e.title }</div>
                                     </div>
                                  </div>
                               </div>
@@ -112,15 +112,16 @@
                               <div class="oc-item pf-hotel">
                                  <div class="testimonial">
                                     <div class="testi-image1">
-                                       <a><img src="${e.img}"
-                                          alt="" style="width: 330px; height: 200px;"></a>
+                                       <a><img src="${e.img}" alt=""
+                                          style="width: 330px; height: 200px;"></a>
                                     </div>
-                                    <br>
-                                    <br>
-                                    
+                                    <br> <br>
+
                                     <div class="testi-content1">
                                        <p>${e.address }</p>
-                                       <div class="testi-meta" style="font-weight: bolder; font-size: 25px; ">${e.title }</div><!--  -->
+                                       <div class="testi-meta"
+                                          style="font-weight: bolder; font-size: 25px;">${e.title }</div>
+                                       <!--  -->
                                     </div>
                                  </div>
                               </div>
@@ -175,15 +176,15 @@
                               <div class="oc-item pf-act">
                                  <div class="testimonial">
                                     <div class="testi-image1">
-                                       <a><img src="${e.img}"
-                                          alt="" style="width: 330px; height: 200px;"></a>
+                                       <a><img src="${e.img}" alt=""
+                                          style="width: 330px; height: 200px;"></a>
                                     </div>
-                                    <br>
-                                    <br>
-                                    
+                                    <br> <br>
+
                                     <div class="testi-content1">
-                                       <p> ${e.address }</p>
-                                       <div class="testi-meta" style="font-weight: bolder; font-size: 25px; ">${e.title }</div>
+                                       <p>${e.address }</p>
+                                       <div class="testi-meta"
+                                          style="font-weight: bolder; font-size: 25px;">${e.title }</div>
                                     </div>
                                  </div>
                               </div>
@@ -222,10 +223,7 @@
                   <li><a href="#" data-filter=".pf-hotel">호텔</a></li>
                   <li><a href="#" data-filter=".pf-act">여행지</a></li>
                </ul>
-               <br>
-               <br>
-               <br>
-               <br>
+               <br> <br> <br> <br>
 
                <!-- Portfolio Items
                     ============================================= -->
@@ -278,19 +276,19 @@
                               </div>
                            </div>
 
-									<div class="portfolio-desc">
-										<h3>${e.title }</h3>
-										<span>${f.address }</span>
-										<p>${e.tel }<br>${e.detail }
-										</p>
-										<br> <br> <br> <br> <br> <br> <br>
-										<br>
-										<button type="submit"
-											class="btn button button-light noleftmargin">예약하러 가기</button>
-										<a href="goHotelDetail?num=${e.num}"
-											class="btn button button-light noleftmargin">상세페이지</a>
-									</div>
-								</form>
+                           <div class="portfolio-desc">
+                              <h3>${e.title }</h3>
+                              <span>${f.address }</span>
+                              <p>${e.tel }<br>${e.detail }
+                              </p>
+                              <br> <br> <br> <br> <br> <br> <br>
+                              <br>
+                              <button type="submit"
+                                 class="btn button button-light noleftmargin">예약하러 가기</button>
+                              <a href="goHotelDetail?num=${e.num}"
+                                 class="btn button button-light noleftmargin">상세페이지</a>
+                           </div>
+                        </form>
                      </article>
 
                   </c:forEach>
@@ -323,12 +321,12 @@
                   </c:forEach>
                </div>
                <!-- #portfolio end -->
-
-               <ul class="pager nomargin">
+               <div style="text-align: center;">
+                  <ul class="pagination">
 
                      <li class="previous"><c:if test="${paging.startPage != 1 }">
                            <a
-                              href="goLocalDetail?locnum=${e.locnum }&nowPage=${paging.nowPage-1}&cntPerPage=${paging.cntPerPage}">&larr;
+                              href="goLocalDetail?locnum=${paging.locnum }&nowPage=${paging.nowPage-1}&cntPerPage=${paging.cntPerPage}">&larr;
                               Older</a>
                         </c:if> <c:if test="${paging.startPage==1}">
                            <a href="#">&larr; Older</a>
@@ -337,13 +335,13 @@
                         var="p">
                         <c:choose>
                            <c:when test="${p == paging.nowPage }">
-                              <b>${p }</b>
+                              <li><a>${p }</a></li>
                               <!-- 현재 페이지 일 경우 링크 해제 -->
                            </c:when>
                            <c:when test="${p != paging.nowPage }">
                               <!-- 다른 페이지 링크 -->
-                              <a
-                                 href="goLocalDetail?locnum=${e.locnum }&nowPage=${p }&cntPerPage=${paging.cntPerPage}">${p }</a>
+                              <li><a
+                                 href="goLocalDetail?locnum=${paging.locnum }&nowPage=${p}&cntPerPage=${paging.cntPerPage}">${p }</a></li>
                            </c:when>
                         </c:choose>
                      </c:forEach>
@@ -351,15 +349,25 @@
                      <li class="next"><c:if
                            test="${paging.endPage != paging.lastPage}">
                            <a
-                              href="goLocalDetail?locnum=${e.locnum }&nowPage=${paging.nowPage+1 }&cntPerPage=${paging.cntPerPage}">Newer
+                              href="goLocalDetail?locnum=${paging.locnum }&nowPage=${paging.nowPage+1 }&cntPerPage=${paging.cntPerPage}">Newer
                               &rarr;</a>
                         </c:if> <c:if test="${paging.endPage == paging.lastPage}">
                            <a href="#">Newer &rarr;</a>
                         </c:if></li>
 
                   </ul>
-                  <!-- .pager end -->
-                  
+                  <ul style="text-align: center; list-style: none;">
+                     <li><form action="goLocalDetail?locnum=${paging.locnum }" method="post">
+                           <%-- <input type="hidden" name="page" value="${param.page }"> --%>
+                           <select name="searchType">
+                              <option value="1">상호명</option>
+                           </select>&nbsp;<input type="text" name="searchValue"> <input
+                              type="submit" value="Search">
+                        </form></li>
+                  </ul>
+               </div>
+               <!-- .pager end -->
+
                <!-- Portfolio Script
                     ============================================= -->
                <script type="text/javascript">

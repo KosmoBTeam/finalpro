@@ -107,7 +107,7 @@
 <header id="header" class="transparent-header full-header"
    data-sticky-class="not-dark">
    <div id="header-wrap">
-      <div class="container clearfix">
+      <div class="container clearfix" style="width:100%;">
          <div id="primary-menu-trigger">
             <i class="icon-reorder"></i>
          </div>
@@ -146,7 +146,7 @@
                <li><a href="goLocalMain"><div>국내 여행지</div></a>
                   <ul>
                      <li><a href="goLocalMain"><div>전국</div></a></li>
-                     <li><a href="gopackage"><div>패키지 여행</div></a></li>
+                    <!--  <li><a href="gopackage"><div>패키지 여행</div></a></li> -->
                   </ul></li>
                <li><a href="#"><div>여행 후기</div></a>
                   <ul>
