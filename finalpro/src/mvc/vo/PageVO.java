@@ -10,7 +10,8 @@ public class PageVO {
    // lastPage - 마지막페이지
    // start, end - 페이지 분할 값
    private int nowPage, startPage, endPage, total, cntPerPage, lastPage, start, end,locnum,hrnum,pay;
-public int getPay() {
+   
+   public int getPay() {
       return pay;
    }
 

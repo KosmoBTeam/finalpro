@@ -320,9 +320,6 @@ $(document).ready(
                            <div class="team-content" style="margin-bottom: 10px;">
                               <p>*체크인 날짜 : ${e.checkin} ~ *체크아웃 날짜 : ${e.checkout}</p>
                            </div>
-
-
-
                         </div>
                      </div>
                   </div>
@@ -348,12 +345,17 @@ $(document).ready(
                      style="color: black; display: inline-block; background-color: #EAAF22;"
                      value="취소하기">
                      <span>취소하기</span>
+                     
                   </button>
+               <a href="#" onclick="location.href='gokakaopay?id=${sessionScope['id']}&hrnum=${e.hrnum }'" style="margin-left: 275px;">
+                  <img src="resources/images/kakao1.png" style="width: 120px; margin-top: -84px; margin-left: 216px; height: 51px;">
+                  </a>
                </div>
 
                <div class="line"
                   style="margin-top: auto; border-top-color: white;"></div>
             </c:forEach>
+
 
          </div>
          <!--호텔예약 정보 종료 -->
@@ -395,7 +397,6 @@ jQuery(document).ready(function($) {
 
 
 </script>
-<br>
 <%@include file="../footer.jsp"%>
 <div id="gotoTop" class="icon-angle-up"></div>
 

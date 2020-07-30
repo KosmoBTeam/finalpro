@@ -151,14 +151,17 @@
 onclick="location.href='deleteReserve?id=${sessionScope['id']}&hrnum=${list.hrnum }'"
 class="button button-medium button-reveal button-3d button-rounded tright nomargin"
 style="color: black; text-align: center;">
-<span>취소하기</span> <i class="icon-angle-right"></i>
-                  </button>
+<span>취소하기</span> <i class="icon-angle-right"></i></button>
+
 <button type="button"
 onclick="location.href='goHotelDetail?num=${list.num }'"
 class="button button-medium button-reveal button-3d button-rounded tright nomargin"
 style="color: black; text-align: center;">
-<span>상세 페이지</span> <i class="icon-angle-right"></i>
-                  </button>
+<span>상세 페이지</span> <i class="icon-angle-right"></i></button>
+                  <a href="gokakaopay?id=${sessionScope['id']}&hrnum=${list.hrnum }" style="margin-left: 275px;">
+                  <img src="resources/images/kakao1.png" style="width: 105px; margin-top: -58px;">
+                  </a>
+                  
       
       </div>
 

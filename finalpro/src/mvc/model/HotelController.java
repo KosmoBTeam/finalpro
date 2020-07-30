@@ -56,6 +56,37 @@ public class HotelController {
       
       return "hotel/hotelMain";
    }
+   
+   @RequestMapping(value = "/gokakaopay", method = { RequestMethod.GET, RequestMethod.POST })
+   public String gokakao(HttpSession session,Model model,int hrnum) {
+            
+      String id = (String) session.getAttribute("id");
+         HotelReserve2VO vo = hotelDao.resList(hrnum);
+         vo.setId(id);// 세션에서 받은 아이디값
+         vo.setHrnum(hrnum);// hotelIn-->hotel_success(인자값은 "list")-->goHotelSuccess("list"의 hrnum을 가져온다.)         
+         SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+         Date beginDate;
+          Date endDate;
+         
+         try {
+            beginDate = formatter.parse(vo.getCheckin());
+            endDate = formatter.parse(vo.getCheckout());
+            long diff = endDate.getTime() - beginDate.getTime();
+             long diffDays = diff / (24 * 60 * 60 * 1000);
+             String difday = Long.toString(diffDays);
+             int day = Integer.parseInt(difday);
+             vo.setPay(vo.getPay()*day);
+         } catch (ParseException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+         }
+         
+         System.out.println(vo.getId());
+         System.out.println(vo.getImg());
+         
+         model.addAttribute("list", vo);
+      return "member/kakaopay";
+   }
 
    // 호텔예약 예약페이지로 이동
    // num으로 넘어오는 값은 예약하는 hotel테이블의 num컬럼과의 foreign값이다.
@@ -91,10 +122,7 @@ public class HotelController {
       vo.setHrnum(hrnum);// hotelIn-->hotel_success(인자값은 "list")-->goHotelSuccess("list"의 hrnum을 가져온다.)
       
       SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
-
-       
-
-       Date beginDate;
+      Date beginDate;
        Date endDate;
       
       try {

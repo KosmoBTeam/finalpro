@@ -3,6 +3,8 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="ko">
 <%@ include file="../header.jsp"%>
+<script type="text/javascript"
+   src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4ebe4b5dd8c56619a4b9036bc01619aa&libraries=services,clusterer,drawing"></script>
 <body class="stretched">
 
    <!-- <link rel="stylesheet" type="text/css" href="resources/css/style.css?after" /> -->
@@ -15,7 +17,7 @@
         ============================================= -->
       <section id="page-title" class="page-title-dark">
          <div class="container clearfix">
-            <h1>${name }</h1>
+            <h1 style="font-size: 30px">${name }</h1>
          </div>
       </section>
       <!-- #page-title end -->
@@ -29,12 +31,12 @@
                <!-- 시작  -->
 
 
-               <div class="section1 noborder nobottommargin" style="background-color:#fff6e1;">
+               <div class="section1 noborder nobottommargin bgcolor-grey-light">
                   <div class="container clearfix">
                      <div class="heading-block center nobottommargin">
                         <h3 class="color" data-animate="fadeInDown"
-                           style="background-color: #fff6e1;">식당</h3>
-                        <span data-animate="fadeInUp">스타트립이 추천하는 ${name } 맛집</span>
+                           style="background-color: #F9F9F9; font-size: 50px; font-weight: bold;">식당</h3>
+                        <span data-animate="fadeInUp" style="font-weight: bold;">StarTrip이 추천하는 ${name } 맛집</span>
                      </div>
                   </div>
                </div>
@@ -91,12 +93,12 @@
                </div>
 
 
-               <div class="section1 noborder nobottommargin" style="background-color:#fff6e1;">
+               <div class="section1 noborder nobottommargin bgcolor-grey-light">
                   <div class="container clearfix">
                      <div class="heading-block center nobottommargin">
                         <h3 class="color" data-animate="fadeInDown"
-                           style="background-color: #fff6e1;">호텔</h3>
-                        <span data-animate="fadeInUp">스타트립이 추천하는 ${name } 호텔</span>
+                           style="background-color: #F9F9F9; font-size: 50px; font-weight: bold;" >호텔</h3>
+                        <span data-animate="fadeInUp" style="font-weight: bold;">StarTrip이 추천하는 ${name } 호텔</span>
                      </div>
                   </div>
                </div>
@@ -155,12 +157,12 @@
 
 
 
-               <div class="section1 noborder nobottommargin" style="background-color:#fff6e1;">
+               <div class="section1 noborder nobottommargin bgcolor-grey-light">
                   <div class="container clearfix">
                      <div class="heading-block center nobottommargin">
                         <h3 class="color" data-animate="fadeInDown"
-                           style="background-color: #fff6e1;">액티비티</h3>
-                        <span data-animate="fadeInUp">스타트립이 추천하는 ${name } 액티비티</span>
+                           style="background-color: #F9F9F9; font-size: 50px; font-weight: bold;" >관광지</h3>
+                        <span data-animate="fadeInUp" style="font-weight: bold;" >StarTrip이 추천하는 ${name } 관광지</span>
                      </div>
                   </div>
                </div>
@@ -215,7 +217,7 @@
                      </div>
                   </div>
                </div>
-
+            <br><br>
                <!-- 끝  -->
                <ul id="portfolio-filter" class="clearfix">
                   <li class="activeFilter"><a href="#" data-filter="*">All</a></li>
@@ -228,10 +230,8 @@
                <!-- Portfolio Items
                     ============================================= -->
                <div id="portfolio" class="portfolio-1 clearfix">
-                  <c:forEach var="e" items="${listfood }">
-
+                  <c:forEach var="e" items="${listfood }" varStatus="status">
                      <article class="portfolio-item pf-classes pf-food alt clearfix">
-
                         <div class="portfolio-image">
                            <div class="fslider" data-arrows="false">
                               <div class="flexslider">
@@ -244,17 +244,39 @@
                            </div>
                         </div>
 
-                        <div class="portfolio-desc">
-                           <h3>${e.title }</h3>
-                           <span>${e.address }</a></span>
+                        <div class="portfolio-desc" style=" padding: 0px;">
+                           <h3 style="font-size: 29px; font-weight: bold;">${e.title }</h3>
+                           <span>${e.address }</span>
                            <p>${e.tel }<br>${e.detail }
                            </p>
+                              <div id="mapf${status.count}"
+                                 style="height: 260px; width: 100%; border: 1px solid black;">
+                              </div>
                         </div>
-                        <!-- Portfolio Single - Share
-                           ============================================= -->
 
-                        <!-- Portfolio Single - Share End -->
                      </article>
+<script>
+console.log(${e.mapy});
+console.log(${e.mapx});
+var mapContainer = document.getElementById('mapf${status.count}'), // 지도를 표시할 div
+mapOption = { 
+    center: new kakao.maps.LatLng(${e.mapy}, ${e.mapx}), // 지도의 중심좌표
+    level: 1 // 지도의 확대 레벨
+};
+
+var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+//마커가 표시될 위치입니다 
+var markerPosition  = new kakao.maps.LatLng(${e.mapy}, ${e.mapx}); 
+
+//마커를 생성합니다
+var marker = new kakao.maps.Marker({
+position: markerPosition
+});
+
+//마커가 지도 위에 표시되도록 설정합니다
+marker.setMap(map);
+</script>
                   </c:forEach>
 
                   <c:forEach var="e" items="${listhotel }">
@@ -276,9 +298,9 @@
                               </div>
                            </div>
 
-                           <div class="portfolio-desc">
-                              <h3>${e.title }</h3>
-                              <span>${f.address }</span>
+                           <div class="portfolio-desc" style=" padding: 0px;">
+                              <h3 style="font-size: 29px;">${e.title }</h3>
+                              <span>${e.address }</span>
                               <p>${e.tel }<br>${e.detail }
                               </p>
                               <br> <br> <br> <br> <br> <br> <br>
@@ -293,7 +315,7 @@
 
                   </c:forEach>
 
-                  <c:forEach var="e" items="${listact }">
+                  <c:forEach var="e" items="${listact }" varStatus="status">
                      <article class="portfolio-item pf-classes pf-act alt clearfix">
                         <div class="portfolio-image">
                            <div class="fslider" data-arrows="false">
@@ -307,20 +329,47 @@
                            </div>
                         </div>
 
-                        <div class="portfolio-desc">
-                           <h3>${e.title }</h3>
-                           <span>${e.address }</a></span>
+                        <div class="portfolio-desc" style=" padding: 0px;">
+                           <h3 style="font-size: 29px;">${e.title }</h3>
+                           <span>${e.address }</span>
                            <p>${e.tel }<br>${e.detail }
                            </p>
+                           <div id="mapa${status.count}"
+                              style="height: 260px; width: 100%; border: 1px solid black;">
+                           </div>
                         </div>
                         <!-- Portfolio Single - Share
                            ============================================= -->
 
                         <!-- Portfolio Single - Share End -->
                      </article>
+<script>
+console.log(${e.mapy});
+console.log(${e.mapx});
+var mapContainer = document.getElementById('mapa${status.count}'), // 지도를 표시할 div
+mapOption = { 
+    center: new kakao.maps.LatLng(${e.mapy}, ${e.mapx}), // 지도의 중심좌표
+    level: 1 // 지도의 확대 레벨
+};
+
+var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+//마커가 표시될 위치입니다 
+var markerPosition  = new kakao.maps.LatLng(${e.mapy}, ${e.mapx}); 
+
+//마커를 생성합니다
+var marker = new kakao.maps.Marker({
+position: markerPosition
+});
+
+//마커가 지도 위에 표시되도록 설정합니다
+marker.setMap(map);
+</script>   
+                  
                   </c:forEach>
                </div>
                <!-- #portfolio end -->
+
                <div style="text-align: center;">
                   <ul class="pagination">
 
@@ -366,7 +415,7 @@
                         </form></li>
                   </ul>
                </div>
-               <!-- .pager end -->
+
 
                <!-- Portfolio Script
                     ============================================= -->
@@ -433,6 +482,8 @@
    <!-- Go To Top
     ============================================= -->
    <div id="gotoTop" class="icon-angle-up"></div>
+
+
 
    <!-- Footer Scripts
     ============================================= -->
