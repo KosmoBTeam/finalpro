@@ -117,7 +117,7 @@
       <tr>
          <td><c:forEach var="e" items="${list}">
 <input type="checkbox" id="roomtype" name="roomtype"
-                                 value=${e.roomtype } onclick="doOpenCheck(this);"/>${e.roomtype } : ${e.pay }¿ø
+                                 value="${e.roomtype }" onclick="doOpenCheck(this);"/>${e.roomtype } : ${e.pay }¿ø
                                  <input type="hidden" value="${e.num }" name="num"> 
                   <br>               
                         </c:forEach>

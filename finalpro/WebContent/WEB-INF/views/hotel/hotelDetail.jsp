@@ -179,9 +179,8 @@
 					<div class="divider"><i class="icon-circle"></i></div>
 					<h1>※위치</h1>
 					<div id="map" style="width: 1140px; height: 760px;"></div>
-
-
-					
+					<br>
+					<a href="javascript:history.back()" class="btn btn-warning pull-right" style="font-size: 20px;">호텔&nbsp;목록</a>
 					<!-- 지도 -->
 
 

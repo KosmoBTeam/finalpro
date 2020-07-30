@@ -1,7 +1,10 @@
 package mvc.model;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -43,50 +46,16 @@ public class HotelController {
    @Autowired
    private LocalDao localDao;
 
-// 호텔예약 메인페이지로 이동
+   // 호텔예약 메인페이지로 이동
    @RequestMapping(value = "/goHotelMain")
-   public String goHotel(Model model, PageVO vo,
-         @RequestParam(value = "nowPage", required = false, defaultValue = "1") String nowPage,
-         @RequestParam(value = "cntPerPage", required = false, defaultValue = "5") String cntPerPage) {
-      int total = 0;
-      int locno = localDao.locno();
-      for (int i = 0; i < locno; i++) {
-         vo.setLocnum(i + 1);
-         total += localDao.total1(vo);
-      }
-      System.out.println("total : "+total);
-      String value = vo.getSearchValue();
-      String type = vo.getSearchType();
-      vo = new PageVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
-   
-      List<LocalHotelVO> list = new ArrayList<LocalHotelVO>();
-      if (value != null) {
-         vo.setSearchValue(value);
-         vo.setSearchType(type);     
-         for (int i = 0; i < locno; i++) {
-            vo.setLocnum(i + 1);
-            list.addAll(localDao.localtotalListwithp(vo));
-         }
-      } else {         
-         for (int i = 0; i < locno; i++) {
-            vo.setLocnum(i + 1);
-            list.addAll(localDao.localtotalListwithp(vo));
-            
-         }
-      }
-     
+   public String goHotel(Model model) {
+      List<HotelTotalVO> list = localDao.localtotalList();
       List<HotelReviewVO> reviewlist = localDao.localreviewList();
       model.addAttribute("list", list);
-
-
       model.addAttribute("reviewlist", reviewlist);
-      vo.setNowPage(Integer.parseInt(nowPage));
-      vo.setCntPerPage(Integer.parseInt(cntPerPage));
-      model.addAttribute("paging", vo);
+      
       return "hotel/hotelMain";
    }
-
-
 
    // 호텔예약 예약페이지로 이동
    // num으로 넘어오는 값은 예약하는 hotel테이블의 num컬럼과의 foreign값이다.
@@ -121,6 +90,26 @@ public class HotelController {
       vo.setId(id);// 세션에서 받은 아이디값
       vo.setHrnum(hrnum);// hotelIn-->hotel_success(인자값은 "list")-->goHotelSuccess("list"의 hrnum을 가져온다.)
       
+      SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+
+       
+
+       Date beginDate;
+       Date endDate;
+      
+      try {
+         beginDate = formatter.parse(vo.getCheckin());
+         endDate = formatter.parse(vo.getCheckout());
+         long diff = endDate.getTime() - beginDate.getTime();
+          long diffDays = diff / (24 * 60 * 60 * 1000);
+          String difday = Long.toString(diffDays);
+          int day = Integer.parseInt(difday);
+          vo.setPay(vo.getPay()*day);
+      } catch (ParseException e) {
+         // TODO Auto-generated catch block
+         e.printStackTrace();
+      }
+      
       System.out.println(vo.getId());
       System.out.println(vo.getImg());
       
@@ -154,20 +143,32 @@ public class HotelController {
    
    // 호텔 예약 정보를 인서트함
    @RequestMapping(value = "/hotelIn", method = RequestMethod.POST)
-   public String addMember(Model model,HotelReserve2VO vo) {
+   public String addMember(Model model,HotelReserve2VO vo)  {
+      System.out.println(vo.getRoomtype()+"hi");
       hotelDao.addHotel(vo);
-      int totalpay = vo.getPay() * vo.getPeople();
-      HotelReserve2VO data = hotelDao.resList3();
-      double mapx = data.getMapx();
-      double mapy = data.getMapy();
       
-      double ihx = Math.round(mapx*1000000)/1000000.0;
-      double ihy = Math.round(mapy*1000000)/1000000.0;
       
-      data.setMapx(ihx);
-      data.setMapy(ihy);
-      
-      data.setPay(totalpay);
+      SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+
+       
+
+       Date beginDate;
+       Date endDate;
+       HotelReserve2VO data = hotelDao.resList3();
+      try {
+         beginDate = formatter.parse(vo.getCheckin());
+         endDate = formatter.parse(vo.getCheckout());
+         long diff = endDate.getTime() - beginDate.getTime();
+          long diffDays = diff / (24 * 60 * 60 * 1000);
+          String difday = Long.toString(diffDays);
+          int day = Integer.parseInt(difday);
+          data.setPay(data.getPay()*day);
+      } catch (ParseException e) {
+         // TODO Auto-generated catch block
+         e.printStackTrace();
+      }
+        
+
       model.addAttribute("list", data);
       return "hotel/hotel_successDetail";
    }

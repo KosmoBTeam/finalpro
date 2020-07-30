@@ -67,7 +67,7 @@ td th {
                 ============================================= -->
                <ul id="portfolio-filter" class="clearfix"
                   style="margin-left: 391px;">
-                  <li><a href="" onclick="location.href ='goHotelMain';" id="0">전체호텔</a></li>
+                 
                   <li class="activeFilter"><a href="#" data-filter="*"
                      id="0">모두 보기</a></li>
                   <li><a href="#" data-filter=".pf-seoul" id="1">서울</a></li>

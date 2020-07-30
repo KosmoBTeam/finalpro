@@ -29,11 +29,11 @@
                <!-- 시작  -->
 
 
-               <div class="section1 noborder nobottommargin bgcolor-grey-light">
+               <div class="section1 noborder nobottommargin" style="background-color:#fff6e1;">
                   <div class="container clearfix">
                      <div class="heading-block center nobottommargin">
                         <h3 class="color" data-animate="fadeInDown"
-                           style="background-color: #F9F9F9;">식당</h3>
+                           style="background-color: #fff6e1;">식당</h3>
                         <span data-animate="fadeInUp">스타트립이 추천하는 ${name } 맛집</span>
                      </div>
                   </div>
@@ -91,11 +91,11 @@
                </div>
 
 
-               <div class="section1 noborder nobottommargin bgcolor-grey-light">
+               <div class="section1 noborder nobottommargin" style="background-color:#fff6e1;">
                   <div class="container clearfix">
                      <div class="heading-block center nobottommargin">
                         <h3 class="color" data-animate="fadeInDown"
-                           style="background-color: #F9F9F9;">호텔</h3>
+                           style="background-color: #fff6e1;">호텔</h3>
                         <span data-animate="fadeInUp">스타트립이 추천하는 ${name } 호텔</span>
                      </div>
                   </div>
@@ -155,11 +155,11 @@
 
 
 
-               <div class="section1 noborder nobottommargin bgcolor-grey-light">
+               <div class="section1 noborder nobottommargin" style="background-color:#fff6e1;">
                   <div class="container clearfix">
                      <div class="heading-block center nobottommargin">
                         <h3 class="color" data-animate="fadeInDown"
-                           style="background-color: #F9F9F9;">액티비티</h3>
+                           style="background-color: #fff6e1;">액티비티</h3>
                         <span data-animate="fadeInUp">스타트립이 추천하는 ${name } 액티비티</span>
                      </div>
                   </div>
