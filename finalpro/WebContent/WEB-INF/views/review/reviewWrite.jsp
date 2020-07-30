@@ -35,7 +35,8 @@
 
 				<div class="container clearfix">
 				
-				<form>
+				<form action="reviewWrite" method="post"
+					enctype="multipart/form-data">
   <div class="form-group">
   <input type="hidden" name="id" value="${sessionScope['id']}">
     <label for="exampleInputEmail1">Á¦¸ñ</label>

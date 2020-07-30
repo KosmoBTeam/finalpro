@@ -173,7 +173,7 @@
                         <ul>
                            <li><a href="goMypage?id=${sessionScope['id']}"><div>마이페이지</div></a></li>
                            <li><a href="logout"><div>로그아웃</div></a></li>
-                           <li><a href="#"><div>버킷 리스트</div></a></li>
+                           <li><a href="gobucketlist"><div>버킷 리스트</div></a></li>
                         </ul></li>
                   </c:when>
                </c:choose>

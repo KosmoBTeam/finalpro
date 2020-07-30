@@ -99,7 +99,7 @@ public class ReviewController {
 
 	
 
-	private static final String UPLOAD_PATH="C:\\Users\\KOSMO-25\\git\\finalpro\\finalpro\\WebContent\\resources\\images";
+	private static final String UPLOAD_PATH="C:\\Users\\KOSMO-27\\git\\finalpro\\finalpro\\WebContent\\resources\\images";
 
 	private String saveFile(MultipartFile mfile, String img) {
 		// 파일 이름 변경
