@@ -29,7 +29,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    </select>
    <select id="mainLocalList" resultType="local">
       <![CDATA[ select a.* from (select loc, img, locnum, ROW_NUMBER() over(order by locnum
-      desc) as rk from local ) a where a.rk<5]]>
+      desc) as rk from local ) a where a.rk<9]]>
    </select>
    <select id="getLocnum" parameterType="String" resultType="int">
       select

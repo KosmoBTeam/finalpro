@@ -24,6 +24,44 @@
 
       <!-- Content
         ============================================= -->
+        <!-- 영상 -->
+         <section id="content">
+
+            <div class="content-wrap">
+
+                <div class="container clearfix">
+
+                    <!-- Portfolio Single Video
+                    ============================================= -->
+                    <div class="col_two_third portfolio-single-image nobottommargin">
+                        <video width="800" height="300" autoplay>
+ 						 <source src="resources/videos/localvideo2.mp4" type="video/mp4">
+ 						 <source src="resources/videos/localvideo2.mp3" type="video/mp3"></video>
+                    </div><!-- .portfolio-single-image end -->
+
+                    <!-- Portfolio Single Content
+                    ============================================= -->
+                    <div class="col_one_third portfolio-single-content col_last nobottommargin">
+
+                        <!-- Portfolio Single - Description
+                        ============================================= -->
+                        <div class="fancy-title title-bottom-border">
+                            <h2>죽기 전에 가봐야 할 국내여행지 베스트 EP.1</h2>
+                        </div>
+                        <ol>
+                        	<li><p><a href="https://youtu.be/Sj0jrDp9YZE">죽기 전에 가봐야 할 국내여행지 베스트 EP.2</a></p></li>
+							<li><p><a href="https://youtu.be/QrJ-m1LLrVw">죽기 전에 가봐야 할 국내여행지 베스트 EP.3</a></p></li>
+                        </ol>
+                        
+                        <p>지리산 노고단 운해, 경남 합천 황매산 은하수, 전남 화순 세량지, 여행지추천, 여행유튜버</p>
+                        <p>[출처]킴스트래블 Kim's Travel</p>
+                        <!-- Portfolio Single - Description End -->
+                        </div>
+                        </div>
+                        </section>
+        <!-- 영상 끝 -->
+        
+        
       <section id="content">
          <div class="content-wrap bgcolor-grey-light">
             <div class="container clearfix">

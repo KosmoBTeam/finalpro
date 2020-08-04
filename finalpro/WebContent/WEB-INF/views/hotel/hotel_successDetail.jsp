@@ -92,7 +92,7 @@
       <tr>
         <td>${list.honame }</td>
         <td>${list.roomtype }</td>
-        <td>${list.pay }</td>
+        <td>${list.pay }원</td>
         </tr>
     </tbody>
     
@@ -145,8 +145,8 @@
   
   <!-- 지도 end -->
   <div class="divider"><i class="icon-circle"></i></div>
-  <div>
-      <div style="width: 50%;float: left; margin: 0 auto;">
+  <form class="form-inline">
+   
       <button type="button"
 onclick="location.href='deleteReserve?id=${sessionScope['id']}&hrnum=${list.hrnum }'"
 class="button button-medium button-reveal button-3d button-rounded tright nomargin"
@@ -158,15 +158,16 @@ onclick="location.href='goHotelDetail?num=${list.num }'"
 class="button button-medium button-reveal button-3d button-rounded tright nomargin"
 style="color: black; text-align: center;">
 <span>상세 페이지</span> <i class="icon-angle-right"></i></button>
-                  <a href="gokakaopay?id=${sessionScope['id']}&hrnum=${list.hrnum }" style="margin-left: 275px;">
-                  <img src="resources/images/kakao1.png" style="width: 105px; margin-top: -58px;">
-                  </a>
-                  
-      
-      </div>
 
-      </div>
-                     </div>                       
+<button type="button"
+onclick="location.href='gokakaopay?id=${sessionScope['id']}&hrnum=${list.hrnum }'"
+class="button button-medium button-reveal button-3d button-rounded tright nomargin"
+style="color: black; text-align: center;">
+<span>결제하기</span> <i class="icon-angle-right"></i></button>
+
+
+     
+                     </form>                    
           
                     </form>
                     <!-- 예약 정보 출력 끝 -->

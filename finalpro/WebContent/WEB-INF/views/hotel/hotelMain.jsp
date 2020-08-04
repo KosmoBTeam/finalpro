@@ -46,8 +46,8 @@ td th {
             <h1>HOTEL</h1>
             <span>원하시는 숙박 장소를 예약하세요.</span>
             <ol class="breadcrumb">
-               <li><a href="main.jsp">Home</a></li>
-               <li class="active">Portfolio</li>
+               <li><a href="main">Home</a></li>
+               <li class="active">호텔 예약</li>
             </ol>
          </div>
 
@@ -164,6 +164,7 @@ td th {
                            <input type="button"
                               class="btn button button-light noleftmargin" value="상세 보기"
                               onclick="location.href='goHotelDetail?num=${e.num }'">
+                           <input type="submit">
                         </div>
                         <div class="portfolio-desc" style="height: 100px;">
                            <h3>${e.title }</h3>

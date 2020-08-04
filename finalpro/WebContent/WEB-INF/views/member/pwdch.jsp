@@ -56,9 +56,9 @@ h3 {
 		<div class="container-login100">
 			<div class="wrap-login100">
 				<div class="login100-form-title"
-					style="background-image: url(<c:url value='/resources/images/bg-01.jpg'/>);">
+					style="background-image: url('resources/images/main/main3.jpg');">
 					<!-- 					<span class="login100-form-title-1"></span> -->
-					<span class="login100-form-title-1">비 밀 번 호 변 경</span>
+					<span class="login100-form-title-1">비밀번호 변경</span>
 				</div>
 
 				<%-- <form class="login100-form validate-form" action="<c:url value='/member/memLogin'/>" method="post" >  --%>
@@ -93,7 +93,7 @@ h3 {
 					<font id="aaa" size="2" color="red"> </font>
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn" type="submit"
-							style="background-color: yellow; color: black;">변경하기</button>
+							style="background-color: #EAAF22; color: black;">변경하기</button>
 						<!-- 	onclick="location.href='MemberAddForm2.jsp'"></button> -->
 					</div>
 					<input type="hidden" value="${sessionScope['id']}" name="id"

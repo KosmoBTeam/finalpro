@@ -28,6 +28,10 @@
 			<div class="container clearfix">
 				<h1 id="covid" style="color: rgb(179 30 30);">COVID-19</h1>
 				<span style="color:black;">지역별 코로나 확진자 현황</span>
+				<ol class="breadcrumb" style="color:black;">
+               <li><a href="main" style="color:black;">Home</a></li>
+               <li class="active" style="color:black;">실시간 코로나</li>
+            </ol>
 			</div>
 
 		</section>
