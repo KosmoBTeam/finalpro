@@ -23,6 +23,11 @@
 			<div class="container clearfix">
 				<h1 style="color:#3b2e5a">GPS Service</h1>
 				<span style="color: #ffffff">주변 검색 서비스</span>
+				<ol class="breadcrumb">
+               <li><a href="main">Home</a></li>
+               <li class="active">GPS Service</li>
+            </ol>
+				
 			</div>
 
 		</section>

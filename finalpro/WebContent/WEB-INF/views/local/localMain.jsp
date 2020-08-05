@@ -18,6 +18,11 @@
             <div class="container clearfix">
                 <h1>국내 여행지</h1>
                 <span>국내의 다양한 여행지를 만나보세요</span>
+                <ol class="breadcrumb">
+               <li><a href="main">Home</a></li>
+               <li class="active">국내 여행지</li>
+            </ol>
+                
             </div>
 
         </section><!-- #page-title end -->        

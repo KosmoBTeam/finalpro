@@ -16,24 +16,24 @@ h3 {
 </style>
 <body class="stretched">
 
-	<!-- Document Wrapper
+   <!-- Document Wrapper
     ============================================= -->
-	<div id="wrapper" class="clearfix">
+   <div id="wrapper" class="clearfix">
 
 
 
-		<!-- Page Title
+      <!-- Page Title
         ============================================= -->
-			<section id="page-title" class="page-title-parallax page-title-dark"
-			style="background-image: url('resources/images/main/reviewmain.jpg'); padding: 120px 0; margin: 0 auto;"
-			data-stellar-background-ratio="0.3">
+         <section id="page-title" class="page-title-parallax page-title-dark"
+         style="background-image: url('resources/images/main/reviewmain.jpg'); padding: 120px 0; margin: 0 auto;"
+         data-stellar-background-ratio="0.3">
 
-			<div class="container clearfix">
-				<h1 style="color:#3b2e5a">리뷰 남기기</h1>
-				<span style="color: #ffffff">소중한 추억을 기록하세요!</span>
-			</div>
+         <div class="container clearfix">
+            <h1 style="color:#3b2e5a">리뷰 남기기</h1>
+            <span style="color: #ffffff">소중한 추억을 기록하세요!</span>
+         </div>
 
-		</section>
+      </section>
    <script type="text/javascript">
       function repl() {
          document.getElementById("repl").action = "insertRepl";
@@ -71,39 +71,44 @@ h3 {
         ============================================= -->
 
       <div style="text-align: left; font-family: serif; height: 100%; padding: 5%;">
-         <img id="page-title" class="page-title-parallax" src="${vo.img }" style="width: 900px; padding: 0px; height: 410px; background-position: 50% 0px;"
-            data-stellar-background-ratio="0.3">               
-                  <div class="entry-overlay-meta">
-                            <h2 style="height: 20px;"><a href="goHotelDetail?num=2">제목 : ${vo.title }</a></h2>
-                            <ul class="iconlist" style="height: 60px;">
-                               <li><i class="icon-map-marker2"></i><strong>아이디 : </strong>${vo.id}<c:if test="${vo.id eq sessionScope['id']}">
-                                                    <button class="btn button button-small">
-                                             <label for="sujung">수정</label>
-                                                </button>
-                                          <button class="btn button button-small">
-                                       <label for="sakje">삭제</label>
-                                             </button>
-                                    </c:if></li>
-                                <li><i class="icon-calendar3"></i> <strong>일정 : </strong> ${vo.rdate }</li>
-                                <li><i class="icon-eye"></i> <strong>조회수 : </strong> ${vo.hit }</li>
-                                <li><i class="icon-map-marker2"></i> <strong>호텔명 : </strong>${vo.honame}</li>
-                            </ul>
+        
+                  <div class="entry-overlay-meta" style="width: 100%;">
+                     
+                        <div style="border-style:outset;">
+                        <br>
+                        <h2 style="height: 20px; text-align: center;"><a href="goHotelDetail?num=2" style=" color: black;">${vo.title }</a></h2>
+                        <div>
+                        <img id="page-title" class="page-title-parallax" src="${vo.img }" style="width: 100%; padding: 20px 40px; height: 100%; background-position: 50% 0px;"
+                        data-stellar-background-ratio="0.3">               
+                        </div>
+                        <div style="border-bottom-style: ridge">
+                        <p style="padding: 0px 40px;">${vo.detail }</p>
+                        </div>
+                        <div style="padding: 10px 40px;">                        
+                                <span><i class="icon-map-marker2"></i><strong>작성자 :</strong>${vo.id}</span>
+                                <span style="padding: 0px 80px;"><i class="icon-calendar3"></i><strong>작성일 : </strong> ${vo.rdate }</span>
+                                <span><i class="icon-eye"></i> <strong>조회수 : </strong> ${vo.hit }</span>                                                           
+                        </div>
+                       </div>
+                       
+                       <div >
+                           <c:if test="${vo.id eq sessionScope['id']}">
+                               <span style="float:right">
+                               <button class="btn button button-small">
+                               <label for="sujung" style="color: white; font-weight: bold;">수정</label>
+                               </button>
+                               <button class="btn button button-small">
+                               <label for="sakje" style="color: white; font-weight: bold;">삭제</label>
+                                </button>
+                                </span>
+                             </c:if>
+                        </div>   
                         </div>
 
 
-         <div class="single-post nobottommargin"
-            style="margin: -5%; text-align: left; height: 475px; padding: 40px;">
-            <h2 style="height: 25px;">내용</h2>
+   
+           
             
-            <div style="border: groove; height: 380px; border-radius: 10px;">
-         <table> 
-            <tr>
-               <th style="font-size: 20px; font-family: fantasy;">
-               ${vo.detail }
-               </th>
-            </tr>
-         </table>
-         </div>
 
 
          <!-- Post Content
@@ -164,7 +169,7 @@ h3 {
          </div>
 
 
-      </div>
+      
 </div>
 
 </div>

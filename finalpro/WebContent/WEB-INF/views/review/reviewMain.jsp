@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="ko">
 <meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 <%@include file="../header.jsp"%>
 
 <body class="stretched">
-
    <!-- Document Wrapper
     ============================================= -->
    <div id="wrapper" class="clearfix">
@@ -58,15 +58,14 @@
                               type="hidden" value="${e.num}" name="num">
                            <div class="entry clearfix">
                               <div class="entry-image" style="width: 300px; height: 250px;">
-                                 <a href="#"> <img src="resources/images/${e.img}" alt=""
-                                    style="width: 300px; height: 250px;">
-                                 </a>
+                                 <a href="goReviewDetail?num=${e.num }&id=${sessionScope['id']}" class="nobg"><img src="resources/images/${e.img}" style="width: 300px; height: 250px;"
+                                       alt=""></a>
                               </div>
                               <div class="entry-c">
 
                                  <div class="entry-title">
                                     <h2>
-                                       <a href="deleteReview?num=${e.num }">${e.title}</a>
+                                       ${e.title}
                                     </h2>
                                  </div>
                                  <ul class="entry-meta clearfix">
@@ -160,20 +159,19 @@
                <div class="sidebar nobottommargin col_last clearfix">
                   <div class="sidebar-widgets-wrap">
 
-                     <div class="widget clearfix"
-                        style="padding-top: 10px !important;">
+                     <div class="widget clearfix">
 
-                        <h4>Á¶È¸¼ö TOP5 ¸®ºä</h4>
-                        <div id="post-list-footer">
+                        <h4 style="margin-left: 70px; width: 184px;">Á¶È¸¼ö TOP5 ¸®ºä</h4>
+                        <div id="post-list-footer" style="margin-left: 70px;">
                            <c:forEach varStatus="i" var="e" items="${review5List}">
-                              <div class="spost clearfix" style="margin-top: 20px;">
-                                 <div class="entry-image">
+                              <div class="spost clearfix">
+                                 <div class="entry-image" style="height: 0px;">
                                     <a
                                        href="goReviewDetail?num=${e.num }&id=${sessionScope['id']}"
-                                       class="nobg"><img src="resources/images/${e.img}"
-                                       alt=""></a>
+                                       class="nobg" style="width: 190px;"><img src="resources/images/${e.img}"
+                                       alt="" style="width: 190px; height: 170px;"></a>
                                  </div>
-                                 <div class="entry-c">
+                                 <div class="entry-c" style="width: 140px; margin-left: 205px; height: 175px;">
                                     <div class="entry-title">
                                        <h4>
                                           <a

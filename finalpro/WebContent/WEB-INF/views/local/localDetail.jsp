@@ -18,6 +18,12 @@
       <section id="page-title" class="page-title-dark">
          <div class="container clearfix">
             <h1 style="font-size: 30px">${name }</h1>
+             <ol class="breadcrumb">
+               <li><a href="main">Home</a></li>
+               <li><a href="goLocalMain">국내 여행지</a></li>
+               <li class="active">${name }</li>
+            </ol>
+            
          </div>
       </section>
       <!-- #page-title end -->

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+   pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html dir="ltr" lang="ko">
 <%@include file="../header.jsp"%>
@@ -7,36 +7,36 @@
 
 <body class="stretched">
 
-	<!-- Document Wrapper
+   <!-- Document Wrapper
     ============================================= -->
-	<div id="wrapper" class="clearfix">
+   <div id="wrapper" class="clearfix">
 
 
 
-		<!-- Page Title
+      <!-- Page Title
         ============================================= -->
-			<section id="page-title" class="page-title-parallax page-title-dark"
-			style="background-image: url('resources/images/main/reviewmain.jpg'); padding: 120px 0; margin: 0 auto;"
-			data-stellar-background-ratio="0.3">
+         <section id="page-title" class="page-title-parallax page-title-dark"
+         style="background-image: url('resources/images/main/reviewmain.jpg'); padding: 120px 0; margin: 0 auto;"
+         data-stellar-background-ratio="0.3">
 
-			<div class="container clearfix">
-				<h1 style="color:#3b2e5a">리뷰 남기기</h1>
-				<span style="color: #ffffff">소중한 추억을 기록하세요!</span>
-			</div>
+         <div class="container clearfix">
+            <h1 style="color:#3b2e5a">리뷰 남기기</h1>
+            <span style="color: #ffffff">소중한 추억을 기록하세요!</span>
+         </div>
 
-		</section>
-		<!-- end -->
+      </section>
+      <!-- end -->
 
-		<!-- Content
+      <!-- Content
         ============================================= -->
-		<section id="content">
+      <section id="content">
 
-			<div class="content-wrap bgcolor-grey-light">
+         <div class="content-wrap bgcolor-grey-light">
 
-				<div class="container clearfix">
-				
-				<form action="reviewWrite" method="post"
-					enctype="multipart/form-data">
+            <div class="container clearfix">
+            
+            <form action="reviewWrite" method="post"
+               enctype="multipart/form-data">
   <div class="form-group">
   <input type="hidden" name="id" value="${sessionScope['id']}">
     <label for="exampleInputEmail1">제목</label>
@@ -46,55 +46,55 @@
     <label for="exampleInputPassword1">내용</label>
     <textarea class="form-control" rows="8" name="detail" placeholder="내용을 작성해주세요"></textarea>
     <input type="hidden" id="hotelname" name="honame"
-								value="${honame }" class="" />
+                        value="${honame }" class="" />
   </div>
   <div class="form-group">
    <p class="help-block">사진을 업로드 할 사진을 선택해주세요.</p>
     <label for="mfile">사진 업로드</label>
     <input type="file" name="mfile" id="mfile">
-    <input type="hidden" name="img"	id="img">
+    <input type="hidden" name="img"   id="img">
   </div>
   <div class="form-group">
-  <button type="submit" class="btn pull-right btn btn-warning">등록 하기</button>
+  <span><button type="submit" class="btn pull-right btn btn-warning" style="margin: 0px 235px 0px 0px">등록 하기</button></span>
   </div>
 </form>
 
-				</div>
+            </div>
 
-			</div>
+         </div>
 
-		</section>
-		<!-- #content end -->
+      </section>
+      <!-- #content end -->
 <script type="text/javascript">
-		function readURL(input) {
-			if (input.files && input.files[0]) {
-				var reader = new FileReader();
-				reader.onload = function(e) {
-					$('#sajin').attr('src', e.target.result);
-				}
-				reader.readAsDataURL(input.files[0]);
-			}
-		}
+      function readURL(input) {
+         if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+               $('#sajin').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+         }
+      }
 
-		$("#mfile").change(function() {
-			readURL(this);
-			$("#img").attr('value', this.value);
-		});
-	</script>
-		<!-- Footer
+      $("#mfile").change(function() {
+         readURL(this);
+         $("#img").attr('value', this.value);
+      });
+   </script>
+      <!-- Footer
         ============================================= -->
 
 
-	</div>
-	<!-- #wrapper end -->
+   </div>
+   <!-- #wrapper end -->
 
-	<!-- Go To Top
+   <!-- Go To Top
     ============================================= -->
-	<div id="gotoTop" class="icon-angle-up"></div>
+   <div id="gotoTop" class="icon-angle-up"></div>
 
-	<!-- Footer Scripts
+   <!-- Footer Scripts
     ============================================= -->
-	<script type="text/javascript" src="resources/js/functions.js"></script>
+   <script type="text/javascript" src="resources/js/functions.js"></script>
 
 </body>
 </html>

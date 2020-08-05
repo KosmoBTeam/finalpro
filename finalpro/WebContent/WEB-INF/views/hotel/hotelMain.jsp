@@ -3,7 +3,13 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="ko">
 <%@ include file="../header.jsp"%>
+
 <style>
+.starimg2{
+   display:none;
+}
+
+
 ul {
    list-style: none;
    text-align: center;
@@ -28,6 +34,19 @@ td p {
 td th {
    padding: 4px;
 }
+
+.searchbtn{
+   background: skyblue;
+   border-style: none;   
+}
+
+.searchbtn:hover{
+   background: tomato;
+   font-weight: bold;
+   color:red;
+}
+
+
 </style>
 <body class="stretched">
 
@@ -46,8 +65,8 @@ td th {
             <h1>HOTEL</h1>
             <span>원하시는 숙박 장소를 예약하세요.</span>
             <ol class="breadcrumb">
-               <li><a href="main">Home</a></li>
-               <li class="active">호텔 예약</li>
+               <li><a href="main.jsp">Home</a></li>
+               <li class="active">Portfolio</li>
             </ol>
          </div>
 
@@ -65,6 +84,43 @@ td th {
 
                <!-- Portfolio Filter
                 ============================================= -->
+<%--                   <form action="goHotelMain" method="post" class="form-inline" style="align-content: center;">
+                           <input type="hidden" name="page" value="${param.page }">
+                           <select name="searchType" class="form-control" style="width: 100px;">
+                              <option value="1">상호명</option>
+                              <option value="2">주소</option>
+                           </select>&nbsp;
+                           <input type="text" name="searchValue" class="form-control" style="width: 300px;"> 
+                           <button type="submit" value="Search" class="btn btn-warning" style="width: 100px;">Search</button>
+                        </form> --%>
+   <!-- 검색 창 -->
+<nav class="navbar navbar-inverse" style="background-color: #f9f9f9; border: 0px">
+  <div class="container-fluid">
+    <div class="navbar-header"></div>
+    <form class="navbar-form navbar-left" action="goHotelMain" method="post">
+                           <%-- <input type="hidden" name="page" value="${param.page }"> --%>
+>
+      <div class="form-group" style="margin-left: 550px;">
+      <select name="searchType" class="form-control">
+      	<option value="1">상호명</option>
+      	<option value="2">주소</option>
+      </select>
+        <input type="text" name="searchValue" class="form-control">
+      </div>
+      <button type="submit" value="Search" class="btn btn-warning">Search</button>
+    </form>
+  </div>
+</nav>
+
+                
+
+                  <!-- 검색 창 끝 -->                     
+                        
+                        
+
+                        
+                        
+                        
                <ul id="portfolio-filter" class="clearfix"
                   style="margin-left: 391px;">
                  
@@ -79,9 +135,11 @@ td th {
                   <li><a href="#" data-filter=".pf-ulsan" id="7">울산</a></li>
                   <li><a href="#" data-filter=".pf-kyonggi" id="9">경기도</a></li>
                   <li><a href="#" data-filter=".pf-gangwon" id="10">강원도</a></li>
-               </ul>
+               </ul><br><br><br>
+                  
+                  
+                  
                <!-- #portfolio-filter end -->
-
 
                <div class="clear"></div>
                <!-- 전국 날씨 왼쪽 사이드 바 시작 -->
@@ -152,7 +210,7 @@ td th {
                      <form method="post" name="myform" id="myform">
 
                         <input type="hidden" value="${e.title}" name="title"> <input
-                           type="hidden" value="${e.num}" name="num">
+                           type="hidden"  value="${e.num}" name="num" class="hnum" id="hnum">
                         <div class="portfolio-image"
                            style="width: 240px; height: 100px;">
                            <p style="font-weight: bold; font-size: 14px; color: red;">최저가
@@ -160,16 +218,32 @@ td th {
                            <input type="button"
                               class="btn button button-light noleftmargin" value="객실 선택"
                               onclick="location.href ='goHotelReserve?title=${e.title}&num=${e.num }'">
+                            
                            <!-- <a href="goHotelDetail?num=${e.num}" class="btn button button-light noleftmargin">상세 보기</a> -->
                            <input type="button"
                               class="btn button button-light noleftmargin" value="상세 보기"
                               onclick="location.href='goHotelDetail?num=${e.num }'">
-                           <input type="submit">
+                              <br>
+                              <ul><li class="bold italic serif"><a href="#" class="more-link">올라가기</a></li></ul>
                         </div>
-                        <div class="portfolio-desc" style="height: 100px;">
+                        <div class="portfolio-desc stardiv" style="height: 100px;">
                            <h3>${e.title }</h3>
                            <p>${e.address }</p>
                            <p>${e.tel }</p>
+                            <c:forEach var="like" items="${likelist }" varStatus="status">
+                            <c:choose>
+                               <c:when test="${e.num eq like.hnum }">
+                                  <img class="starimg1" alt="" value="${e.num}" src="resources/images/star1.png">
+                                 </c:when>
+                              
+                                 <c:otherwise>
+                                    <img class="starimg1" alt="" value="${e.num}" src="resources/images/star2.png">
+                                 </c:otherwise>
+                              </c:choose>
+                          </c:forEach>  
+                          <c:if test="${null1 eq 0 }">
+                             <img class="starimg1" alt="" value="${e.num}" src="resources/images/star2.png">
+                          </c:if>
                         </div>
                         <div class="portfolio-image"
                            style="width: 250px; height: 153px; right: 40px;">
@@ -177,54 +251,42 @@ td th {
                         </div>
                      </form>
                      </article>
-
                   </c:forEach>
                </div>
-               <div style="text-align: center;">
-                  <ul class="pagination">
+    
+ <script>
+  
+ 
+ 
+ $(document).on('click', '.starimg1', function(){
+     var chk1 = $(this).parent('.stardiv')
+    var chk = $(this).attr('src');
+     var num = $(this).attr('value');
+     console.log(num);
+     $.ajax({
+         url: 'hotelLike',
+         type: 'POST',
+         data: {chk: chk,
+              hnum: num    
+         },
+         success: function(data) {
+             if(data ===1) {
+                
+                alert('즐겨찾기에 추가되었습니다');
+                chk1.children('.starimg1').attr('src','resources/images/star1.png');
+                localStorage.setItem('src','resources/images/star1.png')
+             } else if(data ===2) {
+                alert('즐겨찾기에 삭제되었습니다');
+                chk1.children('.starimg1').attr('src','resources/images/star2.png');
+                localStorage.setItem('src','resources/images/star2.png')
+             }
+         }
+     });
 
-                     <li class="previous"><c:if test="${paging.startPage != 1 }">
-                           <a
-                              href="goHotelMain?nowPage=${paging.nowPage-1}&cntPerPage=${paging.cntPerPage}&numOfloc=">&larr;
-                              Older</a>
-                        </c:if> <c:if test="${paging.startPage==1}">
-                           <a href="#">&larr; Older</a>
-                        </c:if></li>
-                     <c:forEach begin="${paging.startPage }" end="${paging.endPage }"
-                        var="p">
-                        <c:choose>
-                           <c:when test="${p == paging.nowPage }">
-                              <li><a>${p }</a></li>
-                              <!-- 현재 페이지 일 경우 링크 해제 -->
-                           </c:when>
-                           <c:when test="${p != paging.nowPage }">
-                              <!-- 다른 페이지 링크 -->
-                              <li><a
-                                 href="goHotelMain?nowPage=${p}&cntPerPage=${paging.cntPerPage}&numOfloc=">${p }</a></li>
-                           </c:when>
-                        </c:choose>
-                     </c:forEach>
-
-                     <li class="next"><c:if
-                           test="${paging.endPage != paging.lastPage}">
-                           <a
-                              href="goHotelMain?nowPage=${paging.nowPage+1 }&cntPerPage=${paging.cntPerPage}&numOfloc=">Newer
-                              &rarr;</a>
-                        </c:if> <c:if test="${paging.endPage == paging.lastPage}">
-                           <a href="#">Newer &rarr;</a>
-                        </c:if></li>
-
-                  </ul>
-                  <ul style="text-align: center; list-style: none;">
-                     <li><form action="goHotelMain" method="post">
-                           <%-- <input type="hidden" name="page" value="${param.page }"> --%>
-                           <select name="searchType">
-                              <option value="1">상호명</option>
-                           </select>&nbsp;<input type="text" name="searchValue"> <input
-                              type="submit" value="Search">
-                        </form></li>
-                  </ul>
-               </div>
+});
+ 
+ 
+</script>    
                <div class="sidebar nobottommargin col_last clearfix"
                   style="width: 330px; margin-top: -1135px;">
                   <div class="sidebar-widgets-wrap">
@@ -437,7 +499,7 @@ td th {
                                                                               + '&emsp;'); // 지역 이름
 
                                                             if (rain != 0) {
-                                                               switch (rain) {
+                                                               switch (비) {
                                                                case '1':
                                                                   $(
                                                                         '.in'

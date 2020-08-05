@@ -542,49 +542,47 @@
 
                         <div class="col_full center">
                         
-                        <div class="fancy-title title-border title-center"><h3>Soups &amp; Salads</h3></div>
+                        <div class="fancy-title title-border title-center"><h3 style="color: #EAAF22">여행 정보</h3></div>
 
-                        <ul class="nobullets"><li class="color">Tomato Soup</li>
-                        <li>Chicken Tortilla Soup</li>
-                        <li>New England Clam Chowder</li>
+                        <ul class="nobullets"><li class="color"><h4>호텔</h4></li>
+                        <li>각 지역의 호텔의 정보 제공</li>
+                        <li>예약 및 결제까지 가능한 서비스!</li>
                         <li class="bold italic serif"><a href="#" class="more-link">예약하기</a></li></ul>
                                                 
 
-                        <ul class="nobullets"><li class="color">Caprese Salad</li>
-                        <li>Mozzarella, Basil, Tomato, Balsamic Vinaigrette</li>
-                        <li class="bold italic serif"><h4>12.95</h4></li></ul>
-                        
-                        <ul class="nobullets"><li class="color">Iceberg Wedge</li>
-                        <li>Blue Cheese, Tomato, Bacon Crumbles, Croutons</li>
-                        <li class="bold italic serif"><h4>10.95</h4></li></ul>                        
-                        
-                        <div class="fancy-title title-border title-center"><h3>Entrees</h3></div>  
-                        
-                        <ul class="nobullets"><li class="color">Classic! Mac &amp; Cheese</li>
-                        <li>Applewood Smoked Bacon Crumbles</li>
-                        <li class="bold italic serif"><h4>11.75</h4></li></ul>
-                        
-                        <ul class="nobullets"><li class="color">Beer-Batter Fish &amp; Chips</li>
-                        <li>Crispy Grouper Filets, Shoestring Fries, Coleslaw</li>
-                        <li class="bold italic serif"><h4>15.25</h4></li></ul>
-                        
-                        <ul class="nobullets"><li class="color">Fish Tacos</li>
-                        <li>White Fish, Shaved Cabbage, Tomatillo Salsa</li>
-                        <li class="bold italic serif"><h4>14.75</h4></li></ul>
-                                                
-                        <div class="fancy-title title-border title-center"><h3>Sandwiches</h3></div>
+                        <ul class="nobullets"><li class="color"><h4>여행지</h4></li>
+                        <li>국내 여행지를 숙박, 식당, 관광지의 정보를 제공해 드립니다!</li>
+                        <li class="bold italic serif"><a href="#" class="more-link">여행지 둘러보기</a></li></ul>
+ 
 
-                        <ul class="nobullets"><li class="color">Prime Rib Melt</li>
-                        <li>Thinly-sliced w/Swiss Cheese, Roasted Onion, Chipotle Aioli on Grilled Sourdough</li>
-                        <li class="bold italic serif"><h4>16.95</h4></li></ul>
+                        <div class="fancy-title title-border title-center"><h3 style="color: #EAAF22">사용자를 위한 &amp; 서비스</h3></div>
                         
-                        <ul class="nobullets"><li class="color">Club Sandwich</li>
-                        <li>Turkey Breast, Bacon, Avocado, Lettuce, Tomato, Mayonnaise on Toasted Potato Bread</li>
-                        <li class="bold italic serif"><h4>14.50</h4></li></ul>
+                        <ul class="nobullets"><li class="color"><h4>나만의 여행 코스</h4></li>
+                        <li>원하는 정보를 모아서 여행 계획하기!</li>
+                        <li class="bold italic serif"><a href="#" class="more-link">위시리스트</a></li></ul>
                         
-                        <ul class="nobullets"><li class="color">French Dip Sandwich</li>
-                        <li>Thinly-sliced Prime Rib on a Hoagie w/Grilled Onions, Au Jus & Horseradish Sauce</li>
-                        <li class="bold italic serif"><h4>16.25</h4></li></ul>
+                        <ul class="nobullets"><li class="color"><h4>챗봇</h4></li>
+                        <li>궁금한 내용은 챗봇이 바로 도와드립니다!</li>
+                        </ul>
+                        
+                        <ul class="nobullets"><li class="color"><h4>나에게 맞는 여행지</h4></li>
+                        <li>설문조사를 통해 성향을 분석하여 알맞는 여행지 추천!</li>
+                        <li class="bold italic serif"><a href="#" class="more-link">설문조사</a></li></ul>
+                                                                        
+                        <div class="fancy-title title-border title-center"><h3 style="color: #EAAF22">StarTrip의 부가 서비스</h3></div>
+
+                        <ul class="nobullets"><li class="color"><h4>네비게이션</h4></li>
+                        <li>모바일로 제공되는 네비게이션</li>
+                        <li class="bold italic serif"><a href="#" class="more-link">위시리스트</a></li></ul>
+                        
+                        <ul class="nobullets"><li class="color"><h4>실시간 코로나</h4></li>
+                        <li>가장 안전한 지역은?</li>
+                        <li>실시간으로 확진자 수와 지역을 알려드립니다!</li>
+                        <li class="bold italic serif"><a href="#" class="more-link">위시리스트</a></li></ul>
+                        
+                        <ul class="nobullets"><li class="color"><h4>주변 검색</h4></li>
+                        <li>궁금한 지역의 맛집 및 숙박시설을 검색해보세요!</li>
+                        <li class="bold italic serif"><a href="#" class="more-link">위시리스트</a></li></ul>
                         </div>
                     </div>
 
